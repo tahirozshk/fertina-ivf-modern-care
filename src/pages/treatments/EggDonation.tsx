@@ -1,0 +1,248 @@
+import { useState } from "react";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { CheckCircle2, Heart, Shield, Users } from "lucide-react";
+import eggDonationImage from "@/assets/treatments/egg-donation.jpg";
+
+const EggDonation = () => {
+  const [language, setLanguage] = useState("tr");
+
+  const content = {
+    tr: {
+      title: "Yumurta Donasyonu",
+      subtitle: "Titizlikle seçilmiş donörlerle güvenilir yumurta donasyon programı",
+      successRate: "%89 Başarı Oranı",
+      description: "Yumurta donasyonu, kendi yumurtalarını kullanamayan çiftlerin sağlıklı bir donörden yumurta alarak anne olma şansını yakalamasını sağlar. Fertina IVF'de tüm donörlerimiz detaylı sağlık kontrolünden geçer ve yasal güvence altındadır.",
+      whoIsItFor: "Kimlere Uygulanır?",
+      candidates: [
+        "Erken yumurtalık yetmezliği (POF) olan kadınlar",
+        "İleri yaş (40 yaş üzeri) kadınlar",
+        "Düşük over rezervi olan hastalar",
+        "Genetik hastalık taşıyıcısı olan kadınlar",
+        "Tekrarlayan IVF başarısızlıkları",
+        "Kemoterapi veya radyoterapi görmüş hastalar",
+      ],
+      processTitle: "Donör Seçim Süreci",
+      steps: [
+        {
+          title: "Detaylı Sağlık Kontrolü",
+          description: "Tüm donörlerimiz kapsamlı genetik testler, bulaşıcı hastalık testleri ve psikolojik değerlendirmeden geçer.",
+        },
+        {
+          title: "Fiziksel Eşleştirme",
+          description: "Donör seçiminde; göz rengi, saç rengi, boy, kilo ve kan grubu gibi fiziksel özellikler dikkate alınır.",
+        },
+        {
+          title: "Yasal Prosedür",
+          description: "Tüm süreç yasal mevzuata uygun olarak yürütülür ve tarafların hakları korunur.",
+        },
+        {
+          title: "Gizlilik Garantisi",
+          description: "Donör ve alıcı arasında karşılıklı gizlilik ilkesi titizlikle uygulanır.",
+        },
+      ],
+      advantagesTitle: "Fertina IVF Donör Programı Özellikleri",
+      advantages: [
+        "18-32 yaş arası sağlıklı donörler",
+        "Detaylı genetik tarama (NGS, PGD)",
+        "Psikolojik değerlendirme",
+        "Fiziksel özellik eşleştirmesi",
+        "Yasal güvence ve gizlilik",
+        "Yüksek başarı oranı (%89)",
+        "Deneyimli koordinatör desteği",
+        "Şeffaf süreç yönetimi",
+      ],
+      cta: "Randevu Alın",
+      contact: "Bilgi Alın",
+    },
+    en: {
+      title: "Egg Donation",
+      subtitle: "Reliable egg donation program with carefully selected donors",
+      successRate: "89% Success Rate",
+      description: "Egg donation allows couples who cannot use their own eggs to have a chance of becoming parents by receiving eggs from a healthy donor. At Fertina IVF, all our donors undergo detailed health checks and are under legal protection.",
+      whoIsItFor: "Who Is It For?",
+      candidates: [
+        "Women with premature ovarian failure (POF)",
+        "Advanced age women (over 40)",
+        "Patients with low ovarian reserve",
+        "Women who are carriers of genetic diseases",
+        "Repeated IVF failures",
+        "Patients who have received chemotherapy or radiotherapy",
+      ],
+      processTitle: "Donor Selection Process",
+      steps: [
+        {
+          title: "Detailed Health Check",
+          description: "All our donors undergo comprehensive genetic tests, infectious disease tests and psychological evaluation.",
+        },
+        {
+          title: "Physical Matching",
+          description: "Physical characteristics such as eye color, hair color, height, weight and blood type are taken into account in donor selection.",
+        },
+        {
+          title: "Legal Procedure",
+          description: "The entire process is carried out in accordance with legal regulations and the rights of the parties are protected.",
+        },
+        {
+          title: "Confidentiality Guarantee",
+          description: "The principle of mutual confidentiality between donor and recipient is strictly applied.",
+        },
+      ],
+      advantagesTitle: "Fertina IVF Donor Program Features",
+      advantages: [
+        "Healthy donors aged 18-32",
+        "Detailed genetic screening (NGS, PGD)",
+        "Psychological evaluation",
+        "Physical feature matching",
+        "Legal protection and confidentiality",
+        "High success rate (89%)",
+        "Experienced coordinator support",
+        "Transparent process management",
+      ],
+      cta: "Book Appointment",
+      contact: "Get Information",
+    },
+  };
+
+  const t = content[language as keyof typeof content];
+
+  return (
+    <div className="min-h-screen">
+      <Navigation language={language} setLanguage={setLanguage} />
+      
+      <div className="pt-20">
+        {/* Hero Section */}
+        <section className="relative py-20 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5">
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="animate-fade-in">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
+                  {t.title}
+                </h1>
+                <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
+                  {t.subtitle}
+                </p>
+                
+                <div className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-lg mb-8 inline-flex">
+                  <Heart className="h-5 w-5 text-primary" />
+                  <span className="font-semibold text-foreground">{t.successRate}</span>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button size="lg">{t.cta}</Button>
+                  <Button size="lg" variant="outline">{t.contact}</Button>
+                </div>
+              </div>
+
+              <div className="relative animate-fade-in">
+                <img
+                  src={eggDonationImage}
+                  alt="Egg Donation"
+                  className="rounded-3xl shadow-xl w-full"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Description */}
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {t.description}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Who Is It For */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">
+              {t.whoIsItFor}
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+              {t.candidates.map((candidate, index) => (
+                <Card key={index} className="p-4 flex items-start gap-3 animate-slide-up" style={{ animationDelay: `${index * 50}ms` }}>
+                  <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">{candidate}</span>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Donor Selection Process */}
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">
+              {t.processTitle}
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              {t.steps.map((step, index) => (
+                <Card
+                  key={index}
+                  className="p-6 hover:shadow-lg smooth-transition animate-slide-up"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <Shield className="h-10 w-10 text-primary mb-4" />
+                  <h3 className="text-xl font-semibold mb-3 text-foreground">{step.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Advantages */}
+        <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/10">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">
+              {t.advantagesTitle}
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+              {t.advantages.map((advantage, index) => (
+                <Card key={index} className="p-4 flex items-center gap-3 bg-card animate-slide-up" style={{ animationDelay: `${index * 50}ms` }}>
+                  <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
+                  <span className="text-foreground font-medium">{advantage}</span>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Bottom CTA */}
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4 text-center">
+            <div className="max-w-3xl mx-auto">
+              <Users className="h-16 w-16 text-primary mx-auto mb-6" />
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
+                {language === "tr" 
+                  ? "Anne Olma Hayalinizi Gerçekleştirin" 
+                  : "Make Your Dream of Motherhood Come True"}
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                {language === "tr"
+                  ? "Yumurta donasyonu programımız hakkında detaylı bilgi almak ve size uygun donör seçeneklerini değerlendirmek için bizimle iletişime geçin."
+                  : "Contact us for detailed information about our egg donation program and to evaluate suitable donor options for you."}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg">{t.cta}</Button>
+                <Button size="lg" variant="outline">{t.contact}</Button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <Footer language={language} />
+      <WhatsAppButton />
+    </div>
+  );
+};
+
+export default EggDonation;
