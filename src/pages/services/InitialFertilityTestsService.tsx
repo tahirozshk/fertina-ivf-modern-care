@@ -1,0 +1,236 @@
+import { useState } from "react";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { CheckCircle2, Stethoscope, ClipboardList, HeartPulse } from "lucide-react";
+
+const InitialFertilityTestsService = () => {
+  const [language, setLanguage] = useState("tr");
+
+  const content = {
+    tr: {
+      title: "İlk Doğurganlık Testleri",
+      subtitle: "Doğru tanı ile kişiye özel tedavi planı",
+      importanceTitle: "Neden Önemli?",
+      importanceDesc:
+        "IVF sürecinde erken dönemde yapılan doğurganlık testleri büyük önem taşır. Her iki partnerin üreme sağlığı hakkında bilgi sağlayarak en doğru tedavi planının hazırlanmasına yardımcı olur.",
+      expectTitle: "Test Sürecinde Ne Beklenir?",
+      expectDesc:
+        "Çoğunlukla invazif olmayan veya minimal invazif yöntemler tercih edilir. Amaç, üreme sistemine dair mümkün olduğunca fazla bilgi toplayıp gebeliğe engel olabilecek faktörleri tespit etmektir.",
+      commonTitle: "Sık Yapılan Testler",
+      femaleU40Title: "Kadın (< 40 yaş)",
+      femaleU40: [
+        "Hemogram, CMV IgM, Anti‑HIV, HBsAg, Anti‑HCV, Rubella IgG, VDRL, Vitamin D3, Kan Grubu",
+        "FSH, AMH, LH, E2, PRL, FT4/FT3, TSH",
+        "Karaciğer fonksiyonları (AST/ALT)",
+        "HSG (Histerosalpingografi)",
+      ],
+      femaleO45Title: "Kadın (≥ 45 yaş)",
+      femaleO45: [
+        "Hemogram, CMV IgM, Anti‑HIV, HBsAg, Anti‑HCV, Rubella IgG, Vitamin D3, Kan Grubu",
+        "AST/ALT, PT/INR",
+        "Tiroid (FT4, TSH)",
+        "Açlık kan şekeri, Üre, Kreatinin",
+        "Lipit profili (HDL)",
+        "HbA1c, Mamografi, HSG, Ekokardiyografi",
+      ],
+      maleTitle: "Erkek",
+      male: [
+        "Hemogram, Anti‑HIV, HBsAg, Anti‑HCV, VDRL, Kan Grubu",
+        "Semen Analizi",
+      ],
+      recommendTitle: "Ne Zaman Önerilir?",
+      recommend: [
+        "Klinik araştıran ve güvenilir rehber arayan adaylar",
+        "Yaş/PCOS gibi bariyerlerden şüphelenen ve tanı isteyen bireyler",
+        "Aylarca denemeye rağmen sonuç alamayan proaktif çiftler",
+      ],
+      prepareTitle: "Teste Hazırlık",
+      prepare: [
+        "Testlerin zamanlaması ovülasyon ve siklus fazı ile uyumlu olmalıdır",
+        "Uzmanımız, doğru zamanlama ve süreç hakkında eğitim verecektir",
+      ],
+      lifestyleTitle: "Yaşam Tarzı Faktörleri",
+      lifestyleDesc:
+        "Beslenme, egzersiz, stres ve çevresel toksinler doğurganlığı etkileyebilir. Uygun değişiklikler için öneriler sunarız.",
+      understandingTitle: "Sonuçları Anlamak",
+      understandingDesc:
+        "IUI veya ilaç tedavileri yeterli değilse IVF/ICSI planlanabilir. İleri yaş, erkek faktörü veya genetik risklerde ilk basamak olarak da tercih edilebilir.",
+      discussTitle: "Doktorunuzla Tedavi Seçenekleri",
+      discussDesc:
+        "Değerlendirme sonrası ilaçlardan cerrahiye ve IVF gibi yardımcı üreme yöntemlerine uzanan kişisel bir plan hazırlanır.",
+      conclusion:
+        "Doğurganlık testleri, IVF yolculuğunun ilk adımıdır. Kliniğimizde şefkatli, güncel ve şeffaf yaklaşımımızla ücretsiz ön değerlendirme paketimizi sunuyoruz.",
+      cta: "Randevu Alın",
+      contact: "Bilgi Alın",
+    },
+    en: {
+      title: "Initial Fertility Tests",
+      subtitle: "Accurate diagnosis for a personalized treatment plan",
+      importanceTitle: "Why Initial Fertility Tests Are Important",
+      importanceDesc:
+        "Early testing provides valuable insight into both partners’ reproductive health, enabling an informed treatment plan with the highest chance of success.",
+      expectTitle: "What to Expect During Testing",
+      expectDesc:
+        "Non‑invasive or minimally invasive procedures are preferred to gather comprehensive information and identify barriers to pregnancy.",
+      commonTitle: "Common Fertility Tests",
+      femaleU40Title: "Women Under 40",
+      femaleU40: [
+        "Hemogram, CMV IgM, Anti‑HIV, HBsAg, Anti‑HCV, Rubella IgG, VDRL, Vitamin D3, Blood Type",
+        "FSH, AMH, LH, E2, PRL, FT4/FT3, TSH",
+        "Liver function (AST/ALT)",
+        "HSG (Hysterosalpingogram)",
+      ],
+      femaleO45Title: "Women ≥ 45",
+      femaleO45: [
+        "Hemogram, CMV IgM, Anti‑HIV, HBsAg, Anti‑HCV, Rubella IgG, Vitamin D3, Blood Type",
+        "AST/ALT, PT/INR",
+        "Thyroid (FT4, TSH)",
+        "Fasting glucose, Urea, Creatinine",
+        "Lipid profile (HDL)",
+        "HbA1c, Mammography, HSG, Echocardiography",
+      ],
+      maleTitle: "Men",
+      male: [
+        "Hemogram, Anti‑HIV, HBsAg, Anti‑HCV, VDRL, Blood Type",
+        "Semen Analysis",
+      ],
+      recommendTitle: "Initial Fertility Tests may be recommended in cases of:",
+      recommend: [
+        "Early‑stage patients comparing clinics seeking a trustworthy guide",
+        "Individuals aware of potential barriers (age, PCOS) needing a formal diagnosis",
+        "Proactive couples after months of trying without success",
+      ],
+      prepareTitle: "Preparing for Fertility Tests",
+      prepare: [
+        "Timing should align with ovulation and cycle phase",
+        "Guidance will be provided for correct timing and process",
+      ],
+      lifestyleTitle: "Lifestyle Factors Affecting Fertility",
+      lifestyleDesc:
+        "Diet, exercise, stress and environmental toxins may impact fertility. We advise lifestyle changes to improve outcomes.",
+      understandingTitle: "Understanding the Results",
+      understandingDesc:
+        "If IUI or medications are insufficient, IVF/ICSI is recommended; often first‑line for advanced age, male factor or genetic risks.",
+      discussTitle: "Discussing Treatment Options",
+      discussDesc:
+        "After assessment we plan a tailored pathway including medications, procedures and assisted reproduction like IVF.",
+      conclusion:
+        "Fertility tests are the first steps in IVF. We proudly offer a FREE Fertility Assessment within our all‑inclusive packages.",
+      cta: "Book Appointment",
+      contact: "Get Information",
+    },
+  } as const;
+
+  const t = content[language as keyof typeof content];
+
+  return (
+    <div className="min-h-screen">
+      <Navigation language={language} setLanguage={setLanguage} />
+
+      <div className="pt-20">
+        <section className="py-20 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center animate-fade-in">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">{t.title}</h1>
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">{t.subtitle}</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto space-y-8">
+              <div>
+                <h2 className="text-2xl font-semibold mb-3 text-foreground">{t.importanceTitle}</h2>
+                <p className="text-muted-foreground leading-relaxed">{t.importanceDesc}</p>
+              </div>
+              <div>
+                <h2 className="text-2xl font-semibold mb-3 text-foreground">{t.expectTitle}</h2>
+                <p className="text-muted-foreground leading-relaxed">{t.expectDesc}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">{t.commonTitle}</h2>
+            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              <Card className="p-6">
+                <h3 className="text-xl font-semibold mb-3 text-foreground">{t.femaleU40Title}</h3>
+                <ul className="text-muted-foreground space-y-2 list-disc pl-5">
+                  {t.femaleU40.map((x, i) => (<li key={i}>{x}</li>))}
+                </ul>
+              </Card>
+              <Card className="p-6">
+                <h3 className="text-xl font-semibold mb-3 text-foreground">{t.femaleO45Title}</h3>
+                <ul className="text-muted-foreground space-y-2 list-disc pl-5">
+                  {t.femaleO45.map((x, i) => (<li key={i}>{x}</li>))}
+                </ul>
+              </Card>
+              <Card className="p-6">
+                <h3 className="text-xl font-semibold mb-3 text-foreground">{t.maleTitle}</h3>
+                <ul className="text-muted-foreground space-y-2 list-disc pl-5">
+                  {t.male.map((x, i) => (<li key={i}>{x}</li>))}
+                </ul>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">{t.recommendTitle}</h2>
+            <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+              {t.recommend.map((r, i) => (
+                <Card key={i} className="p-4 flex items-start gap-3 animate-slide-up" style={{ animationDelay: `${i * 50}ms` }}>
+                  <ClipboardList className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">{r}</span>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-foreground">{t.prepareTitle}</h2>
+            <ul className="text-lg text-muted-foreground max-w-4xl mx-auto space-y-2 list-disc pl-5">
+              {t.prepare.map((p, i) => (<li key={i}>{p}</li>))}
+            </ul>
+            <h2 className="text-3xl md:text-4xl font-bold mt-12 mb-6 text-center text-foreground">{t.lifestyleTitle}</h2>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto">{t.lifestyleDesc}</p>
+          </div>
+        </section>
+
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-foreground">{t.understandingTitle}</h2>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto mb-6">{t.understandingDesc}</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-foreground">{t.discussTitle}</h2>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto">{t.discussDesc}</p>
+          </div>
+        </section>
+
+        <section className="py-20 bg-muted/30">
+          <div className="container mx-auto px-4 text-center">
+            <HeartPulse className="h-16 w-16 text-primary mx-auto mb-6" />
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">{t.conclusion}</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg">{t.cta}</Button>
+              <Button size="lg" variant="outline">{t.contact}</Button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <Footer language={language} />
+      <WhatsAppButton />
+    </div>
+  );
+};
+
+export default InitialFertilityTestsService;

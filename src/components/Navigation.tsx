@@ -42,7 +42,7 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
   const navLinks = [
     { href: "/", label: t.home },
     { href: "/treatments", label: t.treatments },
-    { href: "/services", label: t.services },
+    { href: language === "tr" ? "/tibbi-hizmetler" : "/medical-services", label: t.services },
     { href: "/about", label: t.about },
     { href: "/team", label: t.team },
     { href: "/center", label: t.center },
