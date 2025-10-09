@@ -15,6 +15,11 @@ import Surrogacy from "./pages/treatments/Surrogacy";
 import CytoplasmTransfer from "./pages/treatments/CytoplasmTransfer";
 import Physiotherapy from "./pages/treatments/Physiotherapy";
 import NotFound from "./pages/NotFound";
+import About from "./pages/About";
+import Team from "./pages/Team";
+import Center from "./pages/Center";
+import Blog from "./pages/Blog";
+import Contact from "./pages/Contact";
 import TeseService from "./pages/services/TeseService";
 import LaparoscopyService from "./pages/services/LaparoscopyService";
 import NGSService from "./pages/services/NGSService";
@@ -62,6 +67,13 @@ const App = () => (
           <Route path="/treatments/physiotherapy" element={<Physiotherapy />} />
           <Route path="/tibbi-hizmetler" element={<MedicalServices />} />
           <Route path="/medical-services" element={<MedicalServices />} />
+          <Route path="/hakkimizda" element={<About />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/center" element={<Center />} />
+          <Route path="/merkezimiz" element={<Center />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/tibbi-hizmetler/sperm-elde-etme" element={<TeseService />} />
           <Route path="/medical-services/sperm-retrieval" element={<TeseService />} />
           <Route path="/tibbi-hizmetler/laparoskopi" element={<LaparoscopyService />} />

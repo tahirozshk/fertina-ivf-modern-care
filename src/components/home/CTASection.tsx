@@ -38,14 +38,18 @@ const CTASection = ({ language }: CTASectionProps) => {
                 {t.subtitle}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 animate-slide-up">
-                <Button size="lg" className="gap-2">
+                <a href="/contact">
+                  <Button size="lg" className="gap-2 w-full sm:w-auto">
                   <Calendar className="h-5 w-5" />
                   {t.cta1}
-                </Button>
-                <Button size="lg" variant="outline" className="gap-2">
+                  </Button>
+                </a>
+                <a href="/contact">
+                  <Button size="lg" variant="outline" className="gap-2 w-full sm:w-auto">
                   <Phone className="h-5 w-5" />
                   {t.cta2}
-                </Button>
+                  </Button>
+                </a>
               </div>
             </div>
 

@@ -304,8 +304,8 @@ const CytoplasmTransfer = () => {
                   : "You can increase your chances of pregnancy by improving the quality of your own eggs with cytoplasm transfer. We are with you with Fertina IVF's experienced team and modern laboratory infrastructure."}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg">{t.cta}</Button>
-                <Button size="lg" variant="outline">{t.contact}</Button>
+                <a href="/contact"><Button size="lg">{t.cta}</Button></a>
+                <a href="/contact"><Button size="lg" variant="outline">{t.contact}</Button></a>
               </div>
             </div>
           </div>

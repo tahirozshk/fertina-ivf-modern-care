@@ -91,9 +91,11 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
             </Button>
 
             {/* CTA Button */}
-            <Button variant="default" className="hidden md:inline-flex">
-              {t.appointment}
-            </Button>
+            <Link to="/contact">
+              <Button variant="default" className="hidden md:inline-flex">
+                {t.appointment}
+              </Button>
+            </Link>
 
             {/* Mobile Menu Toggle */}
             <button
@@ -120,9 +122,9 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
                   {link.label}
                 </Link>
               ))}
-              <Button variant="default" className="mx-4 mt-2">
-                {t.appointment}
-              </Button>
+              <Link to="/contact" className="mx-4 mt-2">
+                <Button variant="default" className="w-full">{t.appointment}</Button>
+              </Link>
             </div>
           </div>
         )}

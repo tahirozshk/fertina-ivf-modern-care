@@ -48,13 +48,17 @@ const HeroSection = ({ language }: HeroSectionProps) => {
             {t.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="group">
-              {t.cta1}
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 smooth-transition" />
-            </Button>
-            <Button size="lg" variant="outline">
-              {t.cta2}
-            </Button>
+            <a href="/contact">
+              <Button size="lg" className="group">
+                {t.cta1}
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 smooth-transition" />
+              </Button>
+            </a>
+            <a href="/about">
+              <Button size="lg" variant="outline">
+                {t.cta2}
+              </Button>
+            </a>
           </div>
         </div>
       </div>

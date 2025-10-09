@@ -307,8 +307,8 @@ const Surrogacy = () => {
                   : "Surrogacy is a promising option for you to hold your own child in your arms despite a difficult medical history. As Fertina IVF, we plan the most suitable solution for you and take the first step together for your dream family."}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg">{t.cta}</Button>
-                <Button size="lg" variant="outline">{t.contact}</Button>
+                <a href="/contact"><Button size="lg">{t.cta}</Button></a>
+                <a href="/contact"><Button size="lg" variant="outline">{t.contact}</Button></a>
               </div>
             </div>
           </div>
