@@ -1,7 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe, ChevronDown } from "lucide-react";
+import TR from "country-flag-icons/react/3x2/TR";
+import US from "country-flag-icons/react/3x2/US";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import logo from "@/assets/fertina-logo.png";
 
 interface NavigationProps {
@@ -11,6 +19,7 @@ interface NavigationProps {
 
 const Navigation = ({ language, setLanguage }: NavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
 
   const translations = {
     tr: {
@@ -43,11 +52,19 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
     { href: "/", label: t.home },
     { href: "/treatments", label: t.treatments },
     { href: language === "tr" ? "/tibbi-hizmetler" : "/medical-services", label: t.services },
+    { href: "/blog", label: t.blog },
+    { href: "/contact", label: t.contact },
+  ];
+
+  const aboutLinks = [
     { href: "/about", label: t.about },
     { href: "/team", label: t.team },
     { href: "/center", label: t.center },
-    { href: "/blog", label: t.blog },
-    { href: "/contact", label: t.contact },
+  ];
+
+  const languageOptions = [
+    { code: "tr", label: "Türkçe", FlagIcon: TR },
+    { code: "en", label: "English", FlagIcon: US },
   ];
 
   return (
@@ -73,22 +90,62 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
                 {link.label}
               </Link>
             ))}
+            
+            {/* About Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="text-sm font-medium text-foreground hover:text-primary smooth-transition gap-1">
+                  {t.about}
+                  <ChevronDown className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-48">
+                {aboutLinks.map((link) => (
+                  <DropdownMenuItem key={link.href} asChild>
+                    <Link to={link.href} className="w-full">
+                      {link.label}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* Right Side Actions */}
           <div className="flex items-center gap-4">
             {/* Language Switcher */}
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setLanguage(language === "tr" ? "en" : "tr")}
-              className="gap-2"
-            >
-              <Globe className="h-4 w-4" />
-              <span className="text-sm font-medium">
-                {language === "tr" ? "EN" : "TR"}
-              </span>
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="gap-2">
+                  {language === "tr" ? (
+                    <TR className="w-5 h-4" />
+                  ) : (
+                    <US className="w-5 h-4" />
+                  )}
+                  <span className="text-sm font-medium">
+                    {language === "tr" ? "TR" : "EN"}
+                  </span>
+                  <ChevronDown className="h-3 w-3" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-40">
+                {languageOptions.map((option) => {
+                  const FlagIcon = option.FlagIcon;
+                  return (
+                    <DropdownMenuItem
+                      key={option.code}
+                      onClick={() => setLanguage(option.code)}
+                      className={`cursor-pointer ${
+                        language === option.code ? "bg-accent" : ""
+                      }`}
+                    >
+                      <FlagIcon className="mr-2 w-5 h-4" />
+                      {option.label}
+                    </DropdownMenuItem>
+                  );
+                })}
+              </DropdownMenuContent>
+            </DropdownMenu>
 
             {/* CTA Button */}
             <Link to="/contact">
@@ -122,6 +179,53 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
                   {link.label}
                 </Link>
               ))}
+              
+              {/* Mobile About Section */}
+              <div className="px-4 py-2">
+                <div className="text-sm font-medium text-foreground mb-2">{t.about}</div>
+                <div className="flex flex-col gap-1 ml-4">
+                  {aboutLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className="px-4 py-2 text-sm text-muted-foreground hover:bg-accent rounded-lg smooth-transition"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mobile Language Section */}
+              <div className="px-4 py-2">
+                <div className="text-sm font-medium text-foreground mb-2">
+                  {language === "tr" ? "Dil" : "Language"}
+                </div>
+                <div className="flex gap-2 ml-4">
+                  {languageOptions.map((option) => {
+                    const FlagIcon = option.FlagIcon;
+                    return (
+                      <button
+                        key={option.code}
+                        onClick={() => {
+                          setLanguage(option.code);
+                          setIsOpen(false);
+                        }}
+                        className={`px-3 py-1 text-sm rounded-lg smooth-transition flex items-center gap-2 ${
+                          language === option.code
+                            ? "bg-primary text-primary-foreground"
+                            : "bg-accent text-foreground hover:bg-accent/80"
+                        }`}
+                      >
+                        <FlagIcon className="w-5 h-4" />
+                        {option.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
               <Link to="/contact" className="mx-4 mt-2">
                 <Button variant="default" className="w-full">{t.appointment}</Button>
               </Link>
