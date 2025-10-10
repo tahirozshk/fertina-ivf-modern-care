@@ -31,7 +31,7 @@ const HeroSection = ({ language }: HeroSectionProps) => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
-          src={heroImage}
+          src="/banner.jpg"
           alt="Fertina IVF Clinic"
           className="w-full h-full object-cover"
         />

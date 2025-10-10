@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import logo from "@/assets/fertina-logo.png";
 
 interface FooterProps {
@@ -14,7 +14,7 @@ const Footer = ({ language }: FooterProps) => {
       services: "Hizmetler",
       contact: "İletişim",
       address: "Adres",
-      addressText: "Kıbrıs, Lefkoşa",
+      addressText: "Mağusa Yaşam Hastanesi, Kuzey Kıbrıs, Mağusa, Gazi Mustafa Kemal Bulvarı No:23",
       followUs: "Bizi Takip Edin",
       copyright: "Tüm hakları saklıdır.",
       privacy: "Gizlilik Politikası",
@@ -26,7 +26,7 @@ const Footer = ({ language }: FooterProps) => {
       services: "Services",
       contact: "Contact",
       address: "Address",
-      addressText: "Nicosia, Cyprus",
+      addressText: "Mağusa Yaşam Hastanesi, Kuzey Kıbrıs, Mağusa, Gazi Mustafa Kemal Bulvarı No:23",
       followUs: "Follow Us",
       copyright: "All rights reserved.",
       privacy: "Privacy Policy",
@@ -104,8 +104,14 @@ const Footer = ({ language }: FooterProps) => {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-5 w-5 flex-shrink-0" />
-                <a href="tel:+90000000000" className="hover:text-primary smooth-transition">
-                  +90 000 000 00 00
+                <a href="tel:+905338299829" className="hover:text-primary smooth-transition">
+                  +90 533 829 98 29
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="h-5 w-5 flex-shrink-0" />
+                <a href="tel:+905338425060" className="hover:text-primary smooth-transition">
+                  +90 533 842 50 60
                 </a>
               </li>
               <li className="flex items-center gap-2">
@@ -144,6 +150,24 @@ const Footer = ({ language }: FooterProps) => {
                 >
                   <Linkedin className="h-5 w-5" />
                 </a>
+                <a
+                  href="https://tiktok.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-background/10 rounded-lg hover:bg-primary smooth-transition"
+                >
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-1.021-.083 6.411 6.411 0 0 0-6.41 6.41 6.411 6.411 0 0 0 6.41 6.412 6.411 6.411 0 0 0 6.412-6.412V9.057a8.16 8.16 0 0 0 4.6 1.39V7.786a4.813 4.813 0 0 1-1.387-.1z"/>
+                  </svg>
+                </a>
+                <a
+                  href="https://youtube.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-background/10 rounded-lg hover:bg-primary smooth-transition"
+                >
+                  <Youtube className="h-5 w-5" />
+                </a>
               </div>
             </div>
           </div>
@@ -152,7 +176,10 @@ const Footer = ({ language }: FooterProps) => {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-background/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-background/70">
-            <p>© 2025 Fertina IVF. {t.copyright}</p>
+            <div className="flex flex-col md:flex-row items-center gap-2">
+              <p>© 2025 Fertina IVF. {t.copyright}</p>
+              <span className="text-primary font-bold">OVUTrust Verified</span>
+            </div>
             <div className="flex gap-6">
               <Link to="/privacy" className="hover:text-primary smooth-transition">
                 {t.privacy}

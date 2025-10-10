@@ -36,6 +36,7 @@ import EmbryoFreezingService from "./pages/services/EmbryoFreezingService";
 import SpermFreezingService from "./pages/services/SpermFreezingService";
 import EggFreezingService from "./pages/services/EggFreezingService";
 import MedicalServices from "./pages/MedicalServices";
+import Privacy from "./pages/Privacy";
 
 const queryClient = new QueryClient();
 
@@ -104,6 +105,8 @@ const App = () => (
           <Route path="/medical-services/sperm-freezing" element={<SpermFreezingService />} />
           <Route path="/tibbi-hizmetler/yumurta-dondurma" element={<EggFreezingService />} />
           <Route path="/medical-services/egg-freezing" element={<EggFreezingService />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/gizlilik-politikasi" element={<Privacy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

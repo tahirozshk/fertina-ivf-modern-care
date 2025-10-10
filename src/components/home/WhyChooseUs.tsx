@@ -89,7 +89,7 @@ const WhyChooseUs = ({ language }: WhyChooseUsProps) => {
           <div className="relative animate-fade-in">
             <div className="rounded-3xl overflow-hidden shadow-xl">
               <img
-                src={labImage}
+                src="/ultason.jpg"
                 alt="Modern Laboratory"
                 className="w-full h-full object-cover"
               />

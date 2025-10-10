@@ -56,7 +56,7 @@ const CTASection = ({ language }: CTASectionProps) => {
             {/* Image */}
             <div className="hidden lg:block relative h-full min-h-[400px]">
               <img
-                src={consultationImage}
+                src="/homepage.jpg"
                 alt="Consultation"
                 className="absolute inset-0 w-full h-full object-cover"
               />
