@@ -179,48 +179,69 @@ const Treatments = () => {
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {t.treatments.map((treatment, index) => (
-                <Card
-                  key={index}
-                  className="group p-6 hover:shadow-xl smooth-transition hover:-translate-y-2 animate-slide-up"
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  <div className="flex flex-col h-full">
-                    {/* Icon & Success Rate */}
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 smooth-transition">
-                        <treatment.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground smooth-transition" />
-                      </div>
+              {t.treatments.map((treatment, index) => {
+                const imageMap = [
+                  'ivf.webp',           // IVF (ICSI) Tedavisi
+                  'egg.avif',           // Yumurta Donasyonu
+                  'sperm.jpg',          // Sperm Donasyonu
+                  'embryo.jpg',         // Embriyo Donasyonu
+                  'gender.webp',        // Cinsiyet Seçimi
+                  'tandem.webp',        // Tandem Tedavi Uygulaması
+                  'surrogacy.jpg',      // Taşıyıcı Annelik
+                  'sitoplazma.jpg',     // Sitoplazma Transferi
+                  'fizyo.jpg'           // Tüp Bebek ve Fizyoterapi
+                ];
+                return (
+                  <Card
+                    key={index}
+                    className="group overflow-hidden hover:shadow-xl smooth-transition hover:-translate-y-2 animate-slide-up"
+                    style={{ animationDelay: `${index * 50}ms` }}
+                  >
+                    {/* Background Image */}
+                    <div className="relative h-64 w-full overflow-hidden">
+                      <img 
+                        src={`/${imageMap[index]}`} 
+                        alt={treatment.title}
+                        className="absolute inset-0 h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                      
+                      {/* Success Rate */}
                       {treatment.successRate !== "-" && (
-                        <div className="text-right">
-                          <div className="text-xs text-muted-foreground mb-1">
+                        <div className="absolute top-4 right-4 text-right">
+                          <div className="text-xs text-white/80 mb-1">
                             {language === "tr" ? "Başarı" : "Success"}
                           </div>
-                          <div className="text-2xl font-bold text-primary">
+                          <div className="text-2xl font-bold text-white">
                             {treatment.successRate}
                           </div>
                         </div>
                       )}
+
+                      {/* Content */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-primary-foreground smooth-transition">
+                          {treatment.title}
+                        </h3>
+                        <p className="text-white/90 leading-relaxed mb-4 text-sm">
+                          {treatment.shortDesc}
+                        </p>
+
+                        {/* CTA Link */}
+                        <Link to={`/treatments/${treatment.slug}`}>
+                          <Button 
+                            variant="outline" 
+                            className="w-full bg-white/10 border-white/20 text-white hover:bg-primary hover:text-primary-foreground hover:border-primary backdrop-blur-sm"
+                          >
+                            {t.cta}
+                            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 smooth-transition" />
+                          </Button>
+                        </Link>
+                      </div>
                     </div>
-
-                    {/* Title & Description */}
-                    <h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-primary smooth-transition">
-                      {treatment.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
-                      {treatment.shortDesc}
-                    </p>
-
-                    {/* CTA Link */}
-                    <Link to={`/treatments/${treatment.slug}`}>
-                      <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary">
-                        {t.cta}
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 smooth-transition" />
-                      </Button>
-                    </Link>
-                  </div>
-                </Card>
-              ))}
+                  </Card>
+                );
+              })}
             </div>
           </div>
         </section>

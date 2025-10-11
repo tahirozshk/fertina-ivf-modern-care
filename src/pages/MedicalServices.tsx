@@ -88,43 +88,112 @@ const MedicalServices = () => {
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-foreground">{t.servicesTitle}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {t.services.map((item, index) => (
-                <Card key={index} className="group p-6 hover:shadow-xl smooth-transition hover:-translate-y-2 animate-slide-up" style={{ animationDelay: `${index * 50}ms` }}>
-                  <div className="flex flex-col h-full">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 smooth-transition">
-                        <item.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground smooth-transition" />
-                      </div>
-                      {item.successRate && item.successRate !== "-" && (
-                        <div className="text-right">
-                          <div className="text-xs text-muted-foreground mb-1">
-                            {language === "tr" ? "Başarı" : "Success"}
+              {t.services.map((item, index) => {
+                const imageMap = [
+                  'sperm_alma.jpg',        // Sperm Elde Etme ve TESE
+                  'genetic_dna.jpg',       // Genetik
+                  'dogurganlik.jpg',       // İlk Doğurganlık Testleri
+                  'laparoskopi.png',       // Laparoskopi
+                  'yeni_nesil.webp',       // Yeni Nesil Dizileme
+                  'embryo_dondurma.jpg',   // Embriyo Dondurma
+                  'yumurta_dondurma.jpg',  // Yumurta Dondurma
+                  'sperm_dondurma.jpg',    // Sperm Dondurma
+                  'histeroskopi.jpg',      // Histeroskopi
+                  'dogum_takip.jpg',          // Gebelik Takibi
+                  'preg.jpg',          // Doğum
+                  'servilkal.jpg'           // Servikal Serklaj
+                ];
+                
+                const hasImage = imageMap[index] !== null;
+                
+                if (hasImage) {
+                  return (
+                    <Card key={index} className="group overflow-hidden hover:shadow-xl smooth-transition hover:-translate-y-2 animate-slide-up" style={{ animationDelay: `${index * 50}ms` }}>
+                      <div className="relative h-64 w-full overflow-hidden">
+                        <img 
+                          src={`/${imageMap[index]}`} 
+                          alt={item.title}
+                          className="absolute inset-0 h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                        
+                        {item.successRate && item.successRate !== "-" && (
+                          <div className="absolute top-4 right-4 text-right">
+                            <div className="text-xs text-white/80 mb-1">
+                              {language === "tr" ? "Başarı" : "Success"}
+                            </div>
+                            <div className="text-2xl font-bold text-white">{item.successRate}</div>
                           </div>
-                          <div className="text-2xl font-bold text-primary">{item.successRate}</div>
+                        )}
+
+                        <div className="absolute bottom-0 left-0 right-0 p-6">
+                          <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-primary-foreground smooth-transition">
+                            {item.title}
+                          </h3>
+                          {item.shortDesc && (
+                            <p className="text-white/90 leading-relaxed mb-4 text-sm">
+                              {item.shortDesc}
+                            </p>
+                          )}
+                          <Link to={language === "tr" ? `/tibbi-hizmetler/${item.slug}` : `/medical-services/${item.slug
+                            .replace("sperm-elde-etme","sperm-retrieval")
+                            .replace("yeni-nesil-dizileme","next-generation-sequencing")
+                            .replace("laparoskopi","laparoscopy")
+                            .replace("gebelik-takibi","pregnancy-follow-up")
+                            .replace("dogum","delivery")
+                            .replace("servikal-serklaj","cervical-cerclage")}` }>
+                            <Button 
+                              variant="outline" 
+                              className="w-full bg-white/10 border-white/20 text-white hover:bg-primary hover:text-primary-foreground hover:border-primary backdrop-blur-sm"
+                            >
+                              {t.cta}
+                              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 smooth-transition" />
+                            </Button>
+                          </Link>
                         </div>
-                      )}
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2 text-foreground group-hover:text-primary smooth-transition">{item.title}</h3>
-                    {item.shortDesc && (
-                      <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">{item.shortDesc}</p>
-                    )}
-                    <div className="mt-auto">
-                      <Link to={language === "tr" ? `/tibbi-hizmetler/${item.slug}` : `/medical-services/${item.slug
-                        .replace("sperm-elde-etme","sperm-retrieval")
-                        .replace("yeni-nesil-dizileme","next-generation-sequencing")
-                        .replace("laparoskopi","laparoscopy")
-                        .replace("gebelik-takibi","pregnancy-follow-up")
-                        .replace("dogum","delivery")
-                        .replace("servikal-serklaj","cervical-cerclage")}` }>
-                        <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary">
-                          {t.cta}
-                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 smooth-transition" />
-                        </Button>
-                      </Link>
-                    </div>
-                  </div>
-                </Card>
-              ))}
+                      </div>
+                    </Card>
+                  );
+                } else {
+                  return (
+                    <Card key={index} className="group p-6 hover:shadow-xl smooth-transition hover:-translate-y-2 animate-slide-up" style={{ animationDelay: `${index * 50}ms` }}>
+                      <div className="flex flex-col h-full">
+                        <div className="flex items-start justify-between mb-4">
+                          <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 smooth-transition">
+                            <item.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground smooth-transition" />
+                          </div>
+                          {item.successRate && item.successRate !== "-" && (
+                            <div className="text-right">
+                              <div className="text-xs text-muted-foreground mb-1">
+                                {language === "tr" ? "Başarı" : "Success"}
+                              </div>
+                              <div className="text-2xl font-bold text-primary">{item.successRate}</div>
+                            </div>
+                          )}
+                        </div>
+                        <h3 className="text-xl font-semibold mb-2 text-foreground group-hover:text-primary smooth-transition">{item.title}</h3>
+                        {item.shortDesc && (
+                          <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">{item.shortDesc}</p>
+                        )}
+                        <div className="mt-auto">
+                          <Link to={language === "tr" ? `/tibbi-hizmetler/${item.slug}` : `/medical-services/${item.slug
+                            .replace("sperm-elde-etme","sperm-retrieval")
+                            .replace("yeni-nesil-dizileme","next-generation-sequencing")
+                            .replace("laparoskopi","laparoscopy")
+                            .replace("gebelik-takibi","pregnancy-follow-up")
+                            .replace("dogum","delivery")
+                            .replace("servikal-serklaj","cervical-cerclage")}` }>
+                            <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary">
+                              {t.cta}
+                              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 smooth-transition" />
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </Card>
+                  );
+                }
+              })}
             </div>
           </div>
         </section>
@@ -133,37 +202,56 @@ const MedicalServices = () => {
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-foreground">{t.geneticTitle}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {t.geneticTests.map((item, index) => (
-                <Card key={index} className="group p-6 hover:shadow-xl smooth-transition hover:-translate-y-2 animate-slide-up" style={{ animationDelay: `${index * 50}ms` }}>
-                  <div className="flex flex-col h-full">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 smooth-transition">
-                        <item.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground smooth-transition" />
-                      </div>
+              {t.geneticTests.map((item, index) => {
+                const geneticImageMap = [
+                  'yeni_nesil.webp',       // Yeni Nesil Dizileme
+                  'pgd.jpg',               // PGD
+                  'single_gene.jpg',       // Tek Gen Hastalık Analizi
+                  'exosome.jpg'            // Tüm Ekzom Dizilemesi
+                ];
+                
+                return (
+                  <Card key={index} className="group overflow-hidden hover:shadow-xl smooth-transition hover:-translate-y-2 animate-slide-up" style={{ animationDelay: `${index * 50}ms` }}>
+                    <div className="relative h-64 w-full overflow-hidden">
+                      <img 
+                        src={`/${geneticImageMap[index]}`} 
+                        alt={item.title}
+                        className="absolute inset-0 h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                      
                       {item.successRate && item.successRate !== "-" && (
-                        <div className="text-right">
-                          <div className="text-xs text-muted-foreground mb-1">
+                        <div className="absolute top-4 right-4 text-right">
+                          <div className="text-xs text-white/80 mb-1">
                             {language === "tr" ? "Başarı" : "Accuracy"}
                           </div>
-                          <div className="text-2xl font-bold text-primary">{item.successRate}</div>
+                          <div className="text-2xl font-bold text-white">{item.successRate}</div>
                         </div>
                       )}
+
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-primary-foreground smooth-transition">
+                          {item.title}
+                        </h3>
+                        {item.shortDesc && (
+                          <p className="text-white/90 leading-relaxed mb-4 text-sm">
+                            {item.shortDesc}
+                          </p>
+                        )}
+                        <Link to={language === "tr" ? `/tibbi-hizmetler/${item.slug}` : `/medical-services/${item.slug}`}>
+                          <Button 
+                            variant="outline" 
+                            className="w-full bg-white/10 border-white/20 text-white hover:bg-primary hover:text-primary-foreground hover:border-primary backdrop-blur-sm"
+                          >
+                            {t.cta}
+                            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 smooth-transition" />
+                          </Button>
+                        </Link>
+                      </div>
                     </div>
-                    <h3 className="text-xl font-semibold mb-2 text-foreground group-hover:text-primary smooth-transition">{item.title}</h3>
-                    {item.shortDesc && (
-                      <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">{item.shortDesc}</p>
-                    )}
-                    <div className="mt-auto">
-                      <Link to={language === "tr" ? `/tibbi-hizmetler/${item.slug}` : `/medical-services/${item.slug}`}>
-                        <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary">
-                          {t.cta}
-                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 smooth-transition" />
-                        </Button>
-                      </Link>
-                    </div>
-                  </div>
-                </Card>
-              ))}
+                  </Card>
+                );
+              })}
             </div>
           </div>
         </section>
