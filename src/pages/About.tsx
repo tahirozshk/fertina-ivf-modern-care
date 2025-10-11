@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Heart, DollarSign, Stethoscope, Globe, Users, Rainbow, UserCheck } from "lucide-react";
 
 const About = () => {
   const [language, setLanguage] = useState("tr");
@@ -19,8 +20,45 @@ const About = () => {
         "Amacı sağlıklı gebelik elde etmek olan Fertina ekibi; hasta memnuniyeti odaklı çalışma anlayışıyla 24 saat erişilebilir hizmet sunar.",
         "Doktorumuz Op. Dr. Erman SEVER ve ekibi, doğum sonrası o büyük mutluluğa ortak olabilmek için çalışmaktadır.",
         "Kuruluşumuzdan bu yana bilimsel verileri yakından takip eden tıbbi ekibimiz ve güncel teknolojik alt yapımızla başarı odaklı tedavi hizmeti sunuyoruz.",
-        "Kuzey Kıbrıs, IVF için Avrupa’dan en çok tercih edilen ülkelerden biridir. Bu itibarın sorumluluğunu ciddiyetle taşıyor, etik ve şeffaf yaklaşımı benimsiyoruz.",
-        "Parolamız her zaman hasta memnuniyeti. Yüksek başarı oranımız ve tam donanımlı multidisipliner merkezimizle sizleri Gazi Mağusa’ya bekliyoruz. Gelin bu heyecanlı ve mutlu süreci birlikte yaşayalım.",
+        "Kuzey Kıbrıs, IVF için Avrupa'dan en çok tercih edilen ülkelerden biridir. Bu itibarın sorumluluğunu ciddiyetle taşıyor, etik ve şeffaf yaklaşımı benimsiyoruz.",
+        "Parolamız her zaman hasta memnuniyeti. Yüksek başarı oranımız ve tam donanımlı multidisipliner merkezimizle sizleri Gazi Mağusa'ya bekliyoruz. Gelin bu heyecanlı ve mutlu süreci birlikte yaşayalım.",
+      ],
+      features: [
+        {
+          icon: Heart,
+          title: "Misyonumuz",
+          desc: "Fertina'da misyonumuz, şefkat, hassasiyet ve dürüstlükle dünya standartlarında doğurganlık bakımı sağlamaktır. Her hastanın benzersiz ihtiyaçlarına göre uyarlanmış kişiselleştirilmiş bakımı en son tıbbi teknolojilerle birleştirerek, bireyleri ve çiftleri ebeveynlik yolculuklarında desteklemeye kararlıyız."
+        },
+        {
+          icon: DollarSign,
+          title: "Uygun Tedavi Maliyetleri",
+          desc: "Kuzey Kıbrıs'ta tedavi maliyetleri Almanya, ABD ve İsrail gibi birçok ülkeye göre %20-50 daha düşüktür. Uygun fiyatlı tıbbi hizmetlerin yanı sıra, hastalar bütçe dostu otellerden lüks tesislere ve konforlu apartmanlara kadar geniş bir konaklama seçeneği arasından seçim yapabilir."
+        },
+        {
+          icon: Stethoscope,
+          title: "Son Teknoloji Ekipmanlar",
+          desc: "Kuzey Kıbrıs'taki tanı ve tedaviler en son teknoloji ile gerçekleştirilir. Hem özel hem de kamu klinikleri, son nesil tıbbi ekipmanlara sürekli yatırım yaparak tesisleri Almanya veya Amerika Birleşik Devletleri'ndekilerle karşılaştırılabilir hale getirir."
+        },
+        {
+          icon: Globe,
+          title: "Basitleştirilmiş Vize Erişimi",
+          desc: "Kuzey Kıbrıs, hastaların tedavi için hızlı ve kolay bir şekilde seyahat etmelerini sağlayan uygun bir varışta vize sistemi sunar. Bir diğer avantaj ise, birkaç yabancı dilde destek ve bakım sağlayabilen çok dilli tıbbi personeldir."
+        },
+        {
+          icon: Users,
+          title: "Yüksek Nitelikli Doktorlar",
+          desc: "Kuzey Kıbrıs, son derece yetenekli tıp uzmanlarına ev sahipliği yapmaktadır. Doktorlarımız, en son teknolojileri ve tedavi yöntemlerini öğrenerek uzmanlıklarını sürekli olarak geliştiriyor ve hastalara en yüksek standartlarda bakım sağlıyor."
+        },
+        {
+          icon: Rainbow,
+          title: "LGBT Çiftler için Kapsayıcı Programlar",
+          desc: "Birçok ülke eşcinsel çiftlerin taşıyıcı annelik hizmetlerine erişimini yasaklarken, Kuzey Kıbrıs'taki seçkin klinikler LGBT çiftlere ebeveynlik hayallerini gerçekleştirme fırsatı veren kapsayıcı programlar sağlar."
+        },
+        {
+          icon: UserCheck,
+          title: "Kişiselleştirilmiş Hasta Bakımı",
+          desc: "İleri tedavilerin ötesinde, her hastanın bireysel ihtiyaçlarına odaklanıyoruz. İlk danışmanlığınızdan tedavi sonrası takibinize kadar, özel ekibimiz rahat ve stressiz bir yolculuk sağlamak için sürekli rehberlik, duygusal destek ve kişiselleştirilmiş bakım sağlar."
+        }
       ],
       ctas: {
         team: { title: "Ekibimiz", desc: "Uzman kadromuzu tanıyın", link: "/team", image: "/team.jpg" },
@@ -30,7 +68,7 @@ const About = () => {
     },
     en: {
       title: "About Us",
-      hero: "Let’s realize your dream of having a baby together",
+      hero: "Let's realize your dream of having a baby together",
       subtitle: "IVF Treatment Cyprus",
       paragraphs: [
         "Fertina was founded by an experienced team with 16 years in IVF and genetics.",
@@ -39,6 +77,43 @@ const About = () => {
         "Since day one, we deliver success‑oriented treatments with evidence‑based medicine and modern technology.",
         "Northern Cyprus is a leading destination for IVF in Europe; we embrace this responsibility with ethical and transparent care.",
         "Patient satisfaction is our motto. We welcome you to Gazimağusa to experience this exciting journey together.",
+      ],
+      features: [
+        {
+          icon: Heart,
+          title: "Our Mission",
+          desc: "At Fertina, our mission is to provide world-class fertility care with compassion, precision, and integrity. We are dedicated to supporting individuals and couples on their journey to parenthood, combining the latest medical technologies with personalized care tailored to each patient's unique needs."
+        },
+        {
+          icon: DollarSign,
+          title: "Affordable Treatment Costs",
+          desc: "The cost of treatment in Northern Cyprus is 20–50% lower than in many other countries, including Germany, the USA, and Israel. Along with affordable medical services, patients can choose from a wide range of accommodation options, from budget-friendly hotels to luxury resorts and comfortable apartments."
+        },
+        {
+          icon: Stethoscope,
+          title: "State-of-the-Art Equipment",
+          desc: "Diagnostics and treatments in Northern Cyprus are performed with cutting-edge technology. Both private and public clinics consistently invest in the latest generation of medical equipment, making the facilities comparable to those in Germany or the United States."
+        },
+        {
+          icon: Globe,
+          title: "Simplified Visa Access",
+          desc: "Northern Cyprus offers a convenient visa-on-arrival system, allowing patients to travel quickly and easily for treatment. Another advantage is the multilingual medical staff, who can provide support and care in several foreign languages."
+        },
+        {
+          icon: Users,
+          title: "Highly Qualified Doctors",
+          desc: "Northern Cyprus is home to highly skilled medical professionals. Our doctors continually advance their expertise by mastering the latest technologies and treatment methods, ensuring patients receive the highest standard of care."
+        },
+        {
+          icon: Rainbow,
+          title: "Inclusive Programs for LGBT Couples",
+          desc: "While many countries prohibit same-sex couples from accessing surrogacy services, select clinics in Northern Cyprus provide inclusive programs that give LGBT couples the opportunity to fulfill their dream of parenthood."
+        },
+        {
+          icon: UserCheck,
+          title: "Personalized Patient Care",
+          desc: "Beyond advanced treatments, we focus on the individual needs of each patient. From your first consultation to your post-treatment follow-up, our dedicated team provides continuous guidance, emotional support, and personalized care to ensure a comfortable and stress-free journey."
+        }
       ],
       ctas: {
         team: { title: "Our Team", desc: "Meet our experts", link: "/team", image: "/team.jpg" },
@@ -55,27 +130,30 @@ const About = () => {
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">
-        <section className="py-20 bg-gradient-to-br from-primary/10 via-secondary/20 to-accent/20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto text-center">
-              <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">{t.subtitle}</span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-foreground">{t.title}</h1>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-8">{t.hero}</p>
+        <section className="py-12 bg-background">
+          <div className="container mx-auto px-4 text-center mb-8">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">{t.title}</h1>
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">{t.hero}</p>
+          </div>
+        </section>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-                <div className="p-4 rounded-2xl bg-background shadow-sm">
+        <section className="pb-12 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="p-6 rounded-2xl bg-primary/5 border border-primary/20 shadow-sm">
                   <div className="text-3xl font-bold text-primary">16+</div>
                   <div className="text-sm text-muted-foreground">Yıl Deneyim</div>
                 </div>
-                <div className="p-4 rounded-2xl bg-background shadow-sm">
+                <div className="p-6 rounded-2xl bg-primary/5 border border-primary/20 shadow-sm">
                   <div className="text-3xl font-bold text-primary">24/7</div>
                   <div className="text-sm text-muted-foreground">Erişilebilirlik</div>
                 </div>
-                <div className="p-4 rounded-2xl bg-background shadow-sm">
+                <div className="p-6 rounded-2xl bg-primary/5 border border-primary/20 shadow-sm">
                   <div className="text-3xl font-bold text-primary">Yüksek</div>
                   <div className="text-sm text-muted-foreground">Başarı Oranı</div>
                 </div>
-                <div className="p-4 rounded-2xl bg-background shadow-sm">
+                <div className="p-6 rounded-2xl bg-primary/5 border border-primary/20 shadow-sm">
                   <div className="text-3xl font-bold text-primary">ISO</div>
                   <div className="text-sm text-muted-foreground">Standart Yaklaşım</div>
                 </div>
@@ -115,6 +193,34 @@ const About = () => {
                 <Card className="p-6"><h3 className="text-xl font-semibold mb-2 text-foreground">{language === "tr" ? "Güven" : "Trust"}</h3><p className="text-muted-foreground">{language === "tr" ? "Tüm süreçte şeffaf ve anlaşılır iletişim" : "Transparent and clear communication throughout"}</p></Card>
                 <Card className="p-6"><h3 className="text-xl font-semibold mb-2 text-foreground">{language === "tr" ? "Mükemmellik" : "Excellence"}</h3><p className="text-muted-foreground">{language === "tr" ? "Kanıta dayalı tıp ve sürekli iyileştirme" : "Evidence‑based medicine and continuous improvement"}</p></Card>
                 <Card className="p-6"><h3 className="text-xl font-semibold mb-2 text-foreground">{language === "tr" ? "Empati" : "Empathy"}</h3><p className="text-muted-foreground">{language === "tr" ? "Hastalarımızın yolculuğunu birlikte yaşıyoruz" : "We walk the journey with our patients"}</p></Card>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">
+                {language === "tr" ? "Neden Kuzey Kıbrıs'ı Seçmelisiniz?" : "Why Choose Northern Cyprus?"}
+              </h2>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {t.features.map((feature, index) => {
+                  const Icon = feature.icon;
+                  return (
+                    <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                          <Icon className="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-semibold mb-2 text-foreground">{feature.title}</h3>
+                          <p className="text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
+                        </div>
+                      </div>
+                    </Card>
+                  );
+                })}
               </div>
             </div>
           </div>

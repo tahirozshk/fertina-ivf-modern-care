@@ -49,15 +49,14 @@ const Contact = () => {
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">
-        <section className="relative py-80 bg-cover bg-center bg-top bg-no-repeat" style={{ backgroundImage: 'url(/team.jpg)' }}>
-          <div className="absolute inset-0 bg-black/40"></div>
-          <div className="container mx-auto px-4 relative z-10 text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">{l.title}</h1>
-            <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">{l.desc}</p>
+        <section className="py-12 bg-background">
+          <div className="container mx-auto px-4 text-center mb-8">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">{l.title}</h1>
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">{l.desc}</p>
           </div>
         </section>
 
-        <section className="py-12 bg-background">
+        <section className="pb-12 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
               <Card className="p-6 md:p-8">
@@ -125,6 +124,18 @@ const Contact = () => {
                           {language === "tr" ? "Mağusa Yaşam Hastanesi, Gazi Mustafa Kemal Bulvarı No:23" : "Magusa Yasam Hospital, GMK Boulevard No:23"}
                         </div>
                       </div>
+                    </div>
+                    <div className="mt-4 rounded-lg overflow-hidden border">
+                      <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3263.1881755975032!2d33.92182097632505!3d35.12697736022067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14dfc9c95cad6901%3A0x2aa92ddad8b4e4aa!2sMa%C4%9Fusa%20Ya%C5%9Fam%20Hastanesi!5e0!3m2!1str!2s!4v1760195597013!5m2!1str!2s" 
+                        width="100%" 
+                        height="300" 
+                        style={{ border: 0 }} 
+                        allowFullScreen={true}
+                        loading="lazy" 
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Mağusa Yaşam Hastanesi Harita"
+                      />
                     </div>
                   </div>
                 </div>

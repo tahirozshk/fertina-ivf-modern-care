@@ -239,12 +239,16 @@ const Treatments = () => {
                 : "Our expert team is ready to create a personalized treatment plan for you. Contact us now for a free consultation."}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg">
-                {language === "tr" ? "Ücretsiz Danışmanlık" : "Free Consultation"}
-              </Button>
-              <Button size="lg" variant="outline">
-                {language === "tr" ? "Bizimle İletişime Geçin" : "Contact Us"}
-              </Button>
+              <Link to="/contact">
+                <Button size="lg">
+                  {language === "tr" ? "Ücretsiz Danışmanlık" : "Free Consultation"}
+                </Button>
+              </Link>
+              <Link to="/contact">
+                <Button size="lg" variant="outline">
+                  {language === "tr" ? "Bizimle İletişime Geçin" : "Contact Us"}
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
