@@ -65,8 +65,33 @@ const Footer = ({ language }: FooterProps) => {
                 </Link>
               </li>
               <li>
+                <Link to="/treatments/sperm-donation" className="hover:text-primary smooth-transition">
+                  {language === "tr" ? "Sperm Donasyonu" : "Sperm Donation"}
+                </Link>
+              </li>
+              <li>
+                <Link to="/treatments/embryo-donation" className="hover:text-primary smooth-transition">
+                  {language === "tr" ? "Embriyo Donasyonu" : "Embryo Donation"}
+                </Link>
+              </li>
+              <li>
                 <Link to="/treatments/gender-selection" className="hover:text-primary smooth-transition">
                   {language === "tr" ? "Cinsiyet Seçimi" : "Gender Selection"}
+                </Link>
+              </li>
+              <li>
+                <Link to="/treatments/surrogacy" className="hover:text-primary smooth-transition">
+                  {language === "tr" ? "Taşıyıcı Annelik" : "Surrogacy"}
+                </Link>
+              </li>
+              <li>
+                <Link to="/treatments/tandem-treatment" className="hover:text-primary smooth-transition">
+                  {language === "tr" ? "Tandem Tedavi" : "Tandem Treatment"}
+                </Link>
+              </li>
+              <li>
+                <Link to="/treatments/cytoplasm-transfer" className="hover:text-primary smooth-transition">
+                  {language === "tr" ? "Sitoplazma Transferi" : "Cytoplasm Transfer"}
                 </Link>
               </li>
             </ul>
@@ -78,7 +103,7 @@ const Footer = ({ language }: FooterProps) => {
             <ul className="space-y-2 text-sm text-background/80">
               <li>
                 <Link to="/services/genetic-testing" className="hover:text-primary smooth-transition">
-                  {language === "tr" ? "Genetik Testler" : "Genetic Testing"}
+                  {language === "tr" ? "Genetik Testler (PGD)" : "Genetic Testing (PGD)"}
                 </Link>
               </li>
               <li>
@@ -87,8 +112,43 @@ const Footer = ({ language }: FooterProps) => {
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-primary smooth-transition">
-                  {t.about}
+                <Link to="/services/egg-freezing" className="hover:text-primary smooth-transition">
+                  {language === "tr" ? "Yumurta Dondurma" : "Egg Freezing"}
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/sperm-freezing" className="hover:text-primary smooth-transition">
+                  {language === "tr" ? "Sperm Dondurma" : "Sperm Freezing"}
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/ngs" className="hover:text-primary smooth-transition">
+                  NGS Analizi
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/wes" className="hover:text-primary smooth-transition">
+                  WES (Exome) Analizi
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/tese" className="hover:text-primary smooth-transition">
+                  TESE/Micro-TESE
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/laparoscopy" className="hover:text-primary smooth-transition">
+                  {language === "tr" ? "Laparoskopi" : "Laparoscopy"}
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/hysteroscopy" className="hover:text-primary smooth-transition">
+                  {language === "tr" ? "Histeroskopi" : "Hysteroscopy"}
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/pregnancy-follow-up" className="hover:text-primary smooth-transition">
+                  {language === "tr" ? "Gebelik Takibi" : "Pregnancy Follow-up"}
                 </Link>
               </li>
             </ul>

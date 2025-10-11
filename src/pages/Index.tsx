@@ -5,7 +5,9 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import HeroSection from "@/components/home/HeroSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
+import CustomerCategoriesSection from "@/components/home/CustomerCategoriesSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
+import CyprusLocationSection from "@/components/home/CyprusLocationSection";
 import CTASection from "@/components/home/CTASection";
 
 const Index = () => {
@@ -20,7 +22,9 @@ const Index = () => {
         <HeroSection language={language} />
         <ServicesSection language={language} />
         <WhyChooseUs language={language} />
+        <CustomerCategoriesSection language={language} />
         <TestimonialsSection language={language} />
+        <CyprusLocationSection language={language} />
         <CTASection language={language} />
       </div>
 

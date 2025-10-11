@@ -76,29 +76,45 @@ const WhyChooseUs = ({ language }: WhyChooseUsProps) => {
           </p>
         </div>
 
-        {/* Reasons Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mt-16">
-          {t.reasons.map((reason, index) => (
-            <Card
-              key={index}
-              className="p-8 hover:shadow-2xl smooth-transition animate-slide-up border-2 hover:border-primary/50 bg-card/50 backdrop-blur-sm"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center flex-shrink-0">
-                    <reason.icon className="h-7 w-7 text-primary-foreground" />
+        {/* Content with Image */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center mt-16">
+          {/* Image */}
+          <div className="relative animate-fade-in">
+            <div className="rounded-3xl overflow-hidden shadow-2xl">
+              <img
+                src="/neden.jpg"
+                alt="Fertina IVF Team"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-primary/20 rounded-3xl -z-10" />
+            <div className="absolute -top-6 -left-6 w-32 h-32 bg-secondary/30 rounded-2xl -z-10" />
+          </div>
+
+          {/* Reasons Grid - 2x2 */}
+          <div className="grid sm:grid-cols-2 gap-6">
+            {t.reasons.map((reason, index) => (
+              <Card
+                key={index}
+                className="p-6 hover:shadow-2xl smooth-transition animate-slide-up border-2 hover:border-primary/50 bg-card/50 backdrop-blur-sm"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="flex flex-col h-full">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center flex-shrink-0">
+                      <reason.icon className="h-6 w-6 text-primary-foreground" />
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground pt-2">
+                      {reason.title}
+                    </h3>
                   </div>
-                  <h3 className="text-2xl font-bold text-foreground pt-2">
-                    {reason.title}
-                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {reason.description}
+                  </p>
                 </div>
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  {reason.description}
-                </p>
-              </div>
-            </Card>
-          ))}
+              </Card>
+            ))}
+          </div>
         </div>
 
         {/* Decorative Element */}
