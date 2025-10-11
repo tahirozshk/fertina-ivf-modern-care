@@ -73,10 +73,7 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="Fertina IVF" className="h-12 w-auto" />
-            <span className="text-xl font-bold text-foreground hidden sm:inline">
-              Fertina IVF
-            </span>
+            <img src={logo} alt="Fertina IVF" className="h-16 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}

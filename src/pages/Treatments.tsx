@@ -161,13 +161,14 @@ const Treatments = () => {
       
       <div className="pt-20">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5">
-          <div className="container mx-auto px-4">
+        <section className="relative py-40 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/tedaviler_banner.jpg)' }}>
+          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center animate-fade-in">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
                 {t.title}
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed">
                 {t.subtitle}
               </p>
             </div>
