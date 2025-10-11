@@ -138,9 +138,12 @@ const IVFJourneySection = ({ language }: IVFJourneySectionProps) => {
 
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
-          <div className="inline-block px-8 py-4 rounded-full bg-primary/10 text-primary font-semibold">
-            {language === "tr" ? "🚀 Yolculuğunuza Başlayın 🚀" : "🚀 Start Your Journey 🚀"}
-          </div>
+          {/* More Info Button */}
+          <a href="/contact">
+            <button className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 smooth-transition shadow-lg hover:shadow-xl">
+              {language === "tr" ? "Daha Fazla Bilgi Al" : "Get More Information"}
+            </button>
+          </a>
         </div>
       </div>
     </section>

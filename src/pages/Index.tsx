@@ -24,8 +24,8 @@ const Index = () => {
         <ServicesSection language={language} />
         <WhyChooseUs language={language} />
         <CustomerCategoriesSection language={language} />
-        <TestimonialsSection language={language} />
         <IVFJourneySection language={language} />
+        <TestimonialsSection language={language} />
         <CyprusLocationSection language={language} />
         <CTASection language={language} />
       </div>
