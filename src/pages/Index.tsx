@@ -7,6 +7,7 @@ import ServicesSection from "@/components/home/ServicesSection";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import CustomerCategoriesSection from "@/components/home/CustomerCategoriesSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
+import IVFJourneySection from "@/components/home/IVFJourneySection";
 import CyprusLocationSection from "@/components/home/CyprusLocationSection";
 import CTASection from "@/components/home/CTASection";
 
@@ -24,6 +25,7 @@ const Index = () => {
         <WhyChooseUs language={language} />
         <CustomerCategoriesSection language={language} />
         <TestimonialsSection language={language} />
+        <IVFJourneySection language={language} />
         <CyprusLocationSection language={language} />
         <CTASection language={language} />
       </div>

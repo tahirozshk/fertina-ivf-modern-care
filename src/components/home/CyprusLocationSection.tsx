@@ -107,7 +107,7 @@ const CyprusLocationSection = ({ language }: CyprusLocationSectionProps) => {
             <div className="relative">
               <div className="rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src="/kktc.jpg"
+                  src="/north_ cyprus.jpg"
                   alt="Northern Cyprus"
                   className="w-full h-64 object-cover"
                 />

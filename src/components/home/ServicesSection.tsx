@@ -9,7 +9,7 @@ interface ServicesSectionProps {
 const ServicesSection = ({ language }: ServicesSectionProps) => {
   const content = {
     tr: {
-      title: "Tedavi ve Hizmetlerimiz",
+      title: "Tedavi ve Tıbbi Hizmetlerimiz",
       subtitle: "Uluslararası standartlarda, bireysel ihtiyaçlara özel çözümler",
       services: [
         {
