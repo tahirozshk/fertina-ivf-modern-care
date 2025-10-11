@@ -10,7 +10,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import logo from "@/assets/fertina-logo.png";
 
 interface NavigationProps {
   language: string;
@@ -73,7 +72,7 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="Fertina IVF" className="h-16 w-auto" />
+            <img src="/fertina_logo.png" alt="Fertina IVF" className="h-16 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}

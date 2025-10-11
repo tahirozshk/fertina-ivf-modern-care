@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
-import logo from "@/assets/fertina-logo.png";
 
 interface FooterProps {
   language: string;
@@ -42,7 +41,7 @@ const Footer = ({ language }: FooterProps) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div className="space-y-4">
-            <img src={logo} alt="Fertina IVF" className="h-16 w-auto brightness-0 invert" />
+            <img src="/fertina_logo.png" alt="Fertina IVF" className="h-16 w-auto brightness-0 invert" />
             <p className="text-sm text-background/80">
               {language === "tr"
                 ? "Bilim ve umudun buluştuğu yerdeyiz. Modern teknoloji ile güvenilir IVF tedavileri."
