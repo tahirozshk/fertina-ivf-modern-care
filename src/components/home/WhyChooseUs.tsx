@@ -1,6 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Award, Users2, Building2, TrendingUp } from "lucide-react";
-import labImage from "@/assets/laboratory.jpg";
+import { Award, Heart, Microscope, HeartHandshake } from "lucide-react";
 
 interface WhyChooseUsProps {
   language: string;
@@ -10,61 +9,53 @@ const WhyChooseUs = ({ language }: WhyChooseUsProps) => {
   const content = {
     tr: {
       title: "Neden Fertina IVF?",
-      subtitle: "Güven, deneyim ve başarının bir araya geldiği yer",
+      intro: "Kliniğimizde sunulan kişiselleştirilmiş ebeveynlik yollarını keşfedin. Hizmetlerimiz, ilk doğurganlık değerlendirmeleri ve teşhislerden IVF ve ICSI gibi ileri düzey tedavilere kadar uzanır ve genetik testler ile kapsamlı donör programları gibi öncü seçenekleri içerir.",
       reasons: [
         {
           icon: Award,
           title: "Yüksek Başarı Oranları",
-          stat: "%76",
-          description: "IVF tedavilerinde uluslararası ortalamanın üzerinde başarı",
+          description: "Olağanüstü başarı oranlarımız, dünya standartlarındaki doğurganlık uzmanlarımız ve usta embriyologlarımız arasındaki sinerjiğin doğrudan bir sonucudur.",
         },
         {
-          icon: Users2,
-          title: "Deneyimli Kadro",
-          stat: "15+ Yıl",
-          description: "Alanında uzman doktor ve embriyolog ekibi",
+          icon: Heart,
+          title: "Özel Tedavi",
+          description: "Kişiselleştirilmiş tedavi planınız, tam concierge hizmetimizi içerir: Konaklama düzenlemelerinizi yapar ve tüm özel transferlerinizi ekstra ücret ödemeden sağlarız.",
         },
         {
-          icon: Building2,
-          title: "Modern Laboratuvar",
-          stat: "Class A",
-          description: "Son teknoloji ekipman ve steril ortam",
+          icon: Microscope,
+          title: "En İyi Ekipman",
+          description: "Son teknoloji kliniğimiz, hassasiyet için gelişmiş ultrason cihazlarından konforunuz için en son kurtarma sistemlerine kadar tüm ekipmanlarla kusursuz bakım sağlar.",
         },
         {
-          icon: TrendingUp,
-          title: "Donasyon Başarısı",
-          stat: "%89",
-          description: "Yumurta donasyon programında yüksek başarı oranı",
+          icon: HeartHandshake,
+          title: "Hasta Desteği",
+          description: "İlk sorunuzdan son randevunuza kadar, size adanmış bir hasta koordinatörünüz olacak. Sorularınızı yanıtlamak ve kişisel yolculuğunuzun her adımında size rehberlik etmek için şefkatli, bire bir destek sağlıyoruz.",
         },
       ],
     },
     en: {
       title: "Why Choose Fertina IVF?",
-      subtitle: "Where trust, experience and success come together",
+      intro: "Discover the personalized pathways to parenthood offered at our clinic. Our services range from initial fertility assessments and diagnostics to advanced treatments like IVF and ICSI, and include pioneering options such as genetic testing and comprehensive donor programs.",
       reasons: [
         {
           icon: Award,
           title: "High Success Rates",
-          stat: "76%",
-          description: "Above international average success in IVF treatments",
+          description: "Our exceptional success rates are a direct result of the synergy between our world-class fertility specialists and master embryologists.",
         },
         {
-          icon: Users2,
-          title: "Experienced Team",
-          stat: "15+ Years",
-          description: "Expert doctors and embryologists in their field",
+          icon: Heart,
+          title: "Bespoke Treatment",
+          description: "Your customized treatment plan includes our complete concierge service: we arrange your accommodation and provide all private transfers at no extra cost.",
         },
         {
-          icon: Building2,
-          title: "Modern Laboratory",
-          stat: "Class A",
-          description: "State-of-the-art equipment and sterile environment",
+          icon: Microscope,
+          title: "Top Equipment",
+          description: "Our state-of-the-art clinic provides seamless care with all equipment on-site, from advanced ultrasound for precision to cutting-edge recovery systems for your comfort.",
         },
         {
-          icon: TrendingUp,
-          title: "Donation Success",
-          stat: "89%",
-          description: "High success rate in egg donation program",
+          icon: HeartHandshake,
+          title: "Patient Support",
+          description: "From your first inquiry to your final appointment, you will have a dedicated patient coordinator. We provide compassionate, one-on-one support to answer your questions and guide you at every step of your personal journey.",
         },
       ],
     },
@@ -73,54 +64,47 @@ const WhyChooseUs = ({ language }: WhyChooseUsProps) => {
   const t = content[language as keyof typeof content];
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-24 bg-gradient-to-b from-background to-secondary/20">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+        {/* Header */}
+        <div className="text-center mb-12 animate-fade-in max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             {t.title}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t.subtitle}
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+            {t.intro}
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Image */}
-          <div className="relative animate-fade-in">
-            <div className="rounded-3xl overflow-hidden shadow-xl">
-              <img
-                src="/ultason.jpg"
-                alt="Modern Laboratory"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-primary/20 rounded-3xl -z-10" />
-          </div>
-
-          {/* Reasons */}
-          <div className="grid sm:grid-cols-2 gap-6">
-            {t.reasons.map((reason, index) => (
-              <Card
-                key={index}
-                className="p-6 hover:shadow-lg smooth-transition animate-slide-up"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
-                    <reason.icon className="h-8 w-8 text-primary" />
+        {/* Reasons Grid */}
+        <div className="grid md:grid-cols-2 gap-8 mt-16">
+          {t.reasons.map((reason, index) => (
+            <Card
+              key={index}
+              className="p-8 hover:shadow-2xl smooth-transition animate-slide-up border-2 hover:border-primary/50 bg-card/50 backdrop-blur-sm"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <div className="flex flex-col h-full">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center flex-shrink-0">
+                    <reason.icon className="h-7 w-7 text-primary-foreground" />
                   </div>
-                  <div className="text-4xl font-bold text-primary mb-2">
-                    {reason.stat}
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2 text-foreground">
+                  <h3 className="text-2xl font-bold text-foreground pt-2">
                     {reason.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {reason.description}
-                  </p>
                 </div>
-              </Card>
-            ))}
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  {reason.description}
+                </p>
+              </div>
+            </Card>
+          ))}
+        </div>
+
+        {/* Decorative Element */}
+        <div className="mt-16 text-center">
+          <div className="inline-block px-8 py-4 rounded-full bg-primary/10 text-primary font-semibold">
+            {language === "tr" ? "✨ Sizin İçin Buradayız ✨" : "✨ We're Here For You ✨"}
           </div>
         </div>
       </div>
