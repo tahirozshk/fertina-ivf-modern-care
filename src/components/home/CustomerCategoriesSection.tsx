@@ -38,7 +38,7 @@ const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps)
         },
         {
           icon: Rainbow,
-          title: "LGBT+ Aileler",
+          title: "LGBT",
           image: "/LQBT_flag.jpg",
           treatments: [
             { name: "Kadın Çiftler - ROPA IVF", link: "/treatments/ropa-ivf" },
@@ -88,7 +88,7 @@ const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps)
         },
         {
           icon: Rainbow,
-          title: "LGBT+ Families",
+          title: "LGBT",
           image: "/LQBT_flag.jpg",
           treatments: [
             { name: "Female Couples - ROPA IVF", link: "/treatments/ropa-ivf" },
