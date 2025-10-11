@@ -161,7 +161,7 @@ const Treatments = () => {
       
       <div className="pt-20">
         {/* Hero Section */}
-        <section className="relative py-40 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/tedaviler_banner.jpg)' }}>
+        <section className="relative py-48 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/tedaviler_banner.jpg)' }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center animate-fade-in">

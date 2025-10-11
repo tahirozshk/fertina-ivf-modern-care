@@ -52,10 +52,11 @@ const Blog = () => {
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">
-        <section className="py-20 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-3 text-foreground">{t.title}</h1>
-            <p className="text-lg text-muted-foreground">{t.subtitle}</p>
+        <section className="relative py-48 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/blog_banner.jpg)' }}>
+          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="container mx-auto px-4 relative z-10 text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">{t.title}</h1>
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed">{t.subtitle}</p>
           </div>
         </section>
 

@@ -49,10 +49,11 @@ const Contact = () => {
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">
-        <section className="py-16 bg-gradient-to-br from-primary/10 via-secondary/20 to-accent/20">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">{l.title}</h1>
-            <p className="text-muted-foreground max-w-3xl mx-auto">{l.desc}</p>
+        <section className="relative py-80 bg-cover bg-center bg-top bg-no-repeat" style={{ backgroundImage: 'url(/team.jpg)' }}>
+          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="container mx-auto px-4 relative z-10 text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">{l.title}</h1>
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">{l.desc}</p>
           </div>
         </section>
 
