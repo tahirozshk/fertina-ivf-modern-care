@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      spacing: {
+        '30': '7.5rem', // 120px - üst menü için ekstra padding
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

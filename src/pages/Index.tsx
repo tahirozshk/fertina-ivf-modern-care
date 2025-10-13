@@ -19,7 +19,7 @@ const Index = () => {
       <Navigation language={language} setLanguage={setLanguage} />
       
       {/* Add padding to account for fixed navigation */}
-      <div className="pt-20">
+      <div className="pt-20 sm:pt-30">
         <HeroSection language={language} />
         <ServicesSection language={language} />
         <WhyChooseUs language={language} />

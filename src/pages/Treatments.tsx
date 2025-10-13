@@ -161,7 +161,7 @@ const Treatments = () => {
     <div className="min-h-screen">
       <Navigation language={language} setLanguage={setLanguage} />
       
-      <div className="pt-20">
+      <div className="pt-30">
         {/* Hero Section */}
         <section className="relative py-48 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/tedaviler_banner.jpg)' }}>
           <div className="absolute inset-0 bg-black/40"></div>

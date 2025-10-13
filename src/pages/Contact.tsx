@@ -48,7 +48,7 @@ const Contact = () => {
     <div className="min-h-screen">
       <Navigation language={language} setLanguage={setLanguage} />
 
-      <div className="pt-20">
+      <div className="pt-30">
         <section className="py-12 bg-background">
           <div className="container mx-auto px-4 text-center mb-8">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">{l.title}</h1>
