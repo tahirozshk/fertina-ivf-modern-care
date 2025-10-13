@@ -84,6 +84,7 @@ const MedicalServices = () => {
           </div>
         </section>
 
+
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-foreground">{t.servicesTitle}</h2>
@@ -256,6 +257,34 @@ const MedicalServices = () => {
           </div>
         </section>
       </div>
+
+      {/* Bottom CTA (same as Treatments) */}
+      <section className="py-16 bg-gradient-to-r from-primary/10 via-secondary/20 to-accent/30">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+            {language === "tr" 
+              ? "Hangi tedavinin size uygun olduğundan emin değil misiniz?" 
+              : "Not sure which treatment is right for you?"}
+          </h2>
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            {language === "tr"
+              ? "Uzman ekibimiz size özel tedavi planı oluşturmak için hazır. Ücretsiz ön görüşme için hemen iletişime geçin."
+              : "Our expert team is ready to create a personalized treatment plan for you. Contact us now for a free consultation."}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/contact">
+              <Button size="lg">
+                {language === "tr" ? "Ücretsiz Danışmanlık" : "Free Consultation"}
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button size="lg" variant="outline">
+                {language === "tr" ? "Bizimle İletişime Geçin" : "Contact Us"}
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <Footer language={language} />
       <WhatsAppButton />
