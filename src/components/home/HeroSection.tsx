@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-clinic.jpg";
+import { Link } from "react-router-dom";
 
 interface HeroSectionProps {
   language: string;
@@ -48,17 +49,17 @@ const HeroSection = ({ language }: HeroSectionProps) => {
             {t.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href="/contact">
+            <Link to="/contact">
               <Button size="lg" className="group">
                 {t.cta1}
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 smooth-transition" />
               </Button>
-            </a>
-            <a href="/about">
+            </Link>
+            <Link to="/about">
               <Button size="lg" variant="outline">
                 {t.cta2}
               </Button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

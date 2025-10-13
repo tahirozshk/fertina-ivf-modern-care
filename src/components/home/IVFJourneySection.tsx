@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Phone, Plane, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface IVFJourneySectionProps {
   language: string;
@@ -139,11 +140,11 @@ const IVFJourneySection = ({ language }: IVFJourneySectionProps) => {
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
           {/* More Info Button */}
-          <a href="/contact">
+          <Link to="/contact">
             <button className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 smooth-transition shadow-lg hover:shadow-xl">
               {language === "tr" ? "Daha Fazla Bilgi Al" : "Get More Information"}
             </button>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

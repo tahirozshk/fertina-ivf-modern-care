@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Calendar } from "lucide-react";
 import consultationImage from "@/assets/couple-consultation.jpg";
+import { Link } from "react-router-dom";
 
 interface CTASectionProps {
   language: string;
@@ -38,18 +39,18 @@ const CTASection = ({ language }: CTASectionProps) => {
                 {t.subtitle}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 animate-slide-up">
-                <a href="/contact">
+                <Link to="/contact">
                   <Button size="lg" className="gap-2 w-full sm:w-auto">
                   <Calendar className="h-5 w-5" />
                   {t.cta1}
                   </Button>
-                </a>
-                <a href="/contact">
+                </Link>
+                <Link to="/contact">
                   <Button size="lg" variant="outline" className="gap-2 w-full sm:w-auto">
                   <Phone className="h-5 w-5" />
                   {t.cta2}
                   </Button>
-                </a>
+                </Link>
               </div>
             </div>
 

@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Users, Heart, Rainbow, User } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface CustomerCategoriesSectionProps {
   language: string;
@@ -151,13 +152,13 @@ const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps)
               {/* Treatments List */}
               <div className="space-y-2">
                 {category.treatments.map((treatment, treatmentIndex) => (
-                  <a
+                  <Link
                     key={treatmentIndex}
-                    href={treatment.link}
+                    to={treatment.link}
                     className="block text-sm text-muted-foreground hover:text-primary smooth-transition"
                   >
                     {treatment.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

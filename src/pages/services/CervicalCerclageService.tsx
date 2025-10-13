@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -156,8 +157,8 @@ const CervicalCerclageService = () => {
             <h3 className="text-2xl font-bold mb-4 text-foreground">{t.goalTitle}</h3>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">{t.goalDesc}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/contact"><Button size="lg">{t.cta}</Button></a>
-              <a href="/contact"><Button size="lg" variant="outline">{t.contact}</Button></a>
+              <Link to="/contact"><Button size="lg">{t.cta}</Button></Link>
+              <Link to="/contact"><Button size="lg" variant="outline">{t.contact}</Button></Link>
             </div>
           </div>
         </section>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -335,8 +336,8 @@ const GenderSelection = () => {
                   : "Gender selection is not just a choice, but sometimes a necessity to prevent genetic diseases. We are with you in both cases."}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/contact"><Button size="lg">{t.cta}</Button></a>
-                <a href="/contact"><Button size="lg" variant="outline">{t.contact}</Button></a>
+                <Link to="/contact"><Button size="lg">{t.cta}</Button></Link>
+                <Link to="/contact"><Button size="lg" variant="outline">{t.contact}</Button></Link>
               </div>
             </div>
           </div>

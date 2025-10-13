@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -220,8 +221,8 @@ const PregnancyFollowUpService = () => {
               <HeartPulse className="h-16 w-16 text-primary mx-auto mb-6" />
               <p className="text-lg text-muted-foreground mb-8">{t.closing}</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/contact"><Button size="lg">{t.cta}</Button></a>
-                <a href="/contact"><Button size="lg" variant="outline">{t.contact}</Button></a>
+                <Link to="/contact"><Button size="lg">{t.cta}</Button></Link>
+                <Link to="/contact"><Button size="lg" variant="outline">{t.contact}</Button></Link>
               </div>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -191,8 +192,8 @@ const DeliveryService = () => {
               ))}
             </ul>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <a href="/contact"><Button size="lg">{t.cta}</Button></a>
-              <a href="/contact"><Button size="lg" variant="outline">{t.contact}</Button></a>
+              <Link to="/contact"><Button size="lg">{t.cta}</Button></Link>
+              <Link to="/contact"><Button size="lg" variant="outline">{t.contact}</Button></Link>
             </div>
           </div>
         </section>

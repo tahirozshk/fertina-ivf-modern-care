@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -240,8 +241,8 @@ const Physiotherapy = () => {
                   : "We offer new hope with this special physiotherapy program we have developed for our patients who have been unsuccessful in IVF treatments before. We are with you with the experience and innovative approach of Fertina IVF."}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/contact"><Button size="lg">{t.cta}</Button></a>
-                <a href="/contact"><Button size="lg" variant="outline">{t.contact}</Button></a>
+                <Link to="/contact"><Button size="lg">{t.cta}</Button></Link>
+                <Link to="/contact"><Button size="lg" variant="outline">{t.contact}</Button></Link>
               </div>
             </div>
           </div>
