@@ -12,13 +12,13 @@ const Privacy = () => {
       effectiveDate: "Yürürlük tarihi: 12.03.2024",
       lastUpdated: "Güncellenme tarihi: 12.03.2024",
       
-      intro: `Bu Gizlilik Politikası, IVF Cyprus Organization tarafından https://fertinaivf.com/ adresinden erişilen hizmet ("Hizmet") kapsamında toplanan ve kullanılan bilgilerle ilgili politikaları açıklar. Ayrıca gizlilik haklarınızı ve bu hakların gizlilik yasaları çerçevesinde nasıl korunduğunu da belirtir.
+      intro: `Bu Gizlilik Politikası, Fertina IVF tarafından https://fertinaivf.com/ adresinden erişilen hizmet ("Hizmet") kapsamında toplanan ve kullanılan bilgilerle ilgili politikaları açıklar. Ayrıca gizlilik haklarınızı ve bu hakların gizlilik yasaları çerçevesinde nasıl korunduğunu da belirtir.
 
 Hizmetimizi kullanarak, bilgilerin bu Gizlilik Politikası'na uygun olarak toplanmasını ve kullanılmasını kabul etmiş olursunuz. Eğer bilgilerin bu politikaya uygun şekilde toplanmasını ve kullanılmasını kabul etmiyorsanız, lütfen Hizmetimize erişmeyin veya kullanmayın.
 
 Bu Gizlilik Politikası, CookieScript Gizlilik Politikası Oluşturucu yardımıyla hazırlanmıştır.
 
-IVF Cyprus Organization, bu Gizlilik Politikası'nı dilediği zaman değiştirme hakkını saklı tutar. Bu değişikliklerin önceden bildirim yapılmadan gerçekleşebileceğini lütfen unutmayın.
+Fertina IVF, bu Gizlilik Politikası'nı dilediği zaman değiştirme hakkını saklı tutar. Bu değişikliklerin önceden bildirim yapılmadan gerçekleşebileceğini lütfen unutmayın.
 
 Güncellenmiş Gizlilik Politikası, https://fertinaivf.com/ adresinde yayınlanacaktır.`,
 
@@ -42,14 +42,14 @@ Güncellenmiş Gizlilik Politikası, https://fertinaivf.com/ adresinde yayınlan
           content: "https://fertinaivf.com/ bilgilerinizi aşağıdaki amaçlarla kullanabilir:",
           points: [
             "Hizmetimizi sağlamak, sürdürmek ve kullanımını izlemek.",
-            "Sizinle iletişim kurmak. IVF Cyprus Organization, gerektiğinde veya makul durumlarda size e-posta, telefon, SMS veya diğer elektronik yollarla işlevler, ürünler, hizmetler veya güvenlik güncellemeleri hakkında bilgi verebilir."
+            "Sizinle iletişim kurmak. Fertina IVF, gerektiğinde veya makul durumlarda size e-posta, telefon, SMS veya diğer elektronik yollarla işlevler, ürünler, hizmetler veya güvenlik güncellemeleri hakkında bilgi verebilir."
           ]
         },
         howShared: {
           title: "Bilgileriniz Nasıl Paylaşılır",
-          content: "IVF Cyprus Organization, aşağıdaki durumlarda bilgilerinizi paylaşabilir:",
+          content: "Fertina IVF, aşağıdaki durumlarda bilgilerinizi paylaşabilir:",
           points: [
-            "Açık onayınızla: IVF Cyprus Organization, yalnızca sizin açık rızanız doğrultusunda bilgilerinizi paylaşır."
+            "Açık onayınızla: Fertina IVF, yalnızca sizin açık rızanız doğrultusunda bilgilerinizi paylaşır."
           ]
         }
       },
@@ -59,9 +59,9 @@ Güncellenmiş Gizlilik Politikası, https://fertinaivf.com/ adresinde yayınlan
         content: "Bilgilerinizin paylaşıldığı herhangi bir üçüncü taraf, bilgileri hangi amaçla kullanacağını açıkça belirtmek zorundadır. Bu taraflar, bilgilerinizi yalnızca belirtilen süre boyunca saklayabilir ve amaç dışı kullanamaz, satamaz veya işleyemez.",
         purposes: [
           "Analitik hizmetleri: Bilgileriniz, çevrimiçi trafiği izlemek ve analiz etmek amacıyla analitik araçlarla paylaşılabilir.",
-          "Hedefli reklam kampanyalarının iyileştirilmesi: IVF Cyprus Organization, hedefli reklam çalışmalarını geliştirmek için üçüncü taraf hizmet sağlayıcılarla iş birliği yapabilir."
+          "Hedefli reklam kampanyalarının iyileştirilmesi: Fertina IVF, hedefli reklam çalışmalarını geliştirmek için üçüncü taraf hizmet sağlayıcılarla iş birliği yapabilir."
         ],
-        consent: "Bu tür bilgileri sağlamayı tercih ederek, IVF Cyprus Organization'a bu bilgileri bu Gizlilik Politikası'na uygun şekilde kullanma, paylaşma ve depolama izni vermiş olursunuz."
+        consent: "Bu tür bilgileri sağlamayı tercih ederek, Fertina IVF'a bu bilgileri bu Gizlilik Politikası'na uygun şekilde kullanma, paylaşma ve depolama izni vermiş olursunuz."
       },
 
       disclosure: {
@@ -85,14 +85,14 @@ Güncellenmiş Gizlilik Politikası, https://fertinaivf.com/ adresinde yayınlan
       security: {
         title: "Güvenlik",
         content: "Bilgilerinizin güvenliği bizim için önemlidir. https://fertinaivf.com/ bilgilerin kötüye kullanılmasını, kaybolmasını veya değiştirilmesini önlemek için çeşitli güvenlik önlemleri uygular. Ancak, bilgilerinizi tamamen koruyacağımızı garanti edemeyiz. Bu nedenle hizmetimize erişirken kendi sorumluluğunuzda hareket etmelisiniz.",
-        disclaimer: "IVF Cyprus Organization, üçüncü taraflarca işletilen web sitelerinin performansından veya bu sitelerle olan etkileşimlerinizden sorumlu değildir. Bu web sitesinden ayrıldıktan sonra, ziyaret ettiğiniz diğer sitelerin gizlilik uygulamalarını incelemenizi öneririz."
+        disclaimer: "Fertina IVF, üçüncü taraflarca işletilen web sitelerinin performansından veya bu sitelerle olan etkileşimlerinizden sorumlu değildir. Bu web sitesinden ayrıldıktan sonra, ziyaret ettiğiniz diğer sitelerin gizlilik uygulamalarını incelemenizi öneririz."
       },
 
       contact: {
         title: "İletişim",
         content: "Herhangi bir sorunuz varsa, bizimle aşağıdaki yollarla iletişime geçebilirsiniz:",
         info: {
-          name: "IVF Cyprus Organization",
+          name: "Fertina IVF",
           address: "Life Hastanesi, Gazi Mustafa Kemal Blv. 23, Daire 2, Gazimağusa 99450",
           email: "info@ivfcyprus.org",
           website: "https://fertinaivf.com/",
@@ -105,13 +105,13 @@ Güncellenmiş Gizlilik Politikası, https://fertinaivf.com/ adresinde yayınlan
       effectiveDate: "Effective Date: March 12, 2024",
       lastUpdated: "Last Updated: March 12, 2024",
       
-      intro: `This Privacy Policy describes the policies regarding the collection and use of information in connection with the service ("Service") accessed from https://fertinaivf.com/ by IVF Cyprus Organization. It also specifies your privacy rights and how these rights are protected under privacy laws.
+      intro: `This Privacy Policy describes the policies regarding the collection and use of information in connection with the service ("Service") accessed from https://fertinaivf.com/ by Fertina IVF. It also specifies your privacy rights and how these rights are protected under privacy laws.
 
 By using our Service, you agree to the collection and use of information in accordance with this Privacy Policy. If you do not agree to the collection and use of information in accordance with this policy, please do not access or use our Service.
 
 This Privacy Policy has been prepared with the help of CookieScript Privacy Policy Generator.
 
-IVF Cyprus Organization reserves the right to modify this Privacy Policy at any time. Please note that these changes may occur without prior notice.
+Fertina IVF reserves the right to modify this Privacy Policy at any time. Please note that these changes may occur without prior notice.
 
 The updated Privacy Policy will be published at https://fertinaivf.com/.`,
 
@@ -135,14 +135,14 @@ The updated Privacy Policy will be published at https://fertinaivf.com/.`,
           content: "https://fertinaivf.com/ may use your information for the following purposes:",
           points: [
             "To provide, maintain, and monitor the use of our Service.",
-            "To communicate with you. IVF Cyprus Organization may inform you about functions, products, services, or security updates via email, phone, SMS, or other electronic means when necessary or in reasonable circumstances."
+            "To communicate with you. Fertina IVF may inform you about functions, products, services, or security updates via email, phone, SMS, or other electronic means when necessary or in reasonable circumstances."
           ]
         },
         howShared: {
           title: "How Your Information is Shared",
-          content: "IVF Cyprus Organization may share your information in the following situations:",
+          content: "Fertina IVF may share your information in the following situations:",
           points: [
-            "With your explicit consent: IVF Cyprus Organization shares your information only with your explicit consent."
+            "With your explicit consent: Fertina IVF shares your information only with your explicit consent."
           ]
         }
       },
@@ -152,9 +152,9 @@ The updated Privacy Policy will be published at https://fertinaivf.com/.`,
         content: "Any third party with whom your information is shared must clearly state the purpose for which the information will be used. These parties may only store your information for the specified period and may not use, sell, or process it for purposes other than those stated.",
         purposes: [
           "Analytics services: Your information may be shared with analytics tools to track and analyze online traffic.",
-          "Improvement of targeted advertising campaigns: IVF Cyprus Organization may collaborate with third-party service providers to develop targeted advertising efforts."
+          "Improvement of targeted advertising campaigns: Fertina IVF may collaborate with third-party service providers to develop targeted advertising efforts."
         ],
-        consent: "By choosing to provide such information, you grant IVF Cyprus Organization permission to use, share, and store this information in accordance with this Privacy Policy."
+        consent: "By choosing to provide such information, you grant Fertina IVF permission to use, share, and store this information in accordance with this Privacy Policy."
       },
 
       disclosure: {
@@ -178,14 +178,14 @@ The updated Privacy Policy will be published at https://fertinaivf.com/.`,
       security: {
         title: "Security",
         content: "The security of your information is important to us. https://fertinaivf.com/ implements various security measures to prevent misuse, loss, or alteration of information. However, we cannot guarantee that your information will be completely protected. Therefore, you should act on your own responsibility when accessing our Service.",
-        disclaimer: "IVF Cyprus Organization is not responsible for the performance of websites operated by third parties or your interactions with these sites. After leaving this website, we recommend that you review the privacy practices of other sites you visit."
+        disclaimer: "Fertina IVF is not responsible for the performance of websites operated by third parties or your interactions with these sites. After leaving this website, we recommend that you review the privacy practices of other sites you visit."
       },
 
       contact: {
         title: "Contact",
         content: "If you have any questions, you can contact us through the following ways:",
         info: {
-          name: "IVF Cyprus Organization",
+          name: "Fertina IVF",
           address: "Life Hospital, Gazi Mustafa Kemal Blvd. 23, Suite 2, Gazimağusa 99450",
           email: "info@ivfcyprus.org",
           website: "https://fertinaivf.com/",
