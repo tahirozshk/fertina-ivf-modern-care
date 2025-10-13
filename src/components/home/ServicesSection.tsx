@@ -11,84 +11,110 @@ const ServicesSection = ({ language }: ServicesSectionProps) => {
     tr: {
       title: "Tedavi ve Tıbbi Hizmetlerimiz",
       subtitle: "Uluslararası standartlarda, bireysel ihtiyaçlara özel çözümler",
+      cta: "Detaylı Bilgi",
       services: [
         {
           icon: Baby,
           title: "IVF (ICSI) Tedavisi",
           description: "Modern embriyo transfer teknikleri ile yüksek başarı oranları",
           href: "/treatments/ivf-icsi",
+          image: "ivf.webp",
+          successRate: "%76",
         },
         {
           icon: Heart,
           title: "Yumurta Donasyonu",
           description: "Titizlikle seçilmiş donörler ile güvenilir süreç",
           href: "/treatments/yumurta-donasyonu",
+          image: "egg.avif",
+          successRate: "%89",
         },
         {
           icon: Dna,
           title: "Genetik Testler (PGD/NGS)",
           description: "Gelişmiş genetik tarama ile sağlıklı embriyo seçimi",
           href: "/tibbi-hizmetler/genetik",
+          image: "genetic_dna.jpg",
+          successRate: "%99",
         },
         {
           icon: Users,
           title: "Cinsiyet Seçimi",
           description: "Yasal ve etik çerçevede aile dengeleme",
           href: "/treatments/cinsiyet-secimi",
+          image: "gender.webp",
+          successRate: "%99",
         },
         {
           icon: Microscope,
           title: "Embriyo Dondurma",
           description: "İleri teknoloji ile güvenli embriyo saklama",
           href: "/tibbi-hizmetler/embriyo-dondurma",
+          image: "embryo_dondurma.jpg",
+          successRate: "%95",
         },
         {
           icon: Stethoscope,
           title: "Sperm Donasyonu",
           description: "Detaylı sağlık kontrolünden geçmiş donörler",
           href: "/treatments/sperm-donasyonu",
+          image: "sperm.jpg",
+          successRate: "%82",
         },
       ],
     },
     en: {
       title: "Our Treatments & Services",
       subtitle: "International standards with personalized solutions",
+      cta: "Learn More",
       services: [
         {
           icon: Baby,
           title: "IVF (ICSI) Treatment",
           description: "High success rates with modern embryo transfer techniques",
           href: "/treatments/ivf-icsi",
+          image: "ivf.webp",
+          successRate: "76%",
         },
         {
           icon: Heart,
           title: "Egg Donation",
           description: "Reliable process with carefully selected donors",
           href: "/treatments/egg-donation",
+          image: "egg.avif",
+          successRate: "89%",
         },
         {
           icon: Dna,
           title: "Genetic Testing (PGD/NGS)",
           description: "Healthy embryo selection with advanced genetic screening",
           href: "/medical-services/genetics",
+          image: "genetic_dna.jpg",
+          successRate: "99%",
         },
         {
           icon: Users,
           title: "Gender Selection",
           description: "Family balancing within legal and ethical framework",
           href: "/treatments/gender-selection",
+          image: "gender.webp",
+          successRate: "99%",
         },
         {
           icon: Microscope,
           title: "Embryo Freezing",
           description: "Safe embryo storage with advanced technology",
           href: "/medical-services/embryo-freezing",
+          image: "embryo_dondurma.jpg",
+          successRate: "95%",
         },
         {
           icon: Stethoscope,
           title: "Sperm Donation",
           description: "Donors with comprehensive health screening",
           href: "/treatments/sperm-donation",
+          image: "sperm.jpg",
+          successRate: "82%",
         },
       ],
     },
@@ -116,17 +142,37 @@ const ServicesSection = ({ language }: ServicesSectionProps) => {
               className="group animate-slide-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <Card className="p-6 h-full hover:shadow-lg smooth-transition hover:-translate-y-1 bg-card">
-                <div className="flex flex-col h-full">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 smooth-transition">
-                    <service.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground smooth-transition" />
+              <Card className="group overflow-hidden hover:shadow-xl smooth-transition hover:-translate-y-2 h-full">
+                {/* Background Image */}
+                <div className="relative h-64 w-full overflow-hidden">
+                  <img 
+                    src={`/${service.image}`} 
+                    alt={service.title}
+                    className="absolute inset-0 h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                  
+                  {/* Success Rate */}
+                  {service.successRate && (
+                    <div className="absolute top-4 right-4 text-right">
+                      <div className="text-xs text-white/80 mb-1">
+                        {language === "tr" ? "Başarı" : "Success"}
+                      </div>
+                      <div className="text-2xl font-bold text-white">
+                        {service.successRate}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Content */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-primary-foreground smooth-transition">
+                      {service.title}
+                    </h3>
+                    <p className="text-white/90 leading-relaxed text-sm">
+                      {service.description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-primary smooth-transition">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </p>
                 </div>
               </Card>
             </Link>
