@@ -9,8 +9,8 @@ interface CustomerCategoriesSectionProps {
 const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps) => {
   const content = {
     tr: {
-      title: "Müşteri Kategorileri",
-      subtitle: "Her aile tipine özel tedavi seçenekleri sunuyoruz",
+      title: "Her aile tipine özel tedavi seçenekleri sunuyoruz",
+      subtitle: "",
       categories: [
         {
           icon: Users,
