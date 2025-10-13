@@ -54,7 +54,7 @@ const Footer = ({ language }: FooterProps) => {
             <h3 className="font-semibold mb-4">{t.treatments}</h3>
             <ul className="space-y-2 text-sm text-background/80">
               <li>
-                <Link to="/treatments/ivf" className="hover:text-primary smooth-transition">
+                <Link to="/treatments/ivf-icsi" className="hover:text-primary smooth-transition">
                   IVF (ICSI)
                 </Link>
               </li>
@@ -101,52 +101,46 @@ const Footer = ({ language }: FooterProps) => {
             <h3 className="font-semibold mb-4">{t.services}</h3>
             <ul className="space-y-2 text-sm text-background/80">
               <li>
-                <Link to="/services/genetic-testing" className="hover:text-primary smooth-transition">
+                <Link to={language === "tr" ? "/tibbi-hizmetler/genetik" : "/medical-services/genetics"} className="hover:text-primary smooth-transition">
                   {language === "tr" ? "Genetik Testler (PGD)" : "Genetic Testing (PGD)"}
                 </Link>
               </li>
               <li>
-                <Link to="/services/embryo-freezing" className="hover:text-primary smooth-transition">
+                <Link to={language === "tr" ? "/tibbi-hizmetler/embriyo-dondurma" : "/medical-services/embryo-freezing"} className="hover:text-primary smooth-transition">
                   {language === "tr" ? "Embriyo Dondurma" : "Embryo Freezing"}
                 </Link>
               </li>
               <li>
-                <Link to="/services/egg-freezing" className="hover:text-primary smooth-transition">
+                <Link to={language === "tr" ? "/tibbi-hizmetler/yumurta-dondurma" : "/medical-services/egg-freezing"} className="hover:text-primary smooth-transition">
                   {language === "tr" ? "Yumurta Dondurma" : "Egg Freezing"}
                 </Link>
               </li>
               <li>
-                <Link to="/services/sperm-freezing" className="hover:text-primary smooth-transition">
+                <Link to={language === "tr" ? "/tibbi-hizmetler/sperm-dondurma" : "/medical-services/sperm-freezing"} className="hover:text-primary smooth-transition">
                   {language === "tr" ? "Sperm Dondurma" : "Sperm Freezing"}
                 </Link>
               </li>
               <li>
-                <Link to="/services/ngs" className="hover:text-primary smooth-transition">
-                  NGS Analizi
-                </Link>
+                <Link to={language === "tr" ? "/tibbi-hizmetler/yeni-nesil-dizileme" : "/medical-services/next-generation-sequencing"} className="hover:text-primary smooth-transition">NGS</Link>
               </li>
               <li>
-                <Link to="/services/wes" className="hover:text-primary smooth-transition">
-                  WES (Exome) Analizi
-                </Link>
+                <Link to={language === "tr" ? "/tibbi-hizmetler/tum-ekzom-dizilemesi" : "/medical-services/whole-exome-sequencing"} className="hover:text-primary smooth-transition">WES</Link>
               </li>
               <li>
-                <Link to="/services/tese" className="hover:text-primary smooth-transition">
-                  TESE/Micro-TESE
-                </Link>
+                <Link to={language === "tr" ? "/tibbi-hizmetler/sperm-elde-etme" : "/medical-services/sperm-retrieval"} className="hover:text-primary smooth-transition">TESE/Micro-TESE</Link>
               </li>
               <li>
-                <Link to="/services/laparoscopy" className="hover:text-primary smooth-transition">
+                <Link to={language === "tr" ? "/tibbi-hizmetler/laparoskopi" : "/medical-services/laparoscopy"} className="hover:text-primary smooth-transition">
                   {language === "tr" ? "Laparoskopi" : "Laparoscopy"}
                 </Link>
               </li>
               <li>
-                <Link to="/services/hysteroscopy" className="hover:text-primary smooth-transition">
+                <Link to={language === "tr" ? "/tibbi-hizmetler/histeroskopi" : "/medical-services/hysteroscopy"} className="hover:text-primary smooth-transition">
                   {language === "tr" ? "Histeroskopi" : "Hysteroscopy"}
                 </Link>
               </li>
               <li>
-                <Link to="/services/pregnancy-follow-up" className="hover:text-primary smooth-transition">
+                <Link to={language === "tr" ? "/tibbi-hizmetler/gebelik-takibi" : "/medical-services/pregnancy-follow-up"} className="hover:text-primary smooth-transition">
                   {language === "tr" ? "Gebelik Takibi" : "Pregnancy Follow-up"}
                 </Link>
               </li>
