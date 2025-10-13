@@ -27,13 +27,13 @@ const HeroSection = ({ language }: HeroSectionProps) => {
   const t = content[language as keyof typeof content];
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[50vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
           src="/banner.jpg"
           alt="Fertina IVF Clinic"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-right md:object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-background/40 to-background/20" />
       </div>
