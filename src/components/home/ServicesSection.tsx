@@ -139,10 +139,10 @@ const ServicesSection = ({ language }: ServicesSectionProps) => {
             <Link
               key={index}
               to={service.href}
-              className="group animate-slide-up"
+              className="group animate-slide-up reveal"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <Card className="group overflow-hidden hover:shadow-xl smooth-transition hover:-translate-y-2 h-full">
+              <Card className="group overflow-hidden hover:shadow-xl smooth-transition hover:-translate-y-2 h-full elevate">
                 {/* Background Image */}
                 <div className="relative h-64 w-full overflow-hidden">
                   <img 

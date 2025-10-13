@@ -149,4 +149,31 @@ All colors MUST be HSL.
   .smooth-transition {
     transition: var(--transition-smooth);
   }
+
+  /* Subtle elevation and hover for cards/images */
+  .elevate {
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-smooth);
+  }
+  .elevate:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-4px);
+  }
+
+  /* Fade/slide in on scroll */
+  .reveal { opacity: 0; transform: translateY(18px); }
+  .reveal.revealed { opacity: 1; transform: translateY(0); transition: opacity 700ms ease, transform 700ms ease; }
+
+  /* Directional variants */
+  .reveal-left { transform: translateX(-24px); }
+  .reveal-right { transform: translateX(24px); }
+  .reveal-up { transform: translateY(24px); }
+  .reveal-fade { transform: none; opacity: 0; }
+  .reveal-left.revealed,
+  .reveal-right.revealed,
+  .reveal-up.revealed,
+  .reveal-fade.revealed { opacity: 1; transform: none; }
+
+  /* Slower variant for big images */
+  .reveal-slow.revealed { transition-duration: 900ms; }
 }

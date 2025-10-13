@@ -130,21 +130,21 @@ const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps)
           {t.categories.map((category, index) => (
             <div
               key={index}
-              className="animate-slide-up smooth-transition relative"
+              className="animate-slide-up smooth-transition relative reveal"
               style={{ animationDelay: `${index * 100}ms` }}
             >
 
               {/* Image */}
-              <div className="mb-4">
+              <div className="mb-4 elevate rounded-2xl overflow-hidden">
                 <img
                   src={category.image}
                   alt={category.title}
-                  className="w-full h-64 object-cover rounded-2xl"
+                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-bold text-foreground mb-4">
+              <h3 className="text-xl font-bold text-foreground mb-4 smooth-transition group-hover:text-primary">
                 {category.title}
               </h3>
 
@@ -166,7 +166,7 @@ const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps)
 
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
-          <div className="inline-block px-8 py-4 rounded-full bg-primary/10 text-primary font-semibold">
+          <div className="inline-block px-8 py-4 rounded-full bg-primary/10 text-primary font-semibold elevate smooth-transition reveal-fade hover:scale-105">
             {language === "tr" ? "💝 Her Aileye Özel Çözümler 💝" : "💝 Solutions for Every Family 💝"}
           </div>
         </div>

@@ -71,12 +71,12 @@ const TestimonialsSection = ({ language }: TestimonialsSectionProps) => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-fade">
           {t.testimonials.map((testimonial, index) => (
             <Card
               key={index}
-              className="p-6 hover:shadow-lg smooth-transition animate-slide-up bg-card"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className={`p-6 hover:shadow-lg smooth-transition animate-slide-up bg-card elevate ${index % 3 === 0 ? 'reveal-left' : index % 3 === 1 ? 'reveal-up' : 'reveal-right'}`}
+              style={{ animationDelay: `${index * 80}ms` }}
             >
               <div className="flex flex-col h-full">
                 <Quote className="h-10 w-10 text-primary/20 mb-4" />

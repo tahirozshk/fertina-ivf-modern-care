@@ -109,8 +109,8 @@ const IVFJourneySection = ({ language }: IVFJourneySectionProps) => {
           {t.phases.map((phase, index) => (
             <Card
               key={index}
-              className="p-8 hover:shadow-2xl smooth-transition animate-slide-up border-2 hover:border-primary/50 bg-card/50 backdrop-blur-sm"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className={`p-8 hover:shadow-2xl smooth-transition animate-slide-up border-2 hover:border-primary/50 bg-card/50 backdrop-blur-sm ${index === 0 ? 'reveal-left' : index === 1 ? 'reveal-up' : 'reveal-right'}`}
+              style={{ animationDelay: `${index * 80}ms` }}
             >
               <div className="text-center mb-6">
                 <div className={`w-16 h-16 rounded-full ${phase.color} flex items-center justify-center mx-auto mb-4`}>

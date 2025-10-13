@@ -79,12 +79,12 @@ const WhyChooseUs = ({ language }: WhyChooseUsProps) => {
         {/* Content with Image */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mt-16">
           {/* Image */}
-          <div className="relative animate-fade-in">
-            <div className="rounded-3xl overflow-hidden shadow-2xl">
+          <div className="relative animate-fade-in reveal">
+            <div className="rounded-3xl overflow-hidden shadow-2xl elevate">
               <img
                 src="/neden.jpg"
                 alt="Fertina IVF Team"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-primary/20 rounded-3xl -z-10" />
@@ -96,8 +96,8 @@ const WhyChooseUs = ({ language }: WhyChooseUsProps) => {
             {t.reasons.map((reason, index) => (
               <Card
                 key={index}
-                className="p-6 hover:shadow-2xl smooth-transition animate-slide-up border-2 hover:border-primary/50 bg-card/50 backdrop-blur-sm"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="p-6 hover:shadow-2xl smooth-transition animate-slide-up border-2 hover:border-primary/50 bg-card/50 backdrop-blur-sm reveal-up"
+                style={{ animationDelay: `${index * 80}ms` }}
               >
                 <div className="flex flex-col h-full">
                   <div className="flex items-start gap-4 mb-4">
@@ -119,7 +119,7 @@ const WhyChooseUs = ({ language }: WhyChooseUsProps) => {
 
         {/* Decorative Element */}
         <div className="mt-16 text-center">
-          <div className="inline-block px-8 py-4 rounded-full bg-primary/10 text-primary font-semibold">
+          <div className="inline-block px-8 py-4 rounded-full bg-primary/10 text-primary font-semibold elevate smooth-transition reveal-fade hover:scale-105">
             {language === "tr" ? "✨ Sizin İçin Buradayız ✨" : "✨ We're Here For You ✨"}
           </div>
         </div>

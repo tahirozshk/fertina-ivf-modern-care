@@ -85,7 +85,7 @@ const CyprusLocationSection = ({ language }: CyprusLocationSectionProps) => {
         {/* Content Grid */}
         <div className="grid lg:grid-cols-3 gap-12 items-start">
           {/* Main Content */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-6 reveal-left reveal-slow">
             <Card className="p-8 bg-card/50 backdrop-blur-sm border-2 hover:border-primary/50 smooth-transition">
               <p className="text-lg leading-relaxed text-muted-foreground mb-6">
                 {t.subtitle}
@@ -104,19 +104,19 @@ const CyprusLocationSection = ({ language }: CyprusLocationSectionProps) => {
 
           {/* Image Section */}
           <div className="space-y-6">
-            <div className="relative">
-              <div className="rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative reveal-right reveal-slow">
+              <div className="rounded-3xl overflow-hidden shadow-2xl elevate">
                 <img
                   src="/north_ cyprus.jpg"
                   alt="Northern Cyprus"
-                  className="w-full h-64 object-cover"
+                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-2xl -z-10" />
             </div>
             
-            <div className="text-center space-y-4">
-              <div className="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 rounded-full">
+            <div className="text-center space-y-4 reveal-up">
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 rounded-full elevate">
                 <Sun className="h-5 w-5 text-primary" />
                 <span className="font-semibold text-primary">
                   {language === "tr" ? "300+ Güneşli Gün" : "300+ Sunny Days"}
@@ -124,13 +124,13 @@ const CyprusLocationSection = ({ language }: CyprusLocationSectionProps) => {
               </div>
               
               <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-4 bg-accent/20 rounded-xl">
+                <div className="text-center p-4 bg-accent/20 rounded-xl elevate reveal-left">
                   <Castle className="h-8 w-8 text-primary mx-auto mb-2" />
                   <p className="text-sm font-medium text-foreground">
                     {language === "tr" ? "Tarihi Yapılar" : "Historical Sites"}
                   </p>
                 </div>
-                <div className="text-center p-4 bg-accent/20 rounded-xl">
+                <div className="text-center p-4 bg-accent/20 rounded-xl elevate reveal-right">
                   <Waves className="h-8 w-8 text-primary mx-auto mb-2" />
                   <p className="text-sm font-medium text-foreground">
                     {language === "tr" ? "Masum Kumsallar" : "Pristine Beaches"}
