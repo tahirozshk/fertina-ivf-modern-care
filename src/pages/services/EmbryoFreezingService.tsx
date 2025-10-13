@@ -203,8 +203,8 @@ const EmbryoFreezingService = () => {
               <Shield className="h-16 w-16 text-primary mx-auto mb-6" />
               <p className="text-lg text-muted-foreground mb-8">{t.conclusion}</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg">{t.cta}</Button>
-                <Button size="lg" variant="outline">{t.contact}</Button>
+                <a href="/contact"><Button size="lg">{t.cta}</Button></a>
+                <a href="/contact"><Button size="lg" variant="outline">{t.contact}</Button></a>
               </div>
             </div>
           </div>

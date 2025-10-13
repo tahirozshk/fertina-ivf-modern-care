@@ -17,7 +17,7 @@ const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps)
           title: "Çiftler",
           image: "/couples.jpg",
           treatments: [
-            { name: "IVF", link: "/treatments/ivf" },
+            { name: "IVF", link: "/treatments/ivf-icsi" },
             { name: "Cinsiyet Seçimi ile IVF", link: "/treatments/gender-selection" },
             { name: "Yumurta Donasyonu ile IVF", link: "/treatments/egg-donation" },
             { name: "Sperm Donasyonu ile IVF", link: "/treatments/sperm-donation" },
@@ -33,7 +33,7 @@ const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps)
           treatments: [
             { name: "Sperm Donasyonu ile IVF", link: "/treatments/sperm-donation" },
             { name: "Embriyo Donasyonu ile IVF", link: "/treatments/embryo-donation" },
-            { name: "Doğurganlık Korunması (Yumurta Dondurma)", link: "/services/egg-freezing" }
+            { name: "Doğurganlık Korunması (Yumurta Dondurma)", link: "/tibbi-hizmetler/yumurta-dondurma" }
           ]
         },
         {
@@ -41,8 +41,8 @@ const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps)
           title: "LGBT",
           image: "/LQBT_flag.jpg",
           treatments: [
-            { name: "Kadın Çiftler - ROPA IVF", link: "/treatments/ropa-ivf" },
-            { name: "ROPA IVF + Cinsiyet Seçimi", link: "/treatments/ropa-gender" },
+            { name: "Kadın Çiftler - ROPA IVF", link: "/contact" },
+            { name: "ROPA IVF + Cinsiyet Seçimi", link: "/treatments/gender-selection" },
             { name: "Erkek Çiftler - Taşıyıcı Annelik", link: "/treatments/surrogacy" },
             { name: "Yumurta Donasyonu ile IVF", link: "/treatments/egg-donation" }
           ]
@@ -52,7 +52,7 @@ const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps)
           title: "Bekar Erkekler",
           image: "/single_men.jpg",
           treatments: [
-            { name: "Sperm Dondurma", link: "/services/sperm-freezing" },
+            { name: "Sperm Dondurma", link: "/tibbi-hizmetler/sperm-dondurma" },
             { name: "Yumurta Donasyonu ile IVF", link: "/treatments/egg-donation" }
           ]
         }
@@ -67,7 +67,7 @@ const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps)
           title: "Couples",
           image: "/couples.jpg",
           treatments: [
-            { name: "IVF", link: "/treatments/ivf" },
+            { name: "IVF", link: "/treatments/ivf-icsi" },
             { name: "IVF with Gender Selection", link: "/treatments/gender-selection" },
             { name: "IVF with Egg Donation", link: "/treatments/egg-donation" },
             { name: "IVF with Sperm Donation", link: "/treatments/sperm-donation" },
@@ -83,7 +83,7 @@ const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps)
           treatments: [
             { name: "IVF with Sperm Donation", link: "/treatments/sperm-donation" },
             { name: "IVF with Embryo Donation", link: "/treatments/embryo-donation" },
-            { name: "Fertility Preservation (Egg Freezing)", link: "/services/egg-freezing" }
+            { name: "Fertility Preservation (Egg Freezing)", link: "/medical-services/egg-freezing" }
           ]
         },
         {
@@ -91,8 +91,8 @@ const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps)
           title: "LGBT",
           image: "/LQBT_flag.jpg",
           treatments: [
-            { name: "Female Couples - ROPA IVF", link: "/treatments/ropa-ivf" },
-            { name: "ROPA IVF + Gender Selection", link: "/treatments/ropa-gender" },
+            { name: "Female Couples - ROPA IVF", link: "/contact" },
+            { name: "ROPA IVF + Gender Selection", link: "/contact" },
             { name: "Male Couples - Surrogacy", link: "/treatments/surrogacy" },
             { name: "IVF with Egg Donation", link: "/treatments/egg-donation" }
           ]
@@ -102,7 +102,7 @@ const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps)
           title: "Single Men",
           image: "/single_men.jpg",
           treatments: [
-            { name: "Sperm Freezing", link: "/services/sperm-freezing" },
+            { name: "Sperm Freezing", link: "/medical-services/sperm-freezing" },
             { name: "IVF with Egg Donation", link: "/treatments/egg-donation" }
           ]
         }

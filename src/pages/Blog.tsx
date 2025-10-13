@@ -139,23 +139,7 @@ const Blog = () => {
 
           </div>
         </section>
-
-        {/* Newsletter CTA */}
-        <section className="py-16 bg-gradient-to-r from-primary/10 to-secondary/10">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">
-              {language === "tr" ? "Güncel Yazıları Kaçırmayın" : "Don't Miss Latest Posts"}
-            </h2>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              {language === "tr" 
-                ? "IVF ve üreme sağlığı konularında güncel bilgileri e-posta ile alın."
-                : "Get the latest insights on IVF and reproductive health delivered to your inbox."}
-            </p>
-            <Button size="lg">
-              {language === "tr" ? "Abone Ol" : "Subscribe"}
-            </Button>
-          </div>
-        </section>
+        
       </div>
 
       <Footer language={language} />
