@@ -55,7 +55,7 @@ const Team = () => {
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">
-        <section className="py-16 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5">
+        <section className="py-16 bg-background">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-3 text-foreground">{t.title}</h1>
             <p className="text-sm text-muted-foreground">{t.directorTitle}</p>
