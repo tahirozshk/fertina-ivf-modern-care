@@ -43,6 +43,7 @@ import PersonalizedIVF from "./pages/blog/PersonalizedIVF";
 import MentalHealthIVF from "./pages/blog/MentalHealthIVF";
 import AIGeneticsIVF from "./pages/blog/AIGeneticsIVF";
 import SpermAgingRejuvenation from "./pages/blog/SpermAgingRejuvenation";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -52,6 +53,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/treatments" element={<Treatments />} />
