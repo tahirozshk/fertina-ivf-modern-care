@@ -94,12 +94,7 @@ const Contact = () => {
                       <ShieldCheck className="h-4 w-4 text-primary mt-0.5" />
                       <span>{l.privacy}</span>
                     </div>
-                    <div className="flex flex-col sm:flex-row gap-3">
-                      <Button type="submit" className="flex-1">{l.cta}</Button>
-                      <Button type="button" variant="outline" className="flex-1 flex items-center justify-center gap-2">
-                        <MessageCircle className="h-4 w-4" /> WhatsApp
-                      </Button>
-                    </div>
+                    <Button type="submit" className="w-full">{l.cta}</Button>
                   </form>
 
                   <div className="space-y-4">
