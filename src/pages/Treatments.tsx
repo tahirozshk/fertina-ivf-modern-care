@@ -22,6 +22,7 @@ const Treatments = () => {
           shortDesc: "Mikroenjeksiyon yöntemiyle yüksek başarı oranlı tüp bebek tedavisi",
           successRate: "%76",
           slug: "ivf-icsi",
+          image: "/ivf.png",
         },
         {
           icon: Heart,
@@ -92,6 +93,7 @@ const Treatments = () => {
           shortDesc: "High success rate IVF treatment with microinjection method",
           successRate: "76%",
           slug: "ivf-icsi",
+          image: "/ivf.png",
         },
         {
           icon: Heart,
@@ -191,6 +193,7 @@ const Treatments = () => {
                   'sitoplazma.jpg',     // Sitoplazma Transferi
                   'fizyo.jpg'           // Tüp Bebek ve Fizyoterapi
                 ];
+                const imgSrc = treatment.image ? treatment.image : `/${imageMap[index]}`;
                 return (
                   <Card
                     key={index}
@@ -200,7 +203,7 @@ const Treatments = () => {
                     {/* Background Image */}
                     <div className="relative h-64 w-full overflow-hidden">
                       <img 
-                        src={`/${imageMap[index]}`} 
+                        src={imgSrc} 
                         alt={treatment.title}
                         className="absolute inset-0 h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                       />

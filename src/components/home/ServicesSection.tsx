@@ -18,7 +18,7 @@ const ServicesSection = ({ language }: ServicesSectionProps) => {
           title: "IVF (ICSI) Tedavisi",
           description: "Modern embriyo transfer teknikleri ile yüksek başarı oranları",
           href: "/treatments/ivf-icsi",
-          image: "ivf.webp",
+          image: "ivf.png",
           successRate: "%76",
         },
         {
@@ -73,7 +73,7 @@ const ServicesSection = ({ language }: ServicesSectionProps) => {
           title: "IVF (ICSI) Treatment",
           description: "High success rates with modern embryo transfer techniques",
           href: "/treatments/ivf-icsi",
-          image: "ivf.webp",
+          image: "ivf.png",
           successRate: "76%",
         },
         {
