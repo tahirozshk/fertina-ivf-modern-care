@@ -37,6 +37,12 @@ import SpermFreezingService from "./pages/services/SpermFreezingService";
 import EggFreezingService from "./pages/services/EggFreezingService";
 import MedicalServices from "./pages/MedicalServices";
 import Privacy from "./pages/Privacy";
+import IVFAndPCOS from "./pages/blog/IVFAndPCOS";
+import NutritionLifestyleIVF from "./pages/blog/NutritionLifestyleIVF";
+import PersonalizedIVF from "./pages/blog/PersonalizedIVF";
+import MentalHealthIVF from "./pages/blog/MentalHealthIVF";
+import AIGeneticsIVF from "./pages/blog/AIGeneticsIVF";
+import SpermAgingRejuvenation from "./pages/blog/SpermAgingRejuvenation";
 
 const queryClient = new QueryClient();
 
@@ -107,6 +113,12 @@ const App = () => (
           <Route path="/medical-services/egg-freezing" element={<EggFreezingService />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/gizlilik-politikasi" element={<Privacy />} />
+          <Route path="/blog/ivf-ve-pcos" element={<IVFAndPCOS />} />
+          <Route path="/blog/beslenme-yasam-tarzi-ivf" element={<NutritionLifestyleIVF />} />
+          <Route path="/blog/kisiye-ozel-tip-ivf" element={<PersonalizedIVF />} />
+          <Route path="/blog/mental-saglik-ivf" element={<MentalHealthIVF />} />
+          <Route path="/blog/ai-ve-genetik-ivf" element={<AIGeneticsIVF />} />
+          <Route path="/blog/sperm-yaslanma-genclestirme" element={<SpermAgingRejuvenation />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
