@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -8,9 +7,10 @@ import { Card } from "@/components/ui/card";
 import { CheckCircle2, Heart, Shield, Users } from "lucide-react";
 import eggDonationImage from "@/assets/treatments/egg-donation.jpg";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { useLanguage } from "@/hooks/use-language";
 
 const EggDonation = () => {
-  const [language, setLanguage] = useState("tr");
+  const { language, setLanguage } = useLanguage();
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
   const { ref: candidatesTitleRef, isVisible: candidatesTitleVisible } = useScrollAnimation();

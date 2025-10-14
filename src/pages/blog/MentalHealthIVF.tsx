@@ -1,10 +1,10 @@
-import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { useLanguage } from "@/hooks/use-language";
 
 const MentalHealthIVF = () => {
-  const [language, setLanguage] = useState("tr");
+  const { language, setLanguage } = useLanguage();
 
   const content = {
     tr: {

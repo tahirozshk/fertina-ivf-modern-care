@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -8,9 +7,10 @@ import { Card } from "@/components/ui/card";
 import { CheckCircle2, Clock, Users, TrendingUp } from "lucide-react";
 import ivfImage from "@/assets/treatments/ivf-treatment.jpg";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { useLanguage } from "@/hooks/use-language";
 
 const IVFTreatment = () => {
-  const [language, setLanguage] = useState("tr");
+  const { language, setLanguage } = useLanguage();
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
   const { ref: candidatesTitleRef, isVisible: candidatesTitleVisible } = useScrollAnimation();

@@ -1,13 +1,13 @@
-import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Card } from "@/components/ui/card";
 import { MapPin } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { useLanguage } from "@/hooks/use-language";
 
 const Center = () => {
-  const [language, setLanguage] = useState("tr");
+  const { language, setLanguage } = useLanguage();
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: introRef, isVisible: introVisible } = useScrollAnimation();
   const { ref: sectionsRef, isVisible: sectionsVisible } = useScrollAnimation();

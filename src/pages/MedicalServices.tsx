@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -7,9 +6,10 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FlaskConical, Dna, Microscope, Baby, Syringe, Beaker, Activity, TestTube2, Stethoscope, HeartPulse, ScanSearch } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { useLanguage } from "@/hooks/use-language";
 
 const MedicalServices = () => {
-  const [language, setLanguage] = useState("tr");
+  const { language, setLanguage } = useLanguage();
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: servicesTitleRef, isVisible: servicesTitleVisible } = useScrollAnimation();
   const { ref: servicesGridRef, isVisible: servicesGridVisible } = useScrollAnimation();

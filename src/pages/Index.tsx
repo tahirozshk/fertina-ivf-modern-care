@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -10,9 +9,10 @@ import TestimonialsSection from "@/components/home/TestimonialsSection";
 import IVFJourneySection from "@/components/home/IVFJourneySection";
 import CyprusLocationSection from "@/components/home/CyprusLocationSection";
 import CTASection from "@/components/home/CTASection";
+import { useLanguage } from "@/hooks/use-language";
 
 const Index = () => {
-  const [language, setLanguage] = useState("tr");
+  const { language, setLanguage } = useLanguage();
 
   return (
     <div className="min-h-screen">

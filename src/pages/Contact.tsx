@@ -5,9 +5,10 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, User, ShieldCheck, Clock, MapPin, MessageCircle } from "lucide-react";
+import { useLanguage } from "@/hooks/use-language";
 
 const Contact = () => {
-  const [language, setLanguage] = useState("tr");
+  const { language, setLanguage } = useLanguage();
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", phone: "" });
 
   const t = {

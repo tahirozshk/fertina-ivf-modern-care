@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -7,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Calendar, Clock, ArrowRight, Eye, Heart } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { useLanguage } from "@/hooks/use-language";
 
 type Post = {
   title: string;
@@ -21,7 +21,7 @@ type Post = {
 };
 
 const Blog = () => {
-  const [language, setLanguage] = useState("tr");
+  const { language, setLanguage } = useLanguage();
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
 
