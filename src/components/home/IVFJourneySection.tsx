@@ -1,12 +1,16 @@
 import { Card } from "@/components/ui/card";
 import { Phone, Plane, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface IVFJourneySectionProps {
   language: string;
 }
 
 const IVFJourneySection = ({ language }: IVFJourneySectionProps) => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
+  
   const content = {
     tr: {
       title: "IVF Yolculuğunuz",
@@ -96,7 +100,7 @@ const IVFJourneySection = ({ language }: IVFJourneySectionProps) => {
     <section className="py-24 bg-gradient-to-b from-accent/20 to-background">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
+        <div ref={titleRef} className={`text-center mb-16 transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             {t.title}
           </h2>
@@ -106,12 +110,12 @@ const IVFJourneySection = ({ language }: IVFJourneySectionProps) => {
         </div>
 
         {/* Journey Phases */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div ref={gridRef} className="grid lg:grid-cols-3 gap-8 mb-16">
           {t.phases.map((phase, index) => (
             <Card
               key={index}
-              className={`p-8 hover:shadow-2xl smooth-transition animate-slide-up border-2 hover:border-primary/50 bg-card/50 backdrop-blur-sm ${index === 0 ? 'reveal-left' : index === 1 ? 'reveal-up' : 'reveal-right'}`}
-              style={{ animationDelay: `${index * 80}ms` }}
+              className={`p-8 hover:shadow-2xl smooth-transition border-2 hover:border-primary/50 bg-card/50 backdrop-blur-sm transition-all duration-1000 ${gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              style={{ transitionDelay: gridVisible ? `${index * 80}ms` : '0ms' }}
             >
               <div className="text-center mb-6">
                 <div className={`w-16 h-16 rounded-full ${phase.color} flex items-center justify-center mx-auto mb-4`}>

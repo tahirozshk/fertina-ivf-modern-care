@@ -2,12 +2,15 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-clinic.jpg";
 import { Link } from "react-router-dom";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface HeroSectionProps {
   language: string;
 }
 
 const HeroSection = ({ language }: HeroSectionProps) => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   const content = {
     tr: {
       title: "Bilim ve Umudun Buluştuğu Yer",
@@ -41,7 +44,7 @@ const HeroSection = ({ language }: HeroSectionProps) => {
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl animate-fade-in">
+        <div ref={ref} className={`max-w-3xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground leading-tight">
             {t.title}
           </h1>

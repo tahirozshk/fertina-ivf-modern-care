@@ -1,12 +1,16 @@
 import { Card } from "@/components/ui/card";
 import { Baby, Heart, Dna, Users, Microscope, Stethoscope } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface ServicesSectionProps {
   language: string;
 }
 
 const ServicesSection = ({ language }: ServicesSectionProps) => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
+  
   const content = {
     tr: {
       title: "Tedavi ve Tıbbi Hizmetlerimiz",
@@ -125,7 +129,7 @@ const ServicesSection = ({ language }: ServicesSectionProps) => {
   return (
     <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
+        <div ref={titleRef} className={`text-center mb-16 transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             {t.title}
           </h2>
@@ -134,13 +138,13 @@ const ServicesSection = ({ language }: ServicesSectionProps) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {t.services.map((service, index) => (
             <Link
               key={index}
               to={service.href}
-              className="group animate-slide-up reveal"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className={`group transition-all duration-1000 ${gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              style={{ transitionDelay: gridVisible ? `${index * 100}ms` : '0ms' }}
             >
               <Card className="group overflow-hidden hover:shadow-xl smooth-transition hover:-translate-y-2 h-full elevate">
                 {/* Background Image */}

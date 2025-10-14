@@ -4,9 +4,15 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Card } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Team = () => {
   const [language, setLanguage] = useState("tr");
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
+  const { ref: directorImageRef, isVisible: directorImageVisible } = useScrollAnimation();
+  const { ref: directorBioRef, isVisible: directorBioVisible } = useScrollAnimation();
+  const { ref: membersTitleRef, isVisible: membersTitleVisible } = useScrollAnimation();
+  const { ref: membersGridRef, isVisible: membersGridVisible } = useScrollAnimation();
 
   const content = {
     tr: {
@@ -56,7 +62,7 @@ const Team = () => {
 
       <div className="pt-20">
         <section className="py-16 bg-background">
-          <div className="container mx-auto px-4 text-center">
+          <div ref={heroRef} className={`container mx-auto px-4 text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <h1 className="text-4xl md:text-5xl font-bold mb-3 text-foreground">{t.title}</h1>
             <p className="text-sm text-muted-foreground">{t.directorTitle}</p>
           </div>
@@ -65,10 +71,10 @@ const Team = () => {
         <section className="py-10 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
-              <div className="w-full h-60 md:h-80 rounded-xl overflow-hidden shadow mb-6">
+              <div ref={directorImageRef} className={`w-full h-60 md:h-80 rounded-xl overflow-hidden shadow mb-6 transition-all duration-1000 ${directorImageVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
                 <img src="/team.jpg" alt="Director and Team" className="w-full h-full object-cover object-[50%_40%]" />
               </div>
-              <div className="space-y-4">
+              <div ref={directorBioRef} className={`space-y-4 transition-all duration-1000 ${directorBioVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                 {t.bio.map((p, i) => (
                   <p key={i} className="text-muted-foreground leading-relaxed">{p}</p>
                 ))}
@@ -81,10 +87,10 @@ const Team = () => {
 
         <section className="py-14 bg-background">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-8 text-foreground">{t.membersTitle}</h2>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <h2 ref={membersTitleRef} className={`text-3xl font-bold text-center mb-8 text-foreground transition-all duration-1000 ${membersTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{t.membersTitle}</h2>
+            <div ref={membersGridRef} className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
               {memberPlaceholders.map((m, i) => (
-                <Card key={i} className="overflow-hidden">
+                <Card key={i} className={`overflow-hidden transition-all duration-1000 ${membersGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: membersGridVisible ? `${i * 100}ms` : '0ms' }}>
                   <div className="h-40 w-full overflow-hidden">
                     <img src={m.image} alt={m.name} className="w-full h-full object-cover" />
                   </div>

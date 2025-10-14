@@ -2,12 +2,15 @@ import { Button } from "@/components/ui/button";
 import { Phone, Calendar } from "lucide-react";
 import consultationImage from "@/assets/couple-consultation.jpg";
 import { Link } from "react-router-dom";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface CTASectionProps {
   language: string;
 }
 
 const CTASection = ({ language }: CTASectionProps) => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   const content = {
     tr: {
       title: "Hayalinizdeki Aileye Giden Yolculuğa Başlayın",
@@ -28,17 +31,17 @@ const CTASection = ({ language }: CTASectionProps) => {
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-primary/10 via-secondary/20 to-accent/30">
+        <div ref={ref} className={`relative rounded-3xl overflow-hidden bg-gradient-to-r from-primary/10 via-secondary/20 to-accent/30 transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             {/* Content */}
             <div className="p-8 md:p-12 lg:p-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground animate-fade-in">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
                 {t.title}
               </h2>
-              <p className="text-lg text-muted-foreground mb-8 animate-fade-in">
+              <p className="text-lg text-muted-foreground mb-8">
                 {t.subtitle}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 animate-slide-up">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/contact">
                   <Button size="lg" className="gap-2 w-full sm:w-auto">
                   <Calendar className="h-5 w-5" />

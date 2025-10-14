@@ -6,9 +6,16 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FlaskConical, Dna, Microscope, Baby, Syringe, Beaker, Activity, TestTube2, Stethoscope, HeartPulse, ScanSearch } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const MedicalServices = () => {
   const [language, setLanguage] = useState("tr");
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
+  const { ref: servicesTitleRef, isVisible: servicesTitleVisible } = useScrollAnimation();
+  const { ref: servicesGridRef, isVisible: servicesGridVisible } = useScrollAnimation();
+  const { ref: geneticTitleRef, isVisible: geneticTitleVisible } = useScrollAnimation();
+  const { ref: geneticGridRef, isVisible: geneticGridVisible } = useScrollAnimation();
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
 
   const content = {
     tr: {
@@ -77,7 +84,7 @@ const MedicalServices = () => {
         <section className="relative py-48 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/tibbi-hizmetler_banner.jpg)' }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto text-center animate-fade-in">
+            <div ref={heroRef} className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">{t.title}</h1>
               <p className="text-lg md:text-xl text-white/90 leading-relaxed">{t.subtitle}</p>
             </div>
@@ -87,8 +94,8 @@ const MedicalServices = () => {
 
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-foreground">{t.servicesTitle}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <h2 ref={servicesTitleRef} className={`text-3xl md:text-4xl font-bold mb-8 text-foreground transition-all duration-1000 ${servicesTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{t.servicesTitle}</h2>
+            <div ref={servicesGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {t.services.map((item, index) => {
                 const imageMap = [
                   'sperm_alma.jpg',        // Sperm Elde Etme ve TESE
@@ -109,7 +116,7 @@ const MedicalServices = () => {
                 
                 if (hasImage) {
                   return (
-                    <Card key={index} className="group overflow-hidden hover:shadow-xl smooth-transition hover:-translate-y-2 animate-slide-up" style={{ animationDelay: `${index * 50}ms` }}>
+                    <Card key={index} className={`group overflow-hidden hover:shadow-xl smooth-transition hover:-translate-y-2 transition-all duration-1000 ${servicesGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: servicesGridVisible ? `${index * 50}ms` : '0ms' }}>
                       <div className="relative h-64 w-full overflow-hidden">
                         <img 
                           src={`/${imageMap[index]}`} 
@@ -157,7 +164,7 @@ const MedicalServices = () => {
                   );
                 } else {
                   return (
-                    <Card key={index} className="group p-6 hover:shadow-xl smooth-transition hover:-translate-y-2 animate-slide-up" style={{ animationDelay: `${index * 50}ms` }}>
+                    <Card key={index} className={`group p-6 hover:shadow-xl smooth-transition hover:-translate-y-2 transition-all duration-1000 ${servicesGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: servicesGridVisible ? `${index * 50}ms` : '0ms' }}>
                       <div className="flex flex-col h-full">
                         <div className="flex items-start justify-between mb-4">
                           <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 smooth-transition">
@@ -201,8 +208,8 @@ const MedicalServices = () => {
 
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-foreground">{t.geneticTitle}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <h2 ref={geneticTitleRef} className={`text-3xl md:text-4xl font-bold mb-8 text-foreground transition-all duration-1000 ${geneticTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{t.geneticTitle}</h2>
+            <div ref={geneticGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {t.geneticTests.map((item, index) => {
                 const geneticImageMap = [
                   'yeni_nesil.webp',       // Yeni Nesil Dizileme
@@ -212,7 +219,7 @@ const MedicalServices = () => {
                 ];
                 
                 return (
-                  <Card key={index} className="group overflow-hidden hover:shadow-xl smooth-transition hover:-translate-y-2 animate-slide-up" style={{ animationDelay: `${index * 50}ms` }}>
+                  <Card key={index} className={`group overflow-hidden hover:shadow-xl smooth-transition hover:-translate-y-2 transition-all duration-1000 ${geneticGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: geneticGridVisible ? `${index * 50}ms` : '0ms' }}>
                     <div className="relative h-64 w-full overflow-hidden">
                       <img 
                         src={`/${geneticImageMap[index]}`} 
@@ -260,7 +267,7 @@ const MedicalServices = () => {
 
       {/* Bottom CTA (same as Treatments) */}
       <section className="py-16 bg-gradient-to-r from-primary/10 via-secondary/20 to-accent/30">
-        <div className="container mx-auto px-4 text-center">
+        <div ref={ctaRef} className={`container mx-auto px-4 text-center transition-all duration-1000 ${ctaVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
             {language === "tr" 
               ? "Hangi tedavinin size uygun olduğundan emin değil misiniz?" 

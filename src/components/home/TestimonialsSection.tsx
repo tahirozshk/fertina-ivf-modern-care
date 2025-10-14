@@ -1,11 +1,15 @@
 import { Card } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface TestimonialsSectionProps {
   language: string;
 }
 
 const TestimonialsSection = ({ language }: TestimonialsSectionProps) => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
+  
   const content = {
     tr: {
       title: "Hasta Yorumları",
@@ -62,7 +66,7 @@ const TestimonialsSection = ({ language }: TestimonialsSectionProps) => {
   return (
     <section className="py-20 bg-accent/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
+        <div ref={titleRef} className={`text-center mb-16 transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             {t.title}
           </h2>
@@ -71,12 +75,12 @@ const TestimonialsSection = ({ language }: TestimonialsSectionProps) => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-fade">
+        <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {t.testimonials.map((testimonial, index) => (
             <Card
               key={index}
-              className={`p-6 hover:shadow-lg smooth-transition animate-slide-up bg-card elevate ${index % 3 === 0 ? 'reveal-left' : index % 3 === 1 ? 'reveal-up' : 'reveal-right'}`}
-              style={{ animationDelay: `${index * 80}ms` }}
+              className={`p-6 hover:shadow-lg smooth-transition bg-card elevate transition-all duration-1000 ${gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              style={{ transitionDelay: gridVisible ? `${index * 80}ms` : '0ms' }}
             >
               <div className="flex flex-col h-full">
                 <Quote className="h-10 w-10 text-primary/20 mb-4" />

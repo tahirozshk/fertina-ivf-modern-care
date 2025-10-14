@@ -6,9 +6,13 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Baby, Heart, Dna, Users, FlaskConical, Activity, UserPlus, Zap, Waves } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Treatments = () => {
   const [language, setLanguage] = useState("tr");
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
+  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
 
   const content = {
     tr: {
@@ -166,7 +170,7 @@ const Treatments = () => {
         <section className="relative py-48 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/tedaviler_banner.jpg)' }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto text-center animate-fade-in">
+            <div ref={heroRef} className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
                 {t.title}
               </h1>
@@ -180,7 +184,7 @@ const Treatments = () => {
         {/* Treatments Grid */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {t.treatments.map((treatment, index) => {
                 const imageMap = [
                   'ivf.webp',           // IVF (ICSI) Tedavisi
@@ -197,8 +201,8 @@ const Treatments = () => {
                 return (
                   <Card
                     key={index}
-                    className="group overflow-hidden hover:shadow-xl smooth-transition hover:-translate-y-2 animate-slide-up"
-                    style={{ animationDelay: `${index * 50}ms` }}
+                    className={`group overflow-hidden hover:shadow-xl smooth-transition hover:-translate-y-2 transition-all duration-1000 ${gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                    style={{ transitionDelay: gridVisible ? `${index * 50}ms` : '0ms' }}
                   >
                     {/* Background Image */}
                     <div className="relative h-64 w-full overflow-hidden">
@@ -251,7 +255,7 @@ const Treatments = () => {
 
         {/* Bottom CTA */}
         <section className="py-16 bg-gradient-to-r from-primary/10 via-secondary/20 to-accent/30">
-          <div className="container mx-auto px-4 text-center">
+          <div ref={ctaRef} className={`container mx-auto px-4 text-center transition-all duration-1000 ${ctaVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
               {language === "tr" 
                 ? "Hangi tedavinin size uygun olduğundan emin değil misiniz?" 

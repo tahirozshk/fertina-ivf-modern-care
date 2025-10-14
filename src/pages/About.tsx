@@ -6,9 +6,17 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Heart, DollarSign, Stethoscope, Globe, Users, Rainbow, UserCheck } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const About = () => {
   const [language, setLanguage] = useState("tr");
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
+  const { ref: statsRef, isVisible: statsVisible } = useScrollAnimation();
+  const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation();
+  const { ref: valuesRef, isVisible: valuesVisible } = useScrollAnimation();
+  const { ref: featuresTitleRef, isVisible: featuresTitleVisible } = useScrollAnimation();
+  const { ref: featuresGridRef, isVisible: featuresGridVisible } = useScrollAnimation();
+  const { ref: ctasRef, isVisible: ctasVisible } = useScrollAnimation();
 
   const content = {
     tr: {
@@ -131,7 +139,7 @@ const About = () => {
 
       <div className="pt-30">
         <section className="py-12 bg-background">
-          <div className="container mx-auto px-4 text-center mb-8">
+          <div ref={heroRef} className={`container mx-auto px-4 text-center mb-8 transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">{t.title}</h1>
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">{t.hero}</p>
           </div>
@@ -140,20 +148,20 @@ const About = () => {
         <section className="pb-12 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="p-6 rounded-2xl bg-primary/5 border border-primary/20 shadow-sm">
+              <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className={`p-6 rounded-2xl bg-primary/5 border border-primary/20 shadow-sm transition-all duration-1000 ${statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: statsVisible ? '0ms' : '0ms' }}>
                   <div className="text-3xl font-bold text-primary">16+</div>
                   <div className="text-sm text-muted-foreground">Yıl Deneyim</div>
                 </div>
-                <div className="p-6 rounded-2xl bg-primary/5 border border-primary/20 shadow-sm">
+                <div className={`p-6 rounded-2xl bg-primary/5 border border-primary/20 shadow-sm transition-all duration-1000 ${statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: statsVisible ? '100ms' : '0ms' }}>
                   <div className="text-3xl font-bold text-primary">24/7</div>
                   <div className="text-sm text-muted-foreground">Erişilebilirlik</div>
                 </div>
-                <div className="p-6 rounded-2xl bg-primary/5 border border-primary/20 shadow-sm">
+                <div className={`p-6 rounded-2xl bg-primary/5 border border-primary/20 shadow-sm transition-all duration-1000 ${statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: statsVisible ? '200ms' : '0ms' }}>
                   <div className="text-3xl font-bold text-primary">Yüksek</div>
                   <div className="text-sm text-muted-foreground">Başarı Oranı</div>
                 </div>
-                <div className="p-6 rounded-2xl bg-primary/5 border border-primary/20 shadow-sm">
+                <div className={`p-6 rounded-2xl bg-primary/5 border border-primary/20 shadow-sm transition-all duration-1000 ${statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: statsVisible ? '300ms' : '0ms' }}>
                   <div className="text-3xl font-bold text-primary">ISO</div>
                   <div className="text-sm text-muted-foreground">Standart Yaklaşım</div>
                 </div>
@@ -164,15 +172,15 @@ const About = () => {
 
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              <Card className="md:col-span-2 p-6">
+            <div ref={contentRef} className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              <Card className={`md:col-span-2 p-6 transition-all duration-1000 ${contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
                 <div className="space-y-6">
                   {t.paragraphs.map((p, i) => (
                     <p key={i} className="text-lg text-muted-foreground leading-relaxed">{p}</p>
                   ))}
                 </div>
               </Card>
-              <Card className="p-6 bg-primary/5 border-primary/20">
+              <Card className={`p-6 bg-primary/5 border-primary/20 transition-all duration-1000 ${contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`} style={{ transitionDelay: contentVisible ? '200ms' : '0ms' }}>
                 <h3 className="text-xl font-semibold mb-3 text-foreground">{language === "tr" ? "Tedavi Yaklaşımımız" : "Our Care Approach"}</h3>
                 <ul className="space-y-3 text-muted-foreground">
                   <li>• {language === "tr" ? "Bilimsel ve şeffaf iletişim" : "Evidence‑based and transparent"}</li>
@@ -187,12 +195,12 @@ const About = () => {
 
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-foreground">{language === "tr" ? "Değerlerimiz" : "Our Values"}</h2>
+            <div ref={valuesRef} className="max-w-5xl mx-auto">
+              <h2 className={`text-3xl md:text-4xl font-bold mb-8 text-center text-foreground transition-all duration-1000 ${valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{language === "tr" ? "Değerlerimiz" : "Our Values"}</h2>
               <div className="grid md:grid-cols-3 gap-4">
-                <Card className="p-6"><h3 className="text-xl font-semibold mb-2 text-foreground">{language === "tr" ? "Güven" : "Trust"}</h3><p className="text-muted-foreground">{language === "tr" ? "Tüm süreçte şeffaf ve anlaşılır iletişim" : "Transparent and clear communication throughout"}</p></Card>
-                <Card className="p-6"><h3 className="text-xl font-semibold mb-2 text-foreground">{language === "tr" ? "Mükemmellik" : "Excellence"}</h3><p className="text-muted-foreground">{language === "tr" ? "Kanıta dayalı tıp ve sürekli iyileştirme" : "Evidence‑based medicine and continuous improvement"}</p></Card>
-                <Card className="p-6"><h3 className="text-xl font-semibold mb-2 text-foreground">{language === "tr" ? "Empati" : "Empathy"}</h3><p className="text-muted-foreground">{language === "tr" ? "Hastalarımızın yolculuğunu birlikte yaşıyoruz" : "We walk the journey with our patients"}</p></Card>
+                <Card className={`p-6 transition-all duration-1000 ${valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: valuesVisible ? '0ms' : '0ms' }}><h3 className="text-xl font-semibold mb-2 text-foreground">{language === "tr" ? "Güven" : "Trust"}</h3><p className="text-muted-foreground">{language === "tr" ? "Tüm süreçte şeffaf ve anlaşılır iletişim" : "Transparent and clear communication throughout"}</p></Card>
+                <Card className={`p-6 transition-all duration-1000 ${valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: valuesVisible ? '100ms' : '0ms' }}><h3 className="text-xl font-semibold mb-2 text-foreground">{language === "tr" ? "Mükemmellik" : "Excellence"}</h3><p className="text-muted-foreground">{language === "tr" ? "Kanıta dayalı tıp ve sürekli iyileştirme" : "Evidence‑based medicine and continuous improvement"}</p></Card>
+                <Card className={`p-6 transition-all duration-1000 ${valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: valuesVisible ? '200ms' : '0ms' }}><h3 className="text-xl font-semibold mb-2 text-foreground">{language === "tr" ? "Empati" : "Empathy"}</h3><p className="text-muted-foreground">{language === "tr" ? "Hastalarımızın yolculuğunu birlikte yaşıyoruz" : "We walk the journey with our patients"}</p></Card>
               </div>
             </div>
           </div>
@@ -201,14 +209,14 @@ const About = () => {
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">
+              <h2 ref={featuresTitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${featuresTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                 {language === "tr" ? "Neden Kuzey Kıbrıs'ı Seçmelisiniz?" : "Why Choose Northern Cyprus?"}
               </h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div ref={featuresGridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {t.features.map((feature, index) => {
                   const Icon = feature.icon;
                   return (
-                    <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
+                    <Card key={index} className={`p-6 hover:shadow-lg transition-all duration-1000 ${featuresGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: featuresGridVisible ? `${index * 80}ms` : '0ms' }}>
                       <div className="flex items-start gap-4">
                         <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                           <Icon className="w-6 h-6 text-primary" />
@@ -228,9 +236,9 @@ const About = () => {
 
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div ref={ctasRef} className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               {[t.ctas.team, t.ctas.center].map((c, i) => (
-                <Card key={i} className="overflow-hidden group animate-fade-in">
+                <Card key={i} className={`overflow-hidden group transition-all duration-1000 ${ctasVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: ctasVisible ? `${i * 150}ms` : '0ms' }}>
                   {c.image ? (
                     <div className="relative h-64 w-full overflow-hidden">
                       <img src={c.image} alt={c.title} className="absolute inset-0 h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500" />

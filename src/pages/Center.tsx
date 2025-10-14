@@ -4,9 +4,17 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Card } from "@/components/ui/card";
 import { MapPin } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Center = () => {
   const [language, setLanguage] = useState("tr");
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
+  const { ref: introRef, isVisible: introVisible } = useScrollAnimation();
+  const { ref: sectionsRef, isVisible: sectionsVisible } = useScrollAnimation();
+  const { ref: cyprusTitleRef, isVisible: cyprusTitleVisible } = useScrollAnimation();
+  const { ref: cyprusContentRef, isVisible: cyprusContentVisible } = useScrollAnimation();
+  const { ref: addressRef, isVisible: addressVisible } = useScrollAnimation();
+  const { ref: visitRef, isVisible: visitVisible } = useScrollAnimation();
 
   const content = {
     tr: {
@@ -109,7 +117,7 @@ const Center = () => {
 
       <div className="pt-20">
         <section className="py-20 bg-background">
-          <div className="container mx-auto px-4 text-center">
+          <div ref={heroRef} className={`container mx-auto px-4 text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <h1 className="text-4xl md:text-5xl font-bold mb-3 text-foreground">{t.title}</h1>
             <p className="text-lg text-muted-foreground">{t.hero}</p>
           </div>
@@ -117,7 +125,7 @@ const Center = () => {
 
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto space-y-4">
+            <div ref={introRef} className={`max-w-4xl mx-auto space-y-4 transition-all duration-1000 ${introVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               {t.intro.map((p, i) => (
                 <p key={i} className="text-lg text-muted-foreground leading-relaxed">{p}</p>
               ))}
@@ -127,9 +135,9 @@ const Center = () => {
 
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            <div ref={sectionsRef} className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
               {t.sections.map((s, i) => (
-                <Card key={i} className="p-6">
+                <Card key={i} className={`p-6 transition-all duration-1000 ${sectionsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: sectionsVisible ? `${i * 80}ms` : '0ms' }}>
                   <h3 className="text-xl font-semibold mb-2 text-foreground">{s.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
                 </Card>
@@ -141,13 +149,13 @@ const Center = () => {
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-foreground">{t.cyprus.title}</h2>
-              <div className="space-y-4">
+              <h2 ref={cyprusTitleRef} className={`text-3xl md:text-4xl font-bold mb-8 text-center text-foreground transition-all duration-1000 ${cyprusTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{t.cyprus.title}</h2>
+              <div ref={cyprusContentRef} className={`space-y-4 transition-all duration-1000 ${cyprusContentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                 {t.cyprus.paragraphs.map((p: string, i: number) => (
                   <p key={i} className="text-lg text-muted-foreground leading-relaxed">{p}</p>
                 ))}
               </div>
-              <div className="mt-8 p-6 rounded-2xl bg-primary/5 border border-primary/20">
+              <div ref={addressRef} className={`mt-8 p-6 rounded-2xl bg-primary/5 border border-primary/20 transition-all duration-1000 ${addressVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <MapPin className="h-5 w-5 text-primary" />
                   <div className="text-xl font-semibold text-foreground">{t.cyprus.addressTitle}</div>
@@ -164,7 +172,7 @@ const Center = () => {
 
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 text-center">
-            <div className="max-w-3xl mx-auto">
+            <div ref={visitRef} className={`max-w-3xl mx-auto transition-all duration-1000 ${visitVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <p className="text-lg text-muted-foreground">{t.visit}</p>
             </div>
           </div>

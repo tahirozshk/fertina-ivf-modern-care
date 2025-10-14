@@ -2,12 +2,16 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Users, Heart, Rainbow, User } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface CustomerCategoriesSectionProps {
   language: string;
 }
 
 const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps) => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
+  
   const content = {
     tr: {
       title: "Her aile tipine özel tedavi seçenekleri sunuyoruz",
@@ -117,7 +121,7 @@ const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps)
     <section className="py-24 bg-gradient-to-b from-background to-accent/20">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
+        <div ref={titleRef} className={`text-center mb-16 transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             {t.title}
           </h2>
@@ -127,12 +131,12 @@ const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps)
         </div>
 
         {/* Categories Grid - Clean Design with Orange Dividers */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {t.categories.map((category, index) => (
             <div
               key={index}
-              className="animate-slide-up smooth-transition relative reveal"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className={`smooth-transition relative transition-all duration-1000 ${gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              style={{ transitionDelay: gridVisible ? `${index * 100}ms` : '0ms' }}
             >
 
               {/* Image */}

@@ -1,11 +1,16 @@
 import { Card } from "@/components/ui/card";
 import { Award, Heart, Microscope, HeartHandshake } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface WhyChooseUsProps {
   language: string;
 }
 
 const WhyChooseUs = ({ language }: WhyChooseUsProps) => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: imageRef, isVisible: imageVisible } = useScrollAnimation();
+  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
+  
   const content = {
     tr: {
       title: "Neden Fertina IVF?",
@@ -67,7 +72,7 @@ const WhyChooseUs = ({ language }: WhyChooseUsProps) => {
     <section className="py-24 bg-gradient-to-b from-background to-secondary/20">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-12 animate-fade-in max-w-4xl mx-auto">
+        <div ref={titleRef} className={`text-center mb-12 max-w-4xl mx-auto transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             {t.title}
           </h2>
@@ -79,7 +84,7 @@ const WhyChooseUs = ({ language }: WhyChooseUsProps) => {
         {/* Content with Image */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mt-16">
           {/* Image */}
-          <div className="relative animate-fade-in reveal">
+          <div ref={imageRef} className={`relative transition-all duration-1000 ${imageVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
             <div className="rounded-3xl overflow-hidden shadow-2xl elevate">
               <img
                 src="/neden.jpg"
@@ -92,12 +97,12 @@ const WhyChooseUs = ({ language }: WhyChooseUsProps) => {
           </div>
 
           {/* Reasons Grid - 2x2 */}
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div ref={gridRef} className="grid sm:grid-cols-2 gap-6">
             {t.reasons.map((reason, index) => (
               <Card
                 key={index}
-                className="p-6 hover:shadow-2xl smooth-transition animate-slide-up border-2 hover:border-primary/50 bg-card/50 backdrop-blur-sm reveal-up"
-                style={{ animationDelay: `${index * 80}ms` }}
+                className={`p-6 hover:shadow-2xl smooth-transition border-2 hover:border-primary/50 bg-card/50 backdrop-blur-sm transition-all duration-1000 ${gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                style={{ transitionDelay: gridVisible ? `${index * 80}ms` : '0ms' }}
               >
                 <div className="flex flex-col h-full">
                   <div className="flex items-start gap-4 mb-4">

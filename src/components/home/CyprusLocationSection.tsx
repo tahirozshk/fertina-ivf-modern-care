@@ -1,11 +1,15 @@
 import { Card } from "@/components/ui/card";
 import { MapPin, Sun, Waves, Castle, Heart } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface CyprusLocationSectionProps {
   language: string;
 }
 
 const CyprusLocationSection = ({ language }: CyprusLocationSectionProps) => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation();
+  
   const content = {
     tr: {
       title: "Kuzey Kıbrıs'ın Eşsiz Konumu ve Güzellikleri",
@@ -73,7 +77,7 @@ const CyprusLocationSection = ({ language }: CyprusLocationSectionProps) => {
     <section className="py-24 bg-gradient-to-b from-accent/30 to-background">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
+        <div ref={titleRef} className={`text-center mb-16 transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="flex items-center justify-center mb-6">
             <MapPin className="h-8 w-8 text-primary mr-3" />
             <h2 className="text-4xl md:text-5xl font-bold text-foreground">
@@ -83,9 +87,9 @@ const CyprusLocationSection = ({ language }: CyprusLocationSectionProps) => {
         </div>
 
         {/* Content Grid */}
-        <div className="grid lg:grid-cols-3 gap-12 items-start">
+        <div ref={contentRef} className="grid lg:grid-cols-3 gap-12 items-start">
           {/* Main Content */}
-          <div className="lg:col-span-2 space-y-6 reveal-left reveal-slow">
+          <div className={`lg:col-span-2 space-y-6 transition-all duration-1000 ${contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
             <Card className="p-8 bg-card/50 backdrop-blur-sm border-2 hover:border-primary/50 smooth-transition">
               <p className="text-lg leading-relaxed text-muted-foreground mb-6">
                 {t.subtitle}
@@ -103,8 +107,8 @@ const CyprusLocationSection = ({ language }: CyprusLocationSectionProps) => {
           </div>
 
           {/* Image Section */}
-          <div className="space-y-6">
-            <div className="relative reveal-right reveal-slow">
+          <div className={`space-y-6 transition-all duration-1000 ${contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
+            <div className="relative">
               <div className="rounded-3xl overflow-hidden shadow-2xl elevate">
                 <img
                   src="/north_ cyprus.jpg"

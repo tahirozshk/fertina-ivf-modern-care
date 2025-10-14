@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Calendar, Clock, ArrowRight, Eye, Heart } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 type Post = {
   title: string;
@@ -21,6 +22,8 @@ type Post = {
 
 const Blog = () => {
   const [language, setLanguage] = useState("tr");
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
+  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
 
   const content = {
     tr: {
@@ -62,8 +65,10 @@ const Blog = () => {
         <section className="relative py-32 md:py-48 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/blog_banner.jpg)' }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10 text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">{t.title}</h1>
-            <p className="text-lg md:text-xl text-white/90 leading-relaxed">{t.subtitle}</p>
+            <div ref={heroRef} className={`transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">{t.title}</h1>
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed">{t.subtitle}</p>
+            </div>
           </div>
         </section>
 
@@ -71,10 +76,10 @@ const Blog = () => {
         {/* Blog Posts Grid */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {t.posts.map((post, index) => (
-                <Card key={index} className="group overflow-hidden hover:shadow-2xl smooth-transition animate-slide-up border-2 hover:border-primary/50 bg-card/50 backdrop-blur-sm"
-                      style={{ animationDelay: `${index * 100}ms` }}>
+                <Card key={index} className={`group overflow-hidden hover:shadow-2xl smooth-transition border-2 hover:border-primary/50 bg-card/50 backdrop-blur-sm transition-all duration-1000 ${gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                      style={{ transitionDelay: gridVisible ? `${index * 100}ms` : '0ms' }}>
                   {/* Image */}
                   <div className="relative h-48 overflow-hidden">
                     <img 
