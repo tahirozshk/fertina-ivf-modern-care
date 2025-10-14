@@ -5,6 +5,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 const PersonalizedIVF = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
 
   const content = {
     tr: {
@@ -46,12 +47,17 @@ Teknoloji ilerledikçe ve bu tekniklerin doğruluğunu kanıtlayan araştırmala
       banner: "/3..jpg",
       body: "This article is available in Turkish. Please switch language to TR.",
     },
+    ar: {
+      title: "الطب الشخصي في التلقيح الصناعي: كيف تحسن العلاجات المخصصة النتائج",
+      banner: "/3..jpg",
+      body: "هذه المقالة متاحة باللغة التركية. يرجى التبديل إلى اللغة التركية.",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">

@@ -24,6 +24,8 @@ const SpermDonation = () => {
   const { ref: advantagesTitleRef, isVisible: advantagesTitleVisible } = useScrollAnimation();
   const { ref: advantagesGridRef, isVisible: advantagesGridVisible } = useScrollAnimation();
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
+  
+  const dir = language === "ar" ? "rtl" : "ltr";
 
   const content = {
     tr: {
@@ -172,12 +174,85 @@ const SpermDonation = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "التبرع بالحيوانات المنوية",
+      subtitle: "التبرع بالحيوانات المنوية مع متبرعين خضعوا لفحوصات صحية مفصلة",
+      successRate: "80%+ معدل النجاح",
+      description: "يُنصح بالتبرع بالحيوانات المنوية لمرضانا كخيار علاجي في عيادتنا عندما لا تمتلك الحيوانات المنوية للذكر خصائص كافية وضرورية لتخصيب البويضة. وفقًا للوائح علاج المساعدة على الإنجاب في جمهورية شمال قبرص التركية، التبرع بالحيوانات المنوية هو علاج قابل للتطبيق. قد يكون سبب عدم قدرة الحيوانات المنوية على تخصيب البويضة هو اضطرابات عددية أو هيكلية أو حركية للحيوانات المنوية.",
+      whoIsItFor: "لمن هو مناسب؟",
+      candidates: [
+        "فقد النطاف: عدم وجود خلايا منوية في السائل المنوي",
+        "انخفاض عدد الحيوانات المنوية (قلة النطاف)",
+        "اضطراب حركة الحيوانات المنوية (وهن النطاف)",
+        "اضطراب شكل الحيوانات المنوية (تشوه النطاف)",
+        "الرجال الحاملون لأمراض وراثية",
+        "المرضى الذين لديهم محاولات ميكروتيسي غير ناجحة سابقة",
+        "النساء العازبات اللاتي يرغبن في إنجاب أطفال",
+        "الأفراد الذين توقف إنتاج الحيوانات المنوية لديهم بعد العلاج الإشعاعي/الكيميائي",
+      ],
+      causesTitle: "أسباب عدم العثور على الحيوانات المنوية",
+      causes: [
+        "اضطراب إنتاج الحيوانات المنوية الهيكلي",
+        "انسداد في القنوات التي تنقل الحيوانات المنوية إلى السائل المنوي",
+        "توقف إنتاج الحيوانات المنوية بسبب عوامل خارجية مثل الجراحة أو العلاج الكيميائي أو الإشعاعي",
+        "تشخيص السرطان والجراحة",
+        "احتمال ولادة الأطفال بمرض بسبب حمل مرض وراثي",
+      ],
+      processTitle: "كيف تتقدم عملية العلاج؟",
+      steps: [
+        {
+          step: "المرحلة 1",
+          title: "التقييم الأولي والاختبارات",
+          description: "يتم تقييم احتياطي المبيض وبنية الرحم للمرأة. يتم إجراء اختبارات الدم مثل FSH وLH والتستوستيرون وتصنيف الكروموسومات وحذف Y على المريض الذكر. يتم إنشاء خطة علاج مناسبة.",
+        },
+        {
+          step: "المرحلة 2",
+          title: "اختيار المتبرع والحصول على الحيوانات المنوية",
+          description: "يتم ملء نموذج طلب المتبرع (الطول، الوزن، لون الشعر، لون البشرة، لون العين، فصيلة الدم، الأصل العرقي). يتم الحصول على الحيوانات المنوية من بنوك الحيوانات المنوية المرخصة في الدنمارك (Cryos، European Sperm Bank).",
+        },
+        {
+          step: "المرحلة 3",
+          title: "تطوير وجمع البويضات",
+          description: "يتم تحفيز المبايض من خلال تطبيق العلاج الهرموني على المرشحة للأمومة. عندما تصل البويضات المراقبة إلى النضج المطلوب، يتم جمعها تحت التخدير.",
+        },
+        {
+          step: "المرحلة 4",
+          title: "مرحلة المختبر",
+          description: "يتم تخصيب البويضات التي تم جمعها من المرشحة للأمومة بالحيوانات المنوية المختارة والمأخوذة من بنوك الحيوانات المنوية في الدنمارك ويتم تكوين الأجنة.",
+        },
+        {
+          step: "المرحلة 5",
+          title: "نقل الأجنة",
+          description: "يتم اختيار الأجنة عالية الجودة التي أكملت تطورها ونقلها إلى جدار الرحم للمرشحة للأمومة.",
+        },
+        {
+          step: "المرحلة 6",
+          title: "متابعة الحمل",
+          description: "يتم فحص الحمل عن طريق اختبار الدم بعد 12 يومًا من النقل. يتم توفير استشارة المريض طوال العملية.",
+        },
+      ],
+      advantagesTitle: "مزايا التبرع بالحيوانات المنوية في قبرص",
+      advantages: [
+        "البنية التحتية القانونية والممارسة الآمنة",
+        "لا يشترط الزواج",
+        "بنوك الحيوانات المنوية المرخصة في الدنمارك (Cryos، European Sperm Bank)",
+        "معلومات مفصلة عن المتبرع (الخصائص الجسدية، الحالة التعليمية)",
+        "ضمان السرية والممارسة الأخلاقية",
+        "معدل نجاح 80%+",
+        "طاقم ذو خبرة واستشارة المرضى",
+        "خدمة بمعايير دولية",
+      ],
+      legalTitle: "التبرع بالحيوانات المنوية في قبرص قانوني وآمن",
+      legalDescription: "شمال قبرص بلد يتمتع ببنية تحتية قانونية فيما يتعلق بالتبرع بالحيوانات المنوية، ويسمح بالتطبيقات وذو خبرة وسمعة طيبة في هذا المجال. كفيرتينا IVF، نقدم خدمات لمرضانا على أساس السرية والممارسة الأخلاقية والثقة. معدل الحمل لدينا مع علاج التبرع بالحيوانات المنوية في عيادتنا يزيد عن 80٪.",
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   };
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
       
       <div className="pt-20">
@@ -323,11 +398,15 @@ const SpermDonation = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
                 {language === "tr" 
                   ? "Fertina IVF ile Umut Bilimle Buluşuyor!" 
+                  : language === "ar"
+                  ? "الأمل يلتقي بالعلم مع فيرتينا IVF!"
                   : "Hope Meets Science with Fertina IVF!"}
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 {language === "tr"
                   ? "Sperm donasyonu, tıbbi nedenlerle baba olamayan erkekler ve anne olma hayali kuran kadınlar için etkili ve güvenilir bir seçenektir. Bilgi almak ve ilk adımı atmak için bizimle iletişime geçin."
+                  : language === "ar"
+                  ? "التبرع بالحيوانات المنوية هو خيار فعال وموثوق للرجال الذين لا يستطيعون أن يصبحوا آباء لأسباب طبية والنساء اللاتي يحلمن بأن يصبحن أمهات. اتصل بنا للحصول على معلومات واتخاذ الخطوة الأولى."
                   : "Sperm donation is an effective and reliable option for men who cannot become fathers for medical reasons and women who dream of becoming mothers. Contact us to get information and take the first step."}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

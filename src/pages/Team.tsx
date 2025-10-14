@@ -13,6 +13,9 @@ const Team = () => {
   const { ref: directorBioRef, isVisible: directorBioVisible } = useScrollAnimation();
   const { ref: membersTitleRef, isVisible: membersTitleVisible } = useScrollAnimation();
   const { ref: membersGridRef, isVisible: membersGridVisible } = useScrollAnimation();
+  
+  // Determine text direction based on language
+  const dir = language === "ar" ? "rtl" : "ltr";
 
   const content = {
     tr: {
@@ -39,6 +42,17 @@ const Team = () => {
       galleryTitle: "Team Gallery",
       membersTitle: "Expert Staff",
     },
+    ar: {
+      title: "فريقنا",
+      directorTitle: "المدير الطبي: د. إرمان سيفر (أخصائي أمراض النساء والتوليد والتلقيح الصناعي)",
+      bio: [
+        "ولد عام 1981، تخرج من كلية الطب بجامعة هاجيتيبي عام 2005؛ أخصائي أمراض النساء والتوليد منذ عام 2011.",
+        "حاصل على شهادة وخبرة في العمليات الجراحية بالمنظار وتنظير الرحم وأمراض المسالك البولية النسائية وجراحة التجميل النسائية.",
+        "عمل في ساكاريا؛ شهادة التلقيح الصناعي في المستشفى الأمريكي إسطنبول؛ منذ عام 2019 في شمال قبرص؛ المدير الطبي منذ عام 2021.",
+      ],
+      galleryTitle: "معرض الفريق",
+      membersTitle: "الطاقم الخبير",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
@@ -57,7 +71,7 @@ const Team = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">

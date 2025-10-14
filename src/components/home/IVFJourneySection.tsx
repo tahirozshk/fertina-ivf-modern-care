@@ -92,6 +92,46 @@ const IVFJourneySection = ({ language }: IVFJourneySectionProps) => {
         }
       ]
     },
+    ar: {
+      title: "رحلتك مع التلقيح الصناعي",
+      subtitle: "يتم تخطيط رحلتك للتلقيح الصناعي بعناية من البداية إلى النهاية، مع الاهتمام بكل التفاصيل",
+      phases: [
+        {
+          title: "قبل رحلتك",
+          icon: Phone,
+          color: "bg-orange-500",
+          steps: [
+            "اتصل بنا للحصول على استشارة مجانية",
+            "تعرف على برامجنا واحصل على توصيات علاجية شخصية",
+            "دراسة دقيقة لجميع جوانب تجاربك السابقة",
+            "احصل على إجابات واضحة لجميع أسئلتك",
+            "سنتولى رحلتك إلى قبرص، من التذاكر إلى متطلبات الدخول"
+          ]
+        },
+        {
+          title: "في قبرص",
+          icon: Plane,
+          color: "bg-orange-500",
+          steps: [
+            "سيتم الترحيب بك عند وصولك إلى المطار ونقلك إلى مكان الإقامة الذي اخترته",
+            "قابل طبيبك واحصل على فحص بالموجات فوق الصوتية مجانًا",
+            "أكمل جميع الاختبارات اللازمة كما وصفها طبيبك",
+            "ابدأ خطة العلاج الأنسب المصممة لاحتياجاتك الخاصة",
+            "سيرشدك فريقنا إلى أفضل الأنشطة في قبرص، من تناول الطعام والتسوق إلى مشاهدة المعالم السياحية"
+          ]
+        },
+        {
+          title: "بعد علاجك",
+          icon: CheckCircle,
+          color: "bg-orange-500",
+          steps: [
+            "ابق على اتصال مع متخصصينا بعد عودتك، حيث نراقب تقدمك وندعم النتائج الإيجابية",
+            "وأخيرًا، احتفل بفرحة الأبوة",
+            "استمتع بخدمة نقل مجانية من المطار في نهاية إقامتك"
+          ]
+        }
+      ]
+    },
   };
 
   const t = content[language as keyof typeof content];
@@ -146,7 +186,7 @@ const IVFJourneySection = ({ language }: IVFJourneySectionProps) => {
           {/* More Info Button */}
           <Link to="/contact">
             <button className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 smooth-transition shadow-lg hover:shadow-xl">
-              {language === "tr" ? "Daha Fazla Bilgi Al" : "Get More Information"}
+              {language === "tr" ? "Daha Fazla Bilgi Al" : language === "ar" ? "احصل على المزيد من المعلومات" : "Get More Information"}
             </button>
           </Link>
         </div>

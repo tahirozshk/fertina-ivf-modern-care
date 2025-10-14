@@ -5,6 +5,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 const MentalHealthIVF = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
 
   const content = {
     tr: {
@@ -38,12 +39,17 @@ IVF kliniğimiz, hastalarımıza başarılı bir IVF prosedürü sağlamak için
       banner: "/4..jpg",
       body: "This article is available in Turkish. Please switch language to TR.",
     },
+    ar: {
+      title: "نصائح حماية الصحة النفسية أثناء علاجات الخصوبة",
+      banner: "/4..jpg",
+      body: "هذه المقالة متاحة باللغة التركية. يرجى التبديل إلى اللغة التركية.",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">

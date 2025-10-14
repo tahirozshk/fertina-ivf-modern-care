@@ -14,6 +14,9 @@ const Treatments = () => {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
+  
+  // Determine text direction based on language
+  const dir = language === "ar" ? "rtl" : "ltr";
 
   const content = {
     tr: {
@@ -158,12 +161,83 @@ const Treatments = () => {
         },
       ],
     },
+    ar: {
+      title: "علاجاتنا",
+      subtitle: "خيارات علاج التلقيح الصناعي الشخصية وفقًا للمعايير الدولية لاحتياجات كل فرد",
+      cta: "معرفة المزيد",
+      treatments: [
+        {
+          icon: Baby,
+          title: "علاج التلقيح الصناعي (ICSI)",
+          shortDesc: "علاج التلقيح الصناعي بمعدل نجاح عالٍ بطريقة الحقن المجهري",
+          successRate: "76%",
+          slug: "ivf-icsi",
+          image: "/ivf.png",
+        },
+        {
+          icon: Heart,
+          title: "التبرع بالبويضات",
+          shortDesc: "برنامج موثوق للتبرع بالبويضات مع متبرعين مختارين بعناية",
+          successRate: "89%",
+          slug: "egg-donation",
+        },
+        {
+          icon: UserPlus,
+          title: "التبرع بالحيوانات المنوية",
+          shortDesc: "التبرع بالحيوانات المنوية مع متبرعين خضعوا لفحوصات صحية مفصلة",
+          successRate: "82%",
+          slug: "sperm-donation",
+        },
+        {
+          icon: FlaskConical,
+          title: "التبرع بالأجنة",
+          shortDesc: "أكمل عائلتك بالتبرع بالأجنة عالية الجودة",
+          successRate: "85%",
+          slug: "embryo-donation",
+        },
+        {
+          icon: Dna,
+          title: "اختيار الجنس",
+          shortDesc: "اختيار الجنس ضمن الإطار القانوني والأخلاقي باستخدام تقنية PGD",
+          successRate: "99%",
+          slug: "gender-selection",
+        },
+        {
+          icon: Users,
+          title: "العلاج المزدوج",
+          shortDesc: "علاج متزامن ببويضاتك الخاصة وبويضات المتبرع",
+          successRate: "84%",
+          slug: "tandem-treatment",
+        },
+        {
+          icon: Activity,
+          title: "الأمومة البديلة",
+          shortDesc: "برنامج احترافي للأمومة البديلة تحت الحماية القانونية",
+          successRate: "88%",
+          slug: "surrogacy",
+        },
+        {
+          icon: Zap,
+          title: "نقل السيتوبلازم",
+          shortDesc: "نقل السيتوبلازم لتحسين جودة البويضات",
+          successRate: "78%",
+          slug: "cytoplasm-transfer",
+        },
+        {
+          icon: Waves,
+          title: "التلقيح الصناعي والعلاج الطبيعي",
+          shortDesc: "برامج علاج طبيعي خاصة لدعم عملية العلاج",
+          successRate: "-",
+          slug: "physiotherapy",
+        },
+      ],
+    },
   };
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
       
       <div className="pt-30">
@@ -259,22 +333,26 @@ const Treatments = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
               {language === "tr" 
                 ? "Hangi tedavinin size uygun olduğundan emin değil misiniz?" 
+                : language === "ar"
+                ? "غير متأكد من العلاج المناسب لك؟"
                 : "Not sure which treatment is right for you?"}
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
               {language === "tr"
                 ? "Uzman ekibimiz size özel tedavi planı oluşturmak için hazır. Ücretsiz ön görüşme için hemen iletişime geçin."
+                : language === "ar"
+                ? "فريق الخبراء لدينا جاهز لإنشاء خطة علاج شخصية لك. اتصل بنا الآن للحصول على استشارة مجانية."
                 : "Our expert team is ready to create a personalized treatment plan for you. Contact us now for a free consultation."}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
                 <Button size="lg">
-                  {language === "tr" ? "Ücretsiz Danışmanlık" : "Free Consultation"}
+                  {language === "tr" ? "Ücretsiz Danışmanlık" : language === "ar" ? "استشارة مجانية" : "Free Consultation"}
                 </Button>
               </Link>
               <Link to="/contact">
                 <Button size="lg" variant="outline">
-                  {language === "tr" ? "Bizimle İletişime Geçin" : "Contact Us"}
+                  {language === "tr" ? "Bizimle İletişime Geçin" : language === "ar" ? "اتصل بنا" : "Contact Us"}
                 </Button>
               </Link>
             </div>

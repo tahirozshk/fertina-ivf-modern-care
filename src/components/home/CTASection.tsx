@@ -24,6 +24,12 @@ const CTASection = ({ language }: CTASectionProps) => {
       cta1: "Book Appointment",
       cta2: "Call Now",
     },
+    ar: {
+      title: "ابدأ رحلتك نحو عائلتك المثالية",
+      subtitle: "اتصل بنا الآن للحصول على استشارة أولية مجانية",
+      cta1: "احجز موعد",
+      cta2: "اتصل الآن",
+    },
   };
 
   const t = content[language as keyof typeof content];

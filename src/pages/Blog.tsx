@@ -24,6 +24,9 @@ const Blog = () => {
   const { language, setLanguage } = useLanguage();
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
+  
+  // Determine text direction based on language
+  const dir = language === "ar" ? "rtl" : "ltr";
 
   const content = {
     tr: {
@@ -52,12 +55,25 @@ const Blog = () => {
         { title: "Effect of Aging on Sperm", excerpt: "Anti‑aging strategies for sperm cells...", date: "2024-12-10", image: "/6..jpg", category: "Treatment", readTime: "4 min", views: 890, likes: 78, link: "/blog/sperm-yaslanma-genclestirme" },
       ] as Post[],
     },
+    ar: {
+      title: "المدونة",
+      subtitle: "رؤى حول التلقيح الصناعي والطب الإنجابي",
+      readMore: "اقرأ المزيد",
+      posts: [
+        { title: "التلقيح الصناعي ومتلازمة تكيس المبايض: التقدم في العلاج", excerpt: "النهج المحدثة لتحسين النتائج في متلازمة تكيس المبايض...", date: "2025-01-15", image: "/1..jpg", category: "العلاج", readTime: "5 دقائق", views: 1250, likes: 89, link: "/blog/ivf-ve-pcos" },
+        { title: "التغذية ونمط الحياة في التلقيح الصناعي", excerpt: "نصائح الخبراء لدعم رحلتك...", date: "2025-01-10", image: "/2..jpg", category: "التغذية", readTime: "7 دقائق", views: 2100, likes: 156, link: "/blog/beslenme-yasam-tarzi-ivf" },
+        { title: "الطب الشخصي في التلقيح الصناعي", excerpt: "كيف تحسن البروتوكولات المصممة خصيصًا النتائج...", date: "2025-01-05", image: "/3..jpg", category: "التكنولوجيا", readTime: "6 دقائق", views: 980, likes: 67, link: "/blog/kisiye-ozel-tip-ivf" },
+        { title: "الصحة النفسية أثناء العلاج", excerpt: "المرونة والرفاهية طوال العملية...", date: "2024-12-28", image: "/4..jpg", category: "الصحة النفسية", readTime: "8 دقائق", views: 1750, likes: 134, link: "/blog/mental-saglik-ivf" },
+        { title: "مستقبل التلقيح الصناعي: الذكاء الاصطناعي والجينات", excerpt: "التقنيات التي تُحدث ثورة في التلقيح الصناعي...", date: "2024-12-20", image: "/5..jpg", category: "التكنولوجيا", readTime: "9 دقائق", views: 3200, likes: 245, link: "/blog/ai-ve-genetik-ivf" },
+        { title: "تأثير الشيخوخة على الحيوانات المنوية", excerpt: "استراتيجيات مكافحة الشيخوخة للحيوانات المنوية...", date: "2024-12-10", image: "/6..jpg", category: "العلاج", readTime: "4 دقائق", views: 890, likes: 78, link: "/blog/sperm-yaslanma-genclestirme" },
+      ] as Post[],
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">
@@ -101,7 +117,7 @@ const Blog = () => {
                     <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
                       <div className="flex items-center gap-1">
                         <Calendar className="h-3 w-3" />
-                        {new Date(post.date).toLocaleDateString(language === "tr" ? "tr-TR" : "en-US")}
+                        {new Date(post.date).toLocaleDateString(language === "tr" ? "tr-TR" : language === "ar" ? "ar-SA" : "en-US")}
                       </div>
                       <div className="flex items-center gap-1">
                         <Clock className="h-3 w-3" />

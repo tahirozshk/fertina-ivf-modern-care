@@ -22,6 +22,8 @@ const EggDonation = () => {
   const { ref: advantagesTitleRef, isVisible: advantagesTitleVisible } = useScrollAnimation();
   const { ref: advantagesGridRef, isVisible: advantagesGridVisible } = useScrollAnimation();
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
+  
+  const dir = language === "ar" ? "rtl" : "ltr";
 
   const content = {
     tr: {
@@ -118,12 +120,59 @@ const EggDonation = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "التبرع بالبويضات",
+      subtitle: "برنامج موثوق للتبرع بالبويضات مع متبرعين مختارين بعناية",
+      successRate: "89% معدل النجاح",
+      description: "يتيح التبرع بالبويضات للأزواج الذين لا يستطيعون استخدام بويضاتهم الخاصة فرصة أن يصبحوا آباء من خلال تلقي بويضات من متبرع صحي. في فيرتينا IVF، يخضع جميع المتبرعين لدينا لفحوصات صحية مفصلة ويخضعون للحماية القانونية.",
+      whoIsItFor: "لمن هو مناسب؟",
+      candidates: [
+        "النساء المصابات بفشل المبيض المبكر (POF)",
+        "النساء في سن متقدمة (فوق 40)",
+        "المرضى الذين يعانون من انخفاض احتياطي المبيض",
+        "النساء الحاملات لأمراض وراثية",
+        "حالات فشل التلقيح الصناعي المتكررة",
+        "المرضى الذين تلقوا العلاج الكيميائي أو الإشعاعي",
+      ],
+      processTitle: "عملية اختيار المتبرع",
+      steps: [
+        {
+          title: "فحص صحي مفصل",
+          description: "يخضع جميع المتبرعين لدينا لاختبارات جينية شاملة واختبارات الأمراض المعدية والتقييم النفسي.",
+        },
+        {
+          title: "المطابقة الجسدية",
+          description: "يتم أخذ الخصائص الجسدية مثل لون العين ولون الشعر والطول والوزن وفصيلة الدم في الاعتبار في اختيار المتبرع.",
+        },
+        {
+          title: "الإجراء القانوني",
+          description: "يتم تنفيذ العملية بأكملها وفقًا للوائح القانونية ويتم حماية حقوق الأطراف.",
+        },
+        {
+          title: "ضمان السرية",
+          description: "يتم تطبيق مبدأ السرية المتبادلة بين المتبرع والمتلقي بصرامة.",
+        },
+      ],
+      advantagesTitle: "ميزات برنامج المتبرعين في فيرتينا IVF",
+      advantages: [
+        "متبرعون أصحاء تتراوح أعمارهم بين 18-32 عامًا",
+        "فحص جيني مفصل (NGS، PGD)",
+        "التقييم النفسي",
+        "مطابقة الميزات الجسدية",
+        "الحماية القانونية والسرية",
+        "معدل نجاح عالٍ (89%)",
+        "دعم منسق ذو خبرة",
+        "إدارة عملية شفافة",
+      ],
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   };
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
       
       <div className="pt-20">
@@ -238,11 +287,15 @@ const EggDonation = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
                 {language === "tr" 
                   ? "Anne Olma Hayalinizi Gerçekleştirin" 
+                  : language === "ar"
+                  ? "حقق حلمك بالأمومة"
                   : "Make Your Dream of Motherhood Come True"}
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 {language === "tr"
                   ? "Yumurta donasyonu programımız hakkında detaylı bilgi almak ve size uygun donör seçeneklerini değerlendirmek için bizimle iletişime geçin."
+                  : language === "ar"
+                  ? "اتصل بنا للحصول على معلومات مفصلة حول برنامج التبرع بالبويضات لدينا ولتقييم خيارات المتبرعين المناسبة لك."
                   : "Contact us for detailed information about our egg donation program and to evaluate suitable donor options for you."}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

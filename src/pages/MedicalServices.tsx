@@ -17,6 +17,9 @@ const MedicalServices = () => {
   const { ref: geneticTitleRef, isVisible: geneticTitleVisible } = useScrollAnimation();
   const { ref: geneticGridRef, isVisible: geneticGridVisible } = useScrollAnimation();
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
+  
+  // Determine text direction based on language
+  const dir = language === "ar" ? "rtl" : "ltr";
 
   const content = {
     tr: {
@@ -73,12 +76,39 @@ const MedicalServices = () => {
         { icon: Dna, title: "Whole Exome Sequencing", shortDesc: "Full analysis of coding regions", successRate: "98%", slug: "whole-exome-sequencing" },
       ],
     },
+    ar: {
+      title: "الخدمات الطبية",
+      subtitle: "الخدمات الطبية والاختبارات الجينية التي نقدمها في عيادتنا",
+      cta: "معرفة المزيد",
+      servicesTitle: "الخدمات الطبية",
+      geneticTitle: "الاختبارات الجينية",
+      services: [
+        { icon: TestTube2, title: "استخراج الحيوانات المنوية وTESE", shortDesc: "الحصول على الحيوانات المنوية جراحيًا من الخصية", successRate: "70%", slug: "sperm-retrieval" },
+        { icon: Dna, title: "علم الوراثة", shortDesc: "التقييم الجيني والاستشارة", successRate: "99%", slug: "genetics" },
+        { icon: Syringe, title: "اختبارات الخصوبة الأولية", shortDesc: "فحص الهرمونات والموجات فوق الصوتية وتحليل السائل المنوي", successRate: "95%", slug: "initial-fertility-tests" },
+        { icon: Microscope, title: "تنظير البطن", shortDesc: "الجراحة التشخيصية والعلاجية طفيفة التوغل", successRate: "92%", slug: "laparoscopy" },
+        { icon: ScanSearch, title: "التسلسل الجيني من الجيل التالي", shortDesc: "التحليل المتقدم للمخاطر الجينية", successRate: "99%", slug: "next-generation-sequencing" },
+        { icon: Beaker, title: "تجميد الأجنة", shortDesc: "التخزين بالتبريد للأجنة عالية الجودة", successRate: "95%", slug: "embryo-freezing" },
+        { icon: FlaskConical, title: "تجميد البويضات", shortDesc: "تجميد البويضات للأمومة المستقبلية", successRate: "90%", slug: "egg-freezing" },
+        { icon: Baby, title: "تجميد الحيوانات المنوية", shortDesc: "الحفاظ على العينات قبل العلاج", successRate: "90%", slug: "sperm-freezing" },
+        { icon: Activity, title: "تنظير الرحم", shortDesc: "تشخيص وعلاج مشاكل الرحم الداخلية", successRate: "90%", slug: "hysteroscopy" },
+        { icon: HeartPulse, title: "متابعة الحمل", shortDesc: "التقييم والاستشارة المنتظمة أثناء الحمل", successRate: "98%", slug: "pregnancy-follow-up" },
+        { icon: Stethoscope, title: "الولادة", shortDesc: "إدارة الولادة مع إعطاء الأولوية للسلامة", successRate: "99%", slug: "delivery" },
+        { icon: Microscope, title: "ربط عنق الرحم", shortDesc: "غرزة عنق الرحم لحماية الحمل", successRate: "85%", slug: "cervical-cerclage" },
+      ],
+      geneticTests: [
+        { icon: ScanSearch, title: "التسلسل الجيني من الجيل التالي", shortDesc: "تحليل متزامن لآلاف الجينات", successRate: "99%", slug: "next-generation-sequencing" },
+        { icon: Dna, title: "PGD", shortDesc: "الفحص الجيني قبل نقل الأجنة", successRate: "99%", slug: "pgd" },
+        { icon: ScanSearch, title: "تحليل الجين الواحد", shortDesc: "فحص الأمراض الوراثية أحادية الجين", successRate: "98%", slug: "single-gene-analysis" },
+        { icon: Dna, title: "تسلسل الإكسوم الكامل", shortDesc: "التحليل الكامل للمناطق المشفرة", successRate: "98%", slug: "whole-exome-sequencing" },
+      ],
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">
@@ -273,22 +303,26 @@ const MedicalServices = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
             {language === "tr" 
               ? "Hangi tedavinin size uygun olduğundan emin değil misiniz?" 
+              : language === "ar"
+              ? "غير متأكد من العلاج المناسب لك؟"
               : "Not sure which treatment is right for you?"}
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             {language === "tr"
               ? "Uzman ekibimiz size özel tedavi planı oluşturmak için hazır. Ücretsiz ön görüşme için hemen iletişime geçin."
+              : language === "ar"
+              ? "فريق الخبراء لدينا جاهز لإنشاء خطة علاج شخصية لك. اتصل بنا الآن للحصول على استشارة مجانية."
               : "Our expert team is ready to create a personalized treatment plan for you. Contact us now for a free consultation."}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
               <Button size="lg">
-                {language === "tr" ? "Ücretsiz Danışmanlık" : "Free Consultation"}
+                {language === "tr" ? "Ücretsiz Danışmanlık" : language === "ar" ? "استشارة مجانية" : "Free Consultation"}
               </Button>
             </Link>
             <Link to="/contact">
               <Button size="lg" variant="outline">
-                {language === "tr" ? "Bizimle İletişime Geçin" : "Contact Us"}
+                {language === "tr" ? "Bizimle İletişime Geçin" : language === "ar" ? "اتصل بنا" : "Contact Us"}
               </Button>
             </Link>
           </div>

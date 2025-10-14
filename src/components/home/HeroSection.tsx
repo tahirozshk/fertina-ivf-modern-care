@@ -26,6 +26,13 @@ const HeroSection = ({ language }: HeroSectionProps) => {
       cta1: "Book Appointment",
       cta2: "Learn More",
     },
+    ar: {
+      title: "حيث يلتقي العلم بالأمل",
+      subtitle:
+        "مع التكنولوجيا الحديثة وفريقنا ذو الخبرة، نحن ندعمك في رحلتك لإكمال عائلتك.",
+      cta1: "احجز موعد",
+      cta2: "معرفة المزيد",
+    },
   };
 
   const t = content[language as keyof typeof content];

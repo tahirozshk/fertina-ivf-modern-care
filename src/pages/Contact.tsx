@@ -10,6 +10,9 @@ import { useLanguage } from "@/hooks/use-language";
 const Contact = () => {
   const { language, setLanguage } = useLanguage();
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", phone: "" });
+  
+  // Determine text direction based on language
+  const dir = language === "ar" ? "rtl" : "ltr";
 
   const t = {
     tr: {
@@ -32,6 +35,16 @@ const Contact = () => {
       cta: "Get My Free Consultation",
       privacy: "Your privacy is our priority. Your information is 100% confidential and used only by our patient coordinators to contact you.",
     },
+    ar: {
+      title: "ابدأ رحلتك باستشارة مجانية",
+      desc: "انضم إلى الآلاف من المرضى الذين يثقون بنا في رحلتهم نحو الأبوة. نحن ننسق كل جانب من جوانب علاجك ونبقى معك طوال الرحلة.",
+      firstName: "الاسم الأول",
+      lastName: "اسم العائلة",
+      email: "عنوان البريد الإلكتروني",
+      phone: "رقم الهاتف",
+      cta: "احصل على استشارتي المجانية",
+      privacy: "خصوصيتك هي أولويتنا. معلوماتك سرية بنسبة 100% وتستخدم فقط من قبل منسقي المرضى لدينا للاتصال بك.",
+    },
   } as const;
 
   const l = t[language as keyof typeof t];
@@ -42,11 +55,11 @@ const Contact = () => {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    alert(language === "tr" ? "Form alındı. Teşekkürler!" : "Form received. Thank you!");
+    alert(language === "tr" ? "Form alındı. Teşekkürler!" : language === "ar" ? "تم استلام النموذج. شكرا لك!" : "Form received. Thank you!");
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-30">
@@ -100,24 +113,24 @@ const Contact = () => {
 
                   <div className="space-y-4">
                     <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
-                      <div className="font-semibold text-foreground mb-1">{language === "tr" ? "Neden Fertina?" : "Why Fertina?"}</div>
+                      <div className="font-semibold text-foreground mb-1">{language === "tr" ? "Neden Fertina?" : language === "ar" ? "لماذا فيرتينا؟" : "Why Fertina?"}</div>
                       <ul className="text-sm text-muted-foreground space-y-1">
-                        <li>• {language === "tr" ? "%80+ başarıya ulaşan kişiye özel protokoller" : "Personalized protocols with 80%+ success"}</li>
-                        <li>• {language === "tr" ? "AI destekli embriyoloji ve kapsamlı genetik testler" : "AI‑assisted embryology and comprehensive genetics"}</li>
-                        <li>• {language === "tr" ? "7/24 ulaşılabilir hasta koordinasyonu" : "24/7 patient coordination"}</li>
+                        <li>• {language === "tr" ? "%80+ başarıya ulaşan kişiye özel protokoller" : language === "ar" ? "بروتوكولات شخصية بنسبة نجاح تزيد عن 80%" : "Personalized protocols with 80%+ success"}</li>
+                        <li>• {language === "tr" ? "AI destekli embriyoloji ve kapsamlı genetik testler" : language === "ar" ? "علم الأجنة بمساعدة الذكاء الاصطناعي واختبارات جينية شاملة" : "AI‑assisted embryology and comprehensive genetics"}</li>
+                        <li>• {language === "tr" ? "7/24 ulaşılabilir hasta koordinasyonu" : language === "ar" ? "تنسيق المرضى على مدار الساعة طوال أيام الأسبوع" : "24/7 patient coordination"}</li>
                       </ul>
                     </div>
                     <div className="grid grid-cols-1 gap-3">
                       <div className="flex items-start gap-3 p-3 rounded-lg border">
                         <Clock className="h-5 w-5 text-primary" />
                         <div className="text-sm text-muted-foreground">
-                          {language === "tr" ? "Çalışma Saatleri: Hafta içi 09:00–18:00" : "Hours: Weekdays 09:00–18:00"}
+                          {language === "tr" ? "Çalışma Saatleri: Hafta içi 09:00–18:00" : language === "ar" ? "ساعات العمل: أيام الأسبوع 09:00-18:00" : "Hours: Weekdays 09:00–18:00"}
                         </div>
                       </div>
                       <div className="flex items-start gap-3 p-3 rounded-lg border">
                         <MapPin className="h-5 w-5 text-primary" />
                         <div className="text-sm text-muted-foreground">
-                          {language === "tr" ? "Mağusa Yaşam Hastanesi, Gazi Mustafa Kemal Bulvarı No:23" : "Magusa Yasam Hospital, GMK Boulevard No:23"}
+                          {language === "tr" ? "Mağusa Yaşam Hastanesi, Gazi Mustafa Kemal Bulvarı No:23" : language === "ar" ? "مستشفى ماغوسا ياشام، شارع غازي مصطفى كمال رقم 23" : "Magusa Yasam Hospital, GMK Boulevard No:23"}
                         </div>
                       </div>
                     </div>

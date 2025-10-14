@@ -10,6 +10,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 const LaparoscopyService = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
   const { ref: whenTitleRef, isVisible: whenTitleVisible } = useScrollAnimation();
@@ -115,12 +116,29 @@ const LaparoscopyService = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "تنظير البطن",
+      subtitle: "جراحة تشخيصية وعلاجية طفيفة التوغل",
+      description: "تنظير البطن هو طريقة جراحية تسمح بفحص تجويف البطن بكاميرا وأدوات خاصة من خلال شقوق صغيرة 0.5 سم. في أمراض النساء والعقم، يتم استخدامه بشكل متكرر لكل من التشخيص والعلاج.",
+      whenTitle: "متى يتم تطبيقه؟",
+      indications: ["البحث عن أسباب العقم", "فحص سالكية الأنابيب", "تشخيص وعلاج الانتباذ البطاني الرحمي", "إزالة كيسات المبيض", "علاج الأورام الليفية", "علاج الحمل خارج الرحم", "إزالة الالتصاقات داخل البطن", "عند رؤية آفات مشبوهة في HSG أو الموجات فوق الصوتية"],
+      howTitle: "كيف يتم إجراؤه؟",
+      steps: [{title: "وضع الكاميرا", description: "يتم عمل شق صغير (0.5 سم) بالقرب من السرة وإدخال منظار البطن."}, {title: "إنشاء الرؤية", description: "يتم إعطاء ثاني أكسيد الكربون في البطن لرؤية الأعضاء بوضوح."}, {title: "التشخيص والعلاج", description: "يمكن إجراء المشاهدة التشخيصية أو التدخل العلاجي في نفس الجلسة."}],
+      advantagesTitle: "المزايا",
+      advantages: ["تعافي أسرع من خلال شقوق صغيرة", "ألم أقل وإقامة أقصر في المستشفى", "فرصة للتشخيص والعلاج", "فرصة لتحسين الخصوبة"],
+      whoEnTitle: "قد يوصى بتنظير البطن في حالات:",
+      whoEn: ["المرضى الذين يعانون من حالات طوارئ نسائية حادة", "المرضى الذين يعانون من حالات مشخصة تتطلب العلاج", "العقم غير المبرر أو ألم الحوض المزمن"],
+      noteTitle: "ضمان فيرتينا IVF",
+      note: "في فيرتينا IVF، نقوم بتشخيص وعلاج المشكلات التي قد تسبب العقم بأحدث تقنيات تنظير البطن. نحن معك بعملية تعافي أسرع ومرافق جراحية حديثة.",
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">

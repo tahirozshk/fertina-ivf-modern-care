@@ -5,6 +5,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 const IVFAndPCOS = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
 
   const content = {
     tr: {
@@ -47,12 +48,16 @@ Eğer siz ya da tanıdığınız biri PCOS’a bağlı kısırlık yaşıyorsa, 
       title: "IVF and PCOS: Advances Helping Women with PCOS Conceive",
       body: "This article is available in Turkish. Please switch language to TR.",
     },
+    ar: {
+      title: "التلقيح الصناعي ومتلازمة تكيس المبايض: التقدم الذي يساعد النساء المصابات بمتلازمة تكيس المبايض على الحمل",
+      body: "هذه المقالة متاحة باللغة التركية. يرجى التبديل إلى اللغة التركية.",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">

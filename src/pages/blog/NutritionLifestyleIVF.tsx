@@ -5,6 +5,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 const NutritionLifestyleIVF = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
 
   const content = {
     tr: {
@@ -42,12 +43,17 @@ Bu bilimsel olarak desteklenen diyet ve yaşam tarzı uygulamalarını benimseye
       body: "This article is available in Turkish. Please switch language to TR.",
       banner: "/2..jpg",
     },
+    ar: {
+      title: "دور التغذية ونمط الحياة في زيادة نجاح التلقيح الصناعي: توصيات الخبراء",
+      body: "هذه المقالة متاحة باللغة التركية. يرجى التبديل إلى اللغة التركية.",
+      banner: "/2..jpg",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">

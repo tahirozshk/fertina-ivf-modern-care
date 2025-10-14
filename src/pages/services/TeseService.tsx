@@ -10,6 +10,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 const TeseService = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
   const { ref: whoTitleRef, isVisible: whoTitleVisible } = useScrollAnimation();
@@ -98,12 +99,53 @@ const TeseService = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "TESE (استخراج الحيوانات المنوية من الخصية)",
+      subtitle: "حل عندما يكون إنتاج الحيوانات المنوية صعبًا",
+      description: "TESE هو إجراء جراحي يسمح بالحصول على الحيوانات المنوية عن طريق أخذ قطع صغيرة مباشرة من نسيج الخصية في الرجال الذين ليس لديهم حيوانات منوية في السائل المنوي (فقد النطاف). يتم إجراؤه ليتم استخدامه في علاج التلقيح الصناعي مع ICSI.",
+      whoTitle: "لمن هو؟",
+      candidates: [
+        "الرجال الذين ليس لديهم حيوانات منوية في السائل المنوي (فقد النطاف)",
+        "الأشخاص الذين يعانون من انسداد في قنوات الحيوانات المنوية",
+        "المرضى الذين لا يمكن العثور على الحيوانات المنوية للتلقيح الصناعي ولم يتم التجميد مسبقًا",
+        "الرجال ذوو إنتاج الحيوانات المنوية المنخفض بسبب أسباب وراثية أو هرمونية"
+      ],
+      howTitle: "كيف يتم إجراء TESE في فيرتينا؟",
+      steps: [
+        {
+          title: "التخدير",
+          description: "يتم إجراؤه تحت التخدير الموضعي أو العام."
+        },
+        {
+          title: "أخذ عينة الأنسجة",
+          description: "يتم استخدام شق صغير جدًا أو إبرة خاصة لأخذ عينات الأنسجة من الخصية."
+        },
+        {
+          title: "المعالجة المخبرية",
+          description: "يتم عزل خلايا الحيوانات المنوية الحية عن طريق فحص الأنسجة في المختبر."
+        },
+        {
+          title: "الاستخدام / التجميد",
+          description: "يمكن استخدام الحيوانات المنوية التي تم الحصول عليها على الفور في التلقيح الصناعي أو تجميدها للتخزين."
+        }
+      ],
+      advantagesTitle: "المزايا",
+      advantages: [
+        "يعطي فرصة الأبوة حتى بدون حيوانات منوية في السائل المنوي",
+        "نجاح عالٍ مع التقنيات الجراحية الدقيقة",
+        "آمن للاستخدام في التلقيح الصناعي"
+      ],
+      noteTitle: "ضمان فيرتينا IVF",
+      note: "في فيرتينا IVF، نقوم بإجراء TESE مع فريق المسالك البولية وعلم الأجنة الخبير لدينا وندعم فرصة الأبوة بأحدث التقنيات.",
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">

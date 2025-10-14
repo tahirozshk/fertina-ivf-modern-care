@@ -5,6 +5,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 const SpermAgingRejuvenation = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
 
   const content = {
     tr: {
@@ -67,12 +68,17 @@ Diyet değişiklikleri, hedeflenen besin takviyeleri, yaşam tarzı değişiklik
       banner: "/6..jpg",
       body: "This article is available in Turkish. Please switch language to TR.",
     },
+    ar: {
+      title: "آثار الشيخوخة على خلايا الحيوانات المنوية: بروتوكول التجديد",
+      banner: "/6..jpg",
+      body: "هذه المقالة متاحة باللغة التركية. يرجى التبديل إلى اللغة التركية.",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">

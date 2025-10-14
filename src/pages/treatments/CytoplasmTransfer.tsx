@@ -11,6 +11,7 @@ import { useCounterAnimation } from "@/hooks/use-counter-animation";
 
 const CytoplasmTransfer = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { count: successCount, ref: successRef } = useCounterAnimation({ end: 78, duration: 2000 });
   const { ref: whatIsItRef, isVisible: whatIsItVisible } = useScrollAnimation();
@@ -152,12 +153,32 @@ const CytoplasmTransfer = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "نقل السيتوبلازم",
+      subtitle: "نقل السيتوبلازم لتحسين جودة البويضات",
+      successRate: "78% معدل النجاح",
+      whatIsIt: "ما هو نقل السيتوبلازم؟",
+      description: "نقل السيتوبلازم هو طريقة إنجاب مساعدة خاصة تم تطويرها لزيادة جودة البويضات.",
+      technicalInfo: "يحتوي هذا السائل على الميتوكوندريا والريبوسومات والعضيات المساعدة الأخرى.",
+      whoIsItFor: "لمن هو مناسب؟",
+      candidates: ["المرضى الذين لديهم احتياطي مبيض منخفض", "المرضى ذوو جودة البويضات المنخفضة", "الأزواج الذين فشلت تجاربهم السابقة", "المرضى ذوو الاحتياطي الجيد لكن الإجهاض المتكرر", "النساء اللاتي يخططن للحمل في سن متقدمة"],
+      processTitle: "كيف يتم التطبيق؟",
+      steps: [{step: "المرحلة 1", title: "جمع بويضة المتبرع", description: "يتم أخذ بويضة من متبرع شاب."}, {step: "المرحلة 2", title: "فصل السيتوبلازم", description: "يتم فصل السيتوبلازم."}, {step: "المرحلة 3", title: "النقل بالحقن المجهري", description: "يتم نقل السائل."}, {step: "المرحلة 4", title: "التخصيب بـ ICSI", description: "يتم التخصيب."}],
+      goalTitle: "ما هو الهدف؟",
+      goalDescription: "مع نقل السيتوبلازم، يتم زيادة إمكانات تخصيب بويضة المرشحة للأمومة.",
+      advantagesTitle: "مزايا نقل السيتوبلازم",
+      advantages: ["يزيد جودة البويضات", "يرفع إمكانات التخصيب", "يدعم تطور الأجنة", "يزيد معدل الوصول لليوم الخامس", "يقوي إمكانات الزرع", "يرفع معدل الحمل", "يعطي فرصة ببويضاتك الخاصة", "إجراء دقيق"],
+      benefitsTitle: "ما يتم تحقيقه بنقل السيتوبلازم؟",
+      benefits: ["دعم الميتوكوندريا", "دعم الريبوسوم", "دعم mRNA", "العضيات المساعدة", "زيادة في قدرة التخصيب", "تحسين في جودة الأجنة"],
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   };
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
       
       <div className="pt-20">

@@ -10,6 +10,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 const CervicalCerclageService = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
   const { ref: whatRef, isVisible: whatVisible } = useScrollAnimation();
@@ -89,12 +90,46 @@ const CervicalCerclageService = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "ربط عنق الرحم (غرزة عنق الرحم)",
+      subtitle: "إجراء وقائي لتقليل مخاطر الإجهاض والولادة المبكرة",
+      description: "ربط عنق الرحم هو إجراء وقائي للنساء المصابات بقصور عنق الرحم. من خلال إبقاء عنق الرحم مغلقًا أثناء الحمل، فإنه يهدف إلى تقليل مخاطر الإجهاض والولادة المبكرة.",
+      whatTitle: "ما هو قصور عنق الرحم؟",
+      whatDesc: "عنق الرحم يكون مغلقًا عادة طوال فترة الحمل ويبدأ في الفتح مع اقتراب الولادة. في بعض النساء، قد ينفتح عنق الرحم مبكرًا، مما يؤدي إلى الإجهاض المتكرر أو الولادة المبكرة.",
+      whoTitle: "لمن هو ربط عنق الرحم؟",
+      who: ["النساء ذوات قصور عنق الرحم", "تاريخ من فقدان الحمل في الثلث الثاني", "عنق رحم قصير (أقل من 25 مم)", "ولادة مبكرة سابقة"],
+      candidates: [
+        "النساء اللاتي يعانين من حالات إجهاض متكررة في الثلث الثاني",
+        "تشخيص قصور عنق الرحم",
+        "طول عنق الرحم القصير المكتشف بالموجات فوق الصوتية",
+        "تاريخ الولادة المبكرة في حالات الحمل السابقة"
+      ],
+      whenTitle: "متى يتم تطبيقه؟",
+      whenDesc: "يتم إجراؤه عادة بين 12-14 أسبوعًا من الحمل، قبل أن يبدأ عنق الرحم في التمدد. يتم إزالة الغرزة حوالي الأسبوع 37 أو قبل الولادة.",
+      howTitle: "كيف يتم إجراء العملية؟",
+      steps: [
+        "عادة ما يتم إجراؤه في 12-14 أسبوعًا",
+        "تحت التخدير النخاعي أو العام",
+        "يتم وضع غرزة خاصة حول عنق الرحم لإبقائه مغلقًا",
+        "تتم إزالة الغرزة بالقرب من الولادة (حوالي 37 أسبوعًا)"
+      ],
+      afterTitle: "بعد الإجراء",
+      after: [
+        "فترة مراقبة قصيرة",
+        "الراحة والامتثال للفحوصات المجدولة",
+        "قد تحدث تقلصات خفيفة ونزيف طفيف"
+      ],
+      goalTitle: "الغرض من ربط عنق الرحم",
+      goalDesc: "للسماح للحمل بالتقدم بأمان حتى يبقى الطفل في الرحم لفترة كافية لولادة صحية. في فيرتينا IVF، نطبق بعناية الطرق الحديثة ونقف معك مع فريقنا ذي الخبرة.",
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">

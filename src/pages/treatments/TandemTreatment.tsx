@@ -11,6 +11,7 @@ import { useCounterAnimation } from "@/hooks/use-counter-animation";
 
 const TandemTreatment = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { count: successCount, ref: successRef } = useCounterAnimation({ end: 84, duration: 2000 });
   const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
@@ -143,12 +144,31 @@ const TandemTreatment = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "العلاج المزدوج",
+      subtitle: "علاج متزامن ببويضاتك الخاصة وبويضات المتبرع",
+      successRate: "84% معدل النجاح",
+      heroTitle: "جرب فرصك ببويضاتك الخاصة مع الأمان بدعم المتبرع!",
+      description: "العلاج المزدوج هو طريقة تلقيح صناعي خاصة تم تطويرها خصيصًا للنساء ذوات الاحتياطي المنخفض من المبايض، والتي تجعل من الممكن إنشاء أجنة ببويضاتك الخاصة وبويضات المتبرع في نفس الدورة. كفيرتينا IVF، نقدم هذه الطريقة كخيار فعال لمرضانا الذين يرغبون في زيادة فرص نجاحهم.",
+      whatIsIt: "ما هو العلاج المزدوج؟",
+      whatIsItDesc: "في العلاج المزدوج، يتم جمع البويضات عن طريق تحفيز مبايض المرأة الخاصة، بينما يتم الحصول على بويضات المتبرع أيضًا خلال نفس عملية العلاج.",
+      keyBenefit: "بفضل هذه الطريقة، حتى لو لم يتمكن المريض من الحصول على جنين صحي من بويضته الخاصة، فإنه يحافظ على فرصة الحمل مع أجنة المتبرع.",
+      whoIsItFor: "لمن هو مناسب؟",
+      candidates: ["النساء في سن متقدمة مع جودة بويضات منخفضة", "انخفاض احتياطي المبايض (AMH منخفض)", "المرضى الذين عانوا من تطور أجنة غير كافٍ", "المرضى الذين يريدون المحاولة ببويضاتهم الخاصة"],
+      processTitle: "كيف تعمل عملية العلاج؟",
+      steps: [{step: "المرحلة 1", title: "التقييم والتخطيط", description: "يتم تقييم قدرة المبيض والحالة الصحية العامة للمرأة."}, {step: "المرحلة 2", title: "جمع البويضات المتزامن", description: "يتم مزامنة المريضة والمتبرع."}, {step: "المرحلة 3", title: "التخصيب وتطوير الأجنة", description: "يتم تخصيب البويضات."}, {step: "المرحلة 4", title: "اختيار ونقل الأجنة", description: "يتم النقل."}, {step: "المرحلة 5", title: "متابعة الحمل", description: "الفحص بعد 12 يومًا."}],
+      advantagesTitle: "مزايا العلاج المزدوج",
+      advantages: ["تحافظ على فرصة استخدام بويضاتك الخاصة", "تقدم احتياطي في نفس الدورة", "لا ضياع للوقت", "يزيد معدل النجاح (84%)", "القرار النهائي في يوم النقل", "الخيار لك", "طريقة مبتكرة", "فرصة مضاعفة"],
+      idealFor: "الدورة المزدوجة هي حل مثالي للمرضى.",
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   };
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
       
       <div className="pt-20">

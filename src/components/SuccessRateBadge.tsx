@@ -30,7 +30,7 @@ const SuccessRateBadge = ({ successRate, language, variant = "dark" }: SuccessRa
   return (
     <div ref={ref} className="text-right">
       <div className={`text-xs ${textColorClass} mb-1`}>
-        {language === "tr" ? "Başarı" : "Success"}
+        {language === "tr" ? "Başarı" : language === "ar" ? "النجاح" : "Success"}
       </div>
       <div className={`text-2xl font-bold ${valueColorClass}`}>
         {count}%

@@ -10,6 +10,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 const SpermFreezingService = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: whatRef, isVisible: whatVisible } = useScrollAnimation();
   const { ref: whyTitleRef, isVisible: whyTitleVisible } = useScrollAnimation();
@@ -129,12 +130,33 @@ const SpermFreezingService = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "تجميد الحيوانات المنوية",
+      subtitle: "الحفاظ على الخصوبة للمستقبل",
+      whatTitle: "ما هو تجميد الحيوانات المنوية؟",
+      whatDesc: "تجميد الحيوانات المنوية (التجميد بالتبريد) هو طريقة لتخزين خلايا الحيوانات المنوية في درجات حرارة منخفضة جدًا مع النيتروجين السائل للاستخدام في المستقبل. بهذه الطريقة، يمكن الحفاظ عليها لسنوات دون فقدان الجودة.",
+      whyTitle: "لماذا يُنظر فيه؟",
+      why: ["الحفاظ على الخصوبة (قبل العلاج مثل السرطان)", "تأجيل الأبوة (الأسباب الشخصية / المهنية)", "تخطيط الأسرة مع الفحص الجيني", "المرونة: يمكن لأحد الشريكين القدوم مبكرًا وترك العينة"],
+      whoTitle: "لمن هو مناسب؟",
+      who: ["الرجال في سن الإنجاب والذين يرغبون في الحفاظ على خصوبتهم", "الأفراد الذين سيتلقون علاجات قد تؤثر على الخصوبة", "أولئك الذين يرغبون في تأجيل الأبوة", "مرضى السرطان أو الأشخاص الذين قد تتأثر خصوبتهم"],
+      recTitle: "قد يوصى بتجميد الحيوانات المنوية في حالات:",
+      rec: ["عقم العامل الذكري الشديد", "فشل التخصيب مع التلقيح الصناعي القياسي", "الأمراض الوراثية"],
+      processTitle: "العملية",
+      process: ["الاستشارة الأولية وتقييم الملاءمة", "إعطاء عينة الحيوانات المنوية في غرفة معقمة", "معالجة العينة وتنقيتها من المكونات غير الضرورية", "التجميد في ظروف خاضعة للرقابة عند -196 درجة مئوية", "التخزين والمراقبة طويلة الأجل"],
+      benefitsTitle: "الفوائد",
+      benefits: ["الحفاظ على الخصوبة", "مرونة في تأجيل الأبوة", "التأمين قبل علاج السرطان", "التخطيط الواعي مع الاختبارات الجينية"],
+      factorsTitle: "العوامل المؤثرة على النجاح",
+      factors: ["جودة العينة (العدد، الحركة، التشكل)", "ظروف التخزين واستمرارية درجة الحرارة"],
+      conclusion: "تجميد الحيوانات المنوية بالتبريد هو خيار قيم للحفاظ على الخصوبة والأبوة المخططة. اتصل بنا للحصول على استشارة أولية مجانية.",
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">

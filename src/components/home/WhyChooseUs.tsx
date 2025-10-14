@@ -64,6 +64,32 @@ const WhyChooseUs = ({ language }: WhyChooseUsProps) => {
         },
       ],
     },
+    ar: {
+      title: "لماذا تختار فيرتينا IVF؟",
+      intro: "اكتشف المسارات الشخصية للأبوة المقدمة في عيادتنا. تتراوح خدماتنا من تقييمات الخصوبة الأولية والتشخيص إلى العلاجات المتقدمة مثل التلقيح الصناعي وحقن الحيوانات المنوية، وتشمل خيارات رائدة مثل الاختبارات الجينية وبرامج المتبرعين الشاملة.",
+      reasons: [
+        {
+          icon: Award,
+          title: "معدلات نجاح عالية",
+          description: "معدلات نجاحنا الاستثنائية هي نتيجة مباشرة للتآزر بين متخصصي الخصوبة ذوي المستوى العالمي وعلماء الأجنة الخبراء لدينا.",
+        },
+        {
+          icon: Heart,
+          title: "علاج مخصص",
+          description: "تتضمن خطة العلاج المخصصة لك خدمة الكونسيرج الكاملة: نحن نرتب إقامتك ونوفر جميع النقل الخاص دون تكلفة إضافية.",
+        },
+        {
+          icon: Microscope,
+          title: "أفضل المعدات",
+          description: "توفر عيادتنا الحديثة رعاية سلسة مع جميع المعدات في الموقع، من الموجات فوق الصوتية المتقدمة للدقة إلى أحدث أنظمة الاستشفاء لراحتك.",
+        },
+        {
+          icon: HeartHandshake,
+          title: "دعم المرضى",
+          description: "من استفسارك الأول إلى موعدك النهائي، سيكون لديك منسق مريض مخصص. نحن نقدم دعمًا رحيمًا ومباشرًا للإجابة على أسئلتك وإرشادك في كل خطوة من رحلتك الشخصية.",
+        },
+      ],
+    },
   };
 
   const t = content[language as keyof typeof content];
@@ -125,7 +151,7 @@ const WhyChooseUs = ({ language }: WhyChooseUsProps) => {
         {/* Decorative Element */}
         <div className="mt-16 text-center">
           <div className="inline-block px-8 py-4 rounded-full bg-primary/10 text-primary font-semibold elevate smooth-transition reveal-fade hover:scale-105">
-            {language === "tr" ? "✨ Sizin İçin Buradayız ✨" : "✨ We're Here For You ✨"}
+            {language === "tr" ? "✨ Sizin İçin Buradayız ✨" : language === "ar" ? "✨ نحن هنا من أجلك ✨" : "✨ We're Here For You ✨"}
           </div>
         </div>
       </div>

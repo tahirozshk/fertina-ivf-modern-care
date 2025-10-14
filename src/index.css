@@ -176,4 +176,39 @@ All colors MUST be HSL.
 
   /* Slower variant for big images */
   .reveal-slow.revealed { transition-duration: 900ms; }
+
+  /* RTL Support */
+  [dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+  }
+
+  /* RTL specific adjustments for margins and paddings */
+  [dir="rtl"] .ml-2 { margin-left: 0; margin-right: 0.5rem; }
+  [dir="rtl"] .mr-2 { margin-right: 0; margin-left: 0.5rem; }
+  [dir="rtl"] .ml-3 { margin-left: 0; margin-right: 0.75rem; }
+  [dir="rtl"] .mr-3 { margin-right: 0; margin-left: 0.75rem; }
+  [dir="rtl"] .ml-4 { margin-left: 0; margin-right: 1rem; }
+  [dir="rtl"] .mr-4 { margin-right: 0; margin-left: 1rem; }
+  
+  [dir="rtl"] .pl-4 { padding-left: 0; padding-right: 1rem; }
+  [dir="rtl"] .pr-4 { padding-right: 0; padding-left: 1rem; }
+
+  /* RTL text alignment overrides */
+  [dir="rtl"] .text-left { text-align: right; }
+  [dir="rtl"] .text-right { text-align: left; }
+  
+  /* RTL flex direction */
+  [dir="rtl"] .flex-row { flex-direction: row-reverse; }
+  
+  /* RTL transforms for animations */
+  [dir="rtl"] .reveal-left { transform: translateX(24px); }
+  [dir="rtl"] .reveal-right { transform: translateX(-24px); }
+
+  /* RTL specific for icons next to text */
+  [dir="rtl"] .gap-2,
+  [dir="rtl"] .gap-3,
+  [dir="rtl"] .gap-4 {
+    flex-direction: row-reverse;
+  }
 }

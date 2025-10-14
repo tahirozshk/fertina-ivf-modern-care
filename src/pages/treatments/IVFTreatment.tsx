@@ -22,6 +22,9 @@ const IVFTreatment = () => {
   const { ref: advantagesTitleRef, isVisible: advantagesTitleVisible } = useScrollAnimation();
   const { ref: advantagesGridRef, isVisible: advantagesGridVisible } = useScrollAnimation();
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
+  
+  // Determine text direction based on language
+  const dir = language === "ar" ? "rtl" : "ltr";
 
   const content = {
     tr: {
@@ -144,12 +147,72 @@ const IVFTreatment = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "علاج التلقيح الصناعي (ICSI)",
+      subtitle: "علاج التلقيح الصناعي بمعدل نجاح عالٍ بطريقة الحقن المجهري",
+      successRate: "76% معدل النجاح",
+      duration: "عملية 14-21 يومًا",
+      description: "علاج التلقيح الصناعي (IVF) أو الحقن المجهري (ICSI) هو عملية تخصيب البويضة بالحيوانات المنوية في بيئة مختبرية ووضع الجنين الناتج في الرحم. نقدم خدمات بمعايير دولية بتكنولوجيا حديثة وفريقنا ذو الخبرة.",
+      whoIsItFor: "لمن هو مناسب؟",
+      candidates: [
+        "الأزواج الذين يعانون من انسداد الأنابيب",
+        "الرجال ذوو عدد الحيوانات المنوية أو الجودة المنخفضة",
+        "مشاكل العقم غير المبررة",
+        "النساء في سن متقدمة (فوق 35)",
+        "المرضى الذين تم تشخيص إصابتهم بالانتباذ البطاني الرحمي",
+        "الأزواج الذين فشلت معهم العلاجات الأخرى",
+      ],
+      processTitle: "عملية العلاج",
+      steps: [
+        {
+          step: "المرحلة 1",
+          title: "التقييم الأولي والاختبارات",
+          description: "يتم إنشاء خطة العلاج من خلال الفحص التفصيلي واختبارات الهرمونات ومراقبة الموجات فوق الصوتية.",
+        },
+        {
+          step: "المرحلة 2",
+          title: "تحفيز المبايض",
+          description: "يتم تحفيز المبايض بعلاج دوائي لمدة 8-12 يومًا ومراقبة تطور البويضات.",
+        },
+        {
+          step: "المرحلة 3",
+          title: "جمع البويضات",
+          description: "يتم جمع البويضات بإجراء لمدة 15-20 دقيقة تحت التخدير الخفيف.",
+        },
+        {
+          step: "المرحلة 4",
+          title: "التخصيب (ICSI)",
+          description: "يتم حقن الحيوانات المنوية عالية الجودة المختارة في البويضة بطريقة الحقن المجهري في المختبر.",
+        },
+        {
+          step: "المرحلة 5",
+          title: "تطوير الأجنة",
+          description: "يتم تطوير الأجنة ومراقبتها في المختبر لمدة 3-5 أيام.",
+        },
+        {
+          step: "المرحلة 6",
+          title: "نقل الأجنة",
+          description: "يتم وضع الأجنة عالية الجودة في الرحم بدون ألم.",
+        },
+      ],
+      advantagesTitle: "مزايا فيرتينا IVF",
+      advantages: [
+        "حاضنات أجنة من أحدث جيل",
+        "تقنية التصوير بفاصل زمني",
+        "فريق أخصائي أجنة ذو خبرة",
+        "بروتوكولات علاج فردية",
+        "دعم المرضى على مدار الساعة طوال أيام الأسبوع",
+        "تسعير شفاف",
+      ],
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   };
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
       
       <div className="pt-20">
@@ -277,11 +340,15 @@ const IVFTreatment = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
                 {language === "tr" 
                   ? "Hayalinizdeki Bebeğe Giden Yolculuğa Başlayın" 
+                  : language === "ar"
+                  ? "ابدأ رحلتك نحو طفل أحلامك"
                   : "Start Your Journey to Your Dream Baby"}
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 {language === "tr"
                   ? "Ücretsiz ön görüşme için hemen bizimle iletişime geçin. Uzman ekibimiz size özel tedavi planı oluşturmak için hazır."
+                  : language === "ar"
+                  ? "اتصل بنا الآن للحصول على استشارة مجانية. فريق الخبراء لدينا جاهز لإنشاء خطة علاج شخصية لك."
                   : "Contact us now for a free consultation. Our expert team is ready to create a personalized treatment plan for you."}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

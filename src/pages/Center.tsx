@@ -15,6 +15,9 @@ const Center = () => {
   const { ref: cyprusContentRef, isVisible: cyprusContentVisible } = useScrollAnimation();
   const { ref: addressRef, isVisible: addressVisible } = useScrollAnimation();
   const { ref: visitRef, isVisible: visitVisible } = useScrollAnimation();
+  
+  // Determine text direction based on language
+  const dir = language === "ar" ? "rtl" : "ltr";
 
   const content = {
     tr: {
@@ -107,12 +110,43 @@ const Center = () => {
       ],
       visit: "We invite you to visit our center in Gazimagusa, just 5 minutes from the best beaches.",
     },
+    ar: {
+      title: "مركزنا",
+      hero: "فيرتينا – مركز التلقيح الصناعي الرائد في قبرص",
+      intro: [
+        "علم الأجنة والجينات والرعاية المتمحورة حول المريض مع نجاح عالٍ.",
+        "المعدات الحديثة والبروتوكولات الشخصية تحافظ على معدلات النجاح فوق 80٪.",
+      ],
+      cyprus: {
+        title: "شمال قبرص – موقع فريد",
+        paragraphs: [
+          "في قلب البحر الأبيض المتوسط، تقدم شمال قبرص شواطئ هادئة وتاريخًا وأكثر من 300 يوم من أشعة الشمس.",
+          "المعالم مثل قلعة كيرينيا وسلاميس وبيلابيس تعكس ماضيًا غنيًا. اجمع بين علاجك ومهرب سلمي.",
+          "سهولة الوصول والأمان والضيافة الدافئة تجعلها وجهة مميزة تتجاوز العلاج.",
+        ],
+        addressTitle: "العنوان",
+        addressLines: [
+          "مستشفى ماغوسا ياشام، شمال قبرص",
+          "ماغوسا، شارع غازي مصطفى كمال رقم 23",
+        ],
+      },
+      sections: [
+        { title: "مختبر الأجنة", desc: "مختبر مدعوم بالذكاء الاصطناعي، تخزين عالي الأمان للأجنة لسنوات." },
+        { title: "مختبر الجينات", desc: "اختبار PGD/NGS/الجين الواحد واستشارة جينية مخصصة." },
+        { title: "TESE", desc: "استخراج الحيوانات المنوية بدون ألم، تعافي في نفس اليوم للمرضى المناسبين." },
+        { title: "نقل السيتوبلازم والميتوكوندريا", desc: "يعزز النجاح بجينات المريض الخاصة حتى مع احتياطي منخفض." },
+        { title: "العلاج الطبيعي لبطانة الرحم", desc: "برنامج خاص لبطانة الرحم الرقيقة/التالفة لتحسين النتائج." },
+        { title: "مجموعة المتبرعين وبنوك الحيوانات المنوية", desc: "متبرعون منتقون بعناية؛ حيوانات منوية من بنوك دنماركية مرخصة فقط." },
+        { title: "رحلة شخصية", desc: "فريق منسق ومنضبط من الاختبارات المحلية إلى علاج قبرص." },
+      ],
+      visit: "ندعوك لزيارة مركزنا في غازيماغوسا، على بعد 5 دقائق فقط من أفضل الشواطئ.",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">

@@ -5,6 +5,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 const AIGeneticsIVF = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
 
   const content = {
     tr: {
@@ -49,12 +50,17 @@ AI ve genetik taramanın IVF'ye entegrasyonu; daha başarılı, kişiselleştiri
       banner: "/5..jpg",
       body: "This article is available in Turkish. Please switch language to TR.",
     },
+    ar: {
+      title: "مستقبل التلقيح الصناعي: الذكاء الاصطناعي والفحص الجيني يحولان الرعاية",
+      banner: "/5..jpg",
+      body: "هذه المقالة متاحة باللغة التركية. يرجى التبديل إلى اللغة التركية.",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">

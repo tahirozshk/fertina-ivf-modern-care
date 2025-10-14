@@ -10,6 +10,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 const DeliveryService = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
   const { ref: normTitleRef, isVisible: normTitleVisible } = useScrollAnimation();
@@ -114,12 +115,41 @@ const DeliveryService = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "الولادة الطبيعية والولادة القيصرية",
+      subtitle: "خطة ولادة شخصية لسلامة الأم والجنين",
+      intro: "في فيرتينا IVF، نقدم خدمات ولادة شاملة مع إعطاء الأولوية لسلامة الأم والطفل. نحن ندعمك في كل من الولادات الطبيعية والقيصرية بمتخصصينا ذوي الخبرة ومرافقنا الحديثة.",
+      description: "في فيرتينا IVF، نقدم خدمات ولادة شاملة مع إعطاء الأولوية لسلامة الأم والطفل.",
+      normalTitle: "الولادة الطبيعية (المهبلية)",
+      normalDesc: "يولد الطفل بشكل طبيعي من خلال قناة الولادة.",
+      normalAdvantages: ["تعافي الأم أسرع والعودة إلى الحياة اليومية", "عادة إقامة أقصر في المستشفى", "إرضاع مبكر وترابط أقوى في وقت مبكر", "التعرض للميكروبيوم المفيد في قناة الولادة"],
+      normalWhenTitle: "متى يفضل؟",
+      normalWhen: ["ظروف الأم والجنين مناسبة", "العرض الرأسي", "المشيمة في وضع طبيعي"],
+      normTitle: "الولادة الطبيعية",
+      normAdv: ["تعافي أسرع", "مخاطر أقل للعدوى", "ترابط مبكر مع الطفل", "إقامة أقصر في المستشفى"],
+      normWhen: "متى يوصى بها؟",
+      normWhenList: ["حمل صحي", "الطفل في وضع رأسي", "لا توجد مضاعفات", "صحة الأم جيدة"],
+      csTitle: "الولادة القيصرية",
+      csDesc: "يتم ولادة الطفل عبر شق جراحي في جدران البطن والرحم. يمكن أن ينقذ حياة الأم والطفل.",
+      csAdvantagesTitle: "المزايا",
+      csAdvantages: ["يمكن جدولتها", "لا ألم المخاض", "خيار آمن في حالات الحمل عالية الخطورة"],
+      csWhenTitle: "متى تكون ضرورية؟",
+      csWhen: ["العرض المقعدي أو العرضي", "ضخامة الجنين", "تتبع قلب الجنين غير مطمئن", "المشيمة المنزاحة أو الانفكاك", "مشاكل صحية خطيرة للأم", "ولادة قيصرية سابقة"],
+      cesTitle: "الولادة القيصرية",
+      cesAdv: ["ولادة مخططة", "ألم أقل أثناء الولادة", "تحكم أفضل في التوقيت", "آمنة في الحالات المعقدة"],
+      cesWhen: "متى يوصى بها؟",
+      cesWhenList: ["مضاعفات طبية", "ولادات قيصرية سابقة", "حمل متعدد", "وضع غير طبيعي للطفل (مثل المقعد)", "حالات الطوارئ"],
+      policyTitle: "نهجنا في الولادة في فيرتينا IVF",
+      policy: ["كل ولادة فريدة؛ تقييم فردي", "طريقة الولادة مخططة للحصول على أكثر النتائج أمانًا", "فريق خبراء للولادة الطبيعية والقيصرية"],
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">

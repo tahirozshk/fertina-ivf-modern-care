@@ -10,6 +10,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 const HysteroscopyService = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
   const { ref: whenTitleRef, isVisible: whenTitleVisible } = useScrollAnimation();
@@ -85,12 +86,29 @@ const HysteroscopyService = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "تنظير الرحم",
+      subtitle: "رؤية الرحم عن كثب، الوصول إلى العلاج الصحيح.",
+      intro: "تنظير الرحم هو طريقة تشخيصية وعلاجية تصور تجويف الرحم بنظام كاميرا رقيق ومضاء. يصل إلى التجويف عبر عنق الرحم ويقيم الهياكل الرحمية الداخلية بالتفصيل. يتم إجراؤه غالبًا بعد أن يكتشف HSG أو الموجات فوق الصوتية شذوذًا يحتاج إلى تعريف.",
+      description: "تنظير الرحم هو إجراء يستخدم لفحص داخل الرحم باستخدام كاميرا رقيقة.",
+      whenTitle: "متى يتم تطبيقه؟",
+      when: ["التحقيق في حالات الإجهاض المتكرر", "تقييم العقم", "تشخيص وعلاج حاجز الرحم", "تقييم وإزالة الأورام الحميدة أو الأورام الليفية", "علاج الالتصاقات داخل الرحم (أشرمان)", "تقييم نزيف الرحم غير الطبيعي"],
+      cases: ["نزيف غير طبيعي", "الأورام الحميدة", "الأورام الليفية", "الالتصاقات", "تشوهات الرحم"],
+      howTitle: "كيف يتم إجراؤه؟",
+      steps: ["يتم تصور تجويف الرحم بمنظار رحمي رقيق", "يمكن إجراء التدخل العلاجي في نفس الجلسة إذا لزم الأمر", "إجراء قصير وآمن عادة"],
+      advantagesTitle: "المزايا",
+      advTitle: "المزايا",
+      advantages: ["التصور المباشر لتجويف الرحم", "التشخيص والعلاج في جلسة واحدة", "تحسين فرصة الحمل بعد التصحيح", "لا يوجد شق، تعافي سريع"],
+      note: "في فيرتينا IVF، نقوم بتقييم تجويف الرحم بأمان بتنظير الرحم الحديث ونعالج الحواجز التي تعترض الحمل.",
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">

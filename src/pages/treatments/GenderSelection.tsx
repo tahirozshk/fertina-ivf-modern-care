@@ -25,6 +25,8 @@ const GenderSelection = () => {
   const { ref: advantagesTitleRef, isVisible: advantagesTitleVisible } = useScrollAnimation();
   const { ref: advantagesGridRef, isVisible: advantagesGridVisible } = useScrollAnimation();
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
+  
+  const dir = language === "ar" ? "rtl" : "ltr";
 
   const content = {
     tr: {
@@ -167,12 +169,82 @@ const GenderSelection = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "اختيار الجنس",
+      subtitle: "اختيار الجنس ضمن الإطار القانوني والأخلاقي باستخدام تقنية PGD",
+      successRate: "99% معدل الدقة",
+      heroTitle: "الخيار لك عند التخطيط لعائلتك",
+      description: "كفيرتينا IVF، نحترم رغبات الآباء في تخطيط الأسرة ونقدم تقنيات التلقيح الصناعي المتقدمة التي تسمح باختيار الجنس ضمن الحدود القانونية. اختيار الجنس هو طريقة تم تطويرها خصيصًا للأزواج الذين يرغبون في إنشاء بنية عائلية متوازنة أو منع الأمراض الوراثية المرتبطة بالجنس.",
+      whatIsIt: "ما هو اختيار الجنس؟",
+      whatIsItDesc: "اختيار الجنس هو عملية الكشف عن جنس الأجنة واختيار الجنين بالجنس المرغوب من خلال الفحص الجيني (PGD - التشخيص الجيني قبل الزرع) الذي يتم إجراؤه قبل نقل الأجنة. نتيجة لهذا التحليل، يتم فحص التشوهات العددية والهيكلية المتعلقة بالكروموسومات 13 و18 و21 و X و Y ويتم تحديد الصحة الكروموسومية وجنس الجنين المراد نقله.",
+      benefitsTitle: "ماذا يتم الكشف عنه باستخدام PGD؟",
+      benefits: [
+        "متلازمة باتو (الكروموسوم 13)",
+        "متلازمة إدواردز (الكروموسوم 18)",
+        "متلازمة داون (الكروموسوم 21)",
+        "متلازمة تيرنر (الكروموسوم X)",
+        "متلازمة كلاينفلتر (الكروموسوم Y)",
+        "جنس الجنين",
+      ],
+      advantagesDesc: "نظرًا لأن صحة الجنين مضمونة قبل النقل، تزداد فرصة زرع الجنين في الرحم ولا حاجة لاختبارات جينية مثل الاختبار المزدوج و NIPD أثناء الحمل.",
+      processDesc: "تبدأ هذه العملية بأخذ خزعة من غلاف البويضات المخصبة، أي الأجنة التي تصل إلى اليوم الخامس، في صباح يوم النقل. يتم إرسال الخزعات المأخوذة إلى المختبر الجيني وتأتي النتيجة في غضون 3-4 ساعات. يتم تقديم المعلومات وفقًا للنتيجة ويتم النقل وفقًا للقرار.",
+      whoIsItFor: "من يمكنه طلب اختيار الجنس؟",
+      candidates: [
+        "العائلات التي لديها بالفعل أطفال متعددون من نفس الجنس",
+        "أولئك الذين يحملون مخاطر الأمراض الوراثية المرتبطة بالجنس في الأسرة",
+        "الأزواج الذين يرغبون في بنية عائلية متوازنة",
+        "المرضى الدوليون (حسب قوانين الدولة)",
+      ],
+      processTitle: "كيف تعمل عملية العلاج؟",
+      steps: [
+        {
+          step: "المرحلة 1",
+          title: "الاستشارة الأولية والتقييم الطبي",
+          description: "يتم أخذ التاريخ الطبي للزوجين المرشحين وتخطيط الاختبارات اللازمة.",
+        },
+        {
+          step: "المرحلة 2",
+          title: "تحفيز المبايض وجمع البويضات",
+          description: "يتم تحفيز المبايض بعلاج يومي غير مؤلم تحت الجلد يُطبق على المرشحة للأمومة، ثم يتم جمع البويضات.",
+        },
+        {
+          step: "المرحلة 3",
+          title: "التخصيب وتطوير الأجنة",
+          description: "يتم تخصيب البويضات بالحيوانات المنوية، ويتم تطوير البويضات المخصبة المتكونة (الأجنة) في المختبر.",
+        },
+        {
+          step: "المرحلة 4",
+          title: "الاختبار الجيني وتحديد الجنس باستخدام PGD",
+          description: "يتم أخذ خزعة من أجنة اليوم الخامس، ويتم تحديد معلومات الجنس وراثيًا. تأتي النتائج في غضون 3-4 ساعات.",
+        },
+        {
+          step: "المرحلة 5",
+          title: "نقل الأجنة",
+          description: "يتم نقل الجنين السليم بالجنس المرغوب إلى تجويف الرحم للمرشحة للأمومة.",
+        },
+      ],
+      legalTitle: "ممارسة قانونية وأخلاقية",
+      legalDescription: "يمكن إجراء اختيار الجنس ضمن إطار القواعد الأخلاقية في قبرص. تحمي فيرتينا IVF سرية مرضاها على أعلى مستوى في هذه العملية وتقدم المعلومات في كل مرحلة.",
+      advantagesTitle: "مزايا اختيار الجنس في فيرتينا IVF",
+      advantages: [
+        "معدل دقة 99%",
+        "الكشف عن الأمراض الوراثية",
+        "نجاح حمل عالٍ",
+        "ممارسة قانونية وأخلاقية",
+        "ضمان السرية",
+        "تقنية PGD الحديثة",
+        "متخصصون جينيون ذوو خبرة",
+        "نتائج في غضون 3-4 ساعات",
+      ],
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   };
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
       
       <div className="pt-20">
@@ -341,16 +413,22 @@ const GenderSelection = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
                 {language === "tr" 
                   ? "Fertina IVF ile Güvenli ve Planlı Aile Gelişimi" 
+                  : language === "ar"
+                  ? "تطوير عائلي آمن ومخطط مع فيرتينا IVF"
                   : "Safe and Planned Family Development with Fertina IVF"}
               </h2>
               <p className="text-lg text-muted-foreground mb-4">
                 {language === "tr"
                   ? "Modern tıbbın sunduğu olanakları etik ve saygılı bir yaklaşımla sunuyoruz."
+                  : language === "ar"
+                  ? "نحن نقدم الفرص التي يوفرها الطب الحديث بنهج أخلاقي ومحترم."
                   : "We offer the opportunities provided by modern medicine with an ethical and respectful approach."}
               </p>
               <p className="text-lg text-muted-foreground mb-8">
                 {language === "tr"
                   ? "Cinsiyet belirleme, yalnızca bir tercih değil, bazen genetik hastalıkların önlenmesi için de bir gerekliliktir. Biz, her iki durumda da yanınızdayız."
+                  : language === "ar"
+                  ? "اختيار الجنس ليس مجرد اختيار، ولكنه أحيانًا ضرورة لمنع الأمراض الوراثية. نحن معك في كلتا الحالتين."
                   : "Gender selection is not just a choice, but sometimes a necessity to prevent genetic diseases. We are with you in both cases."}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -10,6 +10,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 const InitialFertilityTestsService = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
   const { ref: commonTitleRef, isVisible: commonTitleVisible } = useScrollAnimation();
@@ -133,12 +134,44 @@ const InitialFertilityTestsService = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "اختبارات الخصوبة الأولية",
+      subtitle: "تشخيص دقيق لخطة علاج شخصية",
+      importanceTitle: "لماذا اختبارات الخصوبة الأولية مهمة",
+      importanceDesc: "يوفر الاختبار المبكر رؤى قيمة حول الصحة الإنجابية لكلا الشريكين، مما يتيح خطة علاج مستنيرة بأعلى فرصة للنجاح.",
+      expectTitle: "ماذا تتوقع أثناء الاختبار",
+      expectDesc: "يفضل الإجراءات غير الغازية أو البسيطة لجمع معلومات شاملة وتحديد الحواجز التي تمنع الحمل.",
+      commonTitle: "اختبارات الخصوبة الشائعة",
+      femaleU40Title: "النساء تحت 40",
+      femaleU40: ["تعداد الدم، CMV IgM، مضاد HIV، HBsAg، مضاد HCV، Rubella IgG، VDRL، فيتامين D3، فصيلة الدم", "FSH، AMH، LH، E2، PRL، FT4/FT3، TSH", "وظائف الكبد (AST/ALT)", "HSG (تصوير الرحم والبوق)"],
+      femaleO45Title: "النساء ≥ 45",
+      femaleO45: ["تعداد الدم، CMV IgM، مضاد HIV، HBsAg، مضاد HCV، Rubella IgG، فيتامين D3، فصيلة الدم", "AST/ALT، PT/INR", "الغدة الدرقية (FT4، TSH)", "الجلوكوز الصائم، اليوريا، الكرياتينين", "ملف الدهون (HDL)", "HbA1c، تصوير الثدي، HSG، تخطيط صدى القلب"],
+      maleTitle: "الرجال",
+      male: ["تعداد الدم، مضاد HIV، HBsAg، مضاد HCV، VDRL، فصيلة الدم", "تحليل السائل المنوي"],
+      recommendTitle: "قد يوصى باختبارات الخصوبة الأولية في حالات:",
+      recommend: ["المرضى في المرحلة المبكرة الذين يقارنون العيادات ويبحثون عن دليل موثوق", "الأفراد الذين يدركون العوائق المحتملة (العمر، متلازمة تكيس المبايض) ويحتاجون إلى تشخيص رسمي", "الأزواج الاستباقيون بعد أشهر من المحاولة دون نجاح"],
+      prepareTitle: "التحضير لاختبارات الخصوبة",
+      prepare: ["يجب أن يتماشى التوقيت مع الإباضة ومرحلة الدورة", "سيتم تقديم التوجيه للتوقيت الصحيح والعملية"],
+      lifestyleTitle: "عوامل نمط الحياة المؤثرة على الخصوبة",
+      lifestyleDesc: "النظام الغذائي والتمارين الرياضية والتوتر والسموم البيئية قد تؤثر على الخصوبة. ننصح بتغييرات نمط الحياة لتحسين النتائج.",
+      commonTests: ["فحوصات الهرمونات", "الموجات فوق الصوتية", "تحليل السائل المنوي", "اختبار احتياطي المبيض"],
+      understandingTitle: "فهم النتائج",
+      understandingDesc: "إذا كان IUI أو الأدوية غير كافية، يوصى بـ IVF/ICSI؛ غالبًا ما يكون الخيار الأول للعمر المتقدم أو العامل الذكري أو المخاطر الجينية.",
+      discussTitle: "مناقشة خيارات العلاج",
+      discussDesc: "بعد التقييم، نخطط لمسار مخصص يشمل الأدوية والإجراءات والإنجاب المساعد مثل التلقيح الصناعي.",
+      conclusion: "اختبارات الخصوبة هي الخطوات الأولى في التلقيح الصناعي. نحن نفخر بتقديم تقييم الخصوبة المجاني ضمن حزمنا الشاملة.",
+      description: "اختبارات الخصوبة الأولية هي الخطوة الأولى في تقييم الخصوبة. في فيرتينا IVF، نقدم اختبارات شاملة.",
+      recTitle: "متى يوصى بها؟",
+      recommended: ["صعوبة الحمل", "دورات غير منتظمة", "العمر فوق 35", "قبل التلقيح الصناعي"],
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">

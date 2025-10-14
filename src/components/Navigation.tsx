@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Menu, X, Globe, ChevronDown, Mail, Phone, Facebook, Instagram, Linkedin } from "lucide-react";
 import TR from "country-flag-icons/react/3x2/TR";
 import US from "country-flag-icons/react/3x2/US";
+import SA from "country-flag-icons/react/3x2/SA";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -43,6 +44,17 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
       contact: "Contact",
       appointment: "Book Appointment",
     },
+    ar: {
+      home: "الصفحة الرئيسية",
+      treatments: "العلاجات",
+      services: "الخدمات الطبية",
+      about: "معلومات عنا",
+      team: "فريقنا",
+      center: "مركزنا",
+      blog: "المدونة",
+      contact: "اتصل بنا",
+      appointment: "احجز موعد",
+    },
   };
 
   const t = translations[language as keyof typeof translations];
@@ -64,6 +76,7 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
   const languageOptions = [
     { code: "tr", label: "Türkçe", FlagIcon: TR },
     { code: "en", label: "English", FlagIcon: US },
+    { code: "ar", label: "العربية", FlagIcon: SA },
   ];
 
   return (
@@ -185,11 +198,13 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
                 <Button variant="ghost" size="sm" className="gap-2">
                   {language === "tr" ? (
                     <TR className="w-5 h-4" />
+                  ) : language === "ar" ? (
+                    <SA className="w-5 h-4" />
                   ) : (
                     <US className="w-5 h-4" />
                   )}
                   <span className="text-sm font-medium">
-                    {language === "tr" ? "TR" : "EN"}
+                    {language === "tr" ? "TR" : language === "ar" ? "AR" : "EN"}
                   </span>
                   <ChevronDown className="h-3 w-3" />
                 </Button>
@@ -237,7 +252,7 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
             {/* Mobile Contact Info */}
             <div className="px-4 py-3 bg-primary/5 rounded-lg mb-4">
               <div className="text-sm font-medium text-foreground mb-3">
-                {language === "tr" ? "İletişim" : "Contact"}
+                {language === "tr" ? "İletişim" : language === "ar" ? "اتصل بنا" : "Contact"}
               </div>
               <div className="space-y-2">
                 <a href="mailto:info@fertinaivf.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary smooth-transition">
@@ -254,7 +269,7 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
             {/* Mobile Social Media */}
             <div className="px-4 py-3 bg-primary/5 rounded-lg mb-4">
               <div className="text-sm font-medium text-foreground mb-3">
-                {language === "tr" ? "Sosyal Medya" : "Social Media"}
+                {language === "tr" ? "Sosyal Medya" : language === "ar" ? "وسائل التواصل الاجتماعي" : "Social Media"}
               </div>
               <div className="flex gap-3">
                 <a
@@ -336,7 +351,7 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
               {/* Mobile Language Section */}
               <div className="px-4 py-2">
                 <div className="text-sm font-medium text-foreground mb-2">
-                  {language === "tr" ? "Dil" : "Language"}
+                  {language === "tr" ? "Dil" : language === "ar" ? "اللغة" : "Language"}
                 </div>
                 <div className="flex gap-2 ml-4">
                   {languageOptions.map((option) => {

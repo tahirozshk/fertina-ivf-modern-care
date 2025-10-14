@@ -69,6 +69,35 @@ const CyprusLocationSection = ({ language }: CyprusLocationSectionProps) => {
         }
       ]
     },
+    ar: {
+      title: "الموقع الفريد وجمال شمال قبرص",
+      subtitle: "تقع شمال قبرص في قلب البحر الأبيض المتوسط، وتجذب الزوار من جميع أنحاء العالم بنسيجها التاريخي وجمالها الطبيعي وأسلوب حياتها السلمي. مع شواطئها الرملية الذهبية والبحر الأزرق الكريستالي والمناخ المشمس لمعظم أيام السنة، إنها مثل جزيرة الهدوء.",
+      paragraph2: "شمال قبرص ساحرة ليس فقط بجمالها الطبيعي، ولكن أيضًا بثرائها التاريخي. تكشف الهياكل التاريخية مثل قلعة كيرينيا وأطلال سلاميس ودير بيلابيس وأسوار فاماغوستا عن الماضي العميق للجزيرة.",
+      paragraph3: "تهدف فيرتينا IVF إلى تقديم تجربة مميزة لك من خلال الجمع بين المرافق الطبية الحديثة مع بيئة هادئة في هذه الجغرافيا الفريدة. أثناء اكتشاف جمال الجزيرة خلال عملية العلاج، يمكنك أيضًا أن تجد نفسك في إجازة.",
+      paragraph4: "شمال قبرص وجهة خاصة ليس فقط للعلاج ولكن أيضًا لراحة روحك مع سهولة الوصول إليها والبيئة الآمنة والناس الدافئة والجمال الطبيعي.",
+      features: [
+        {
+          icon: Sun,
+          title: "مناخ مشمس",
+          description: "أكثر من 300 يوم مشمس في السنة"
+        },
+        {
+          icon: Waves,
+          title: "شواطئ نقية",
+          description: "شواطئ رملية ذهبية وبحر أزرق كريستالي"
+        },
+        {
+          icon: Castle,
+          title: "ثراء تاريخي",
+          description: "قلعة كيرينيا، أطلال سلاميس"
+        },
+        {
+          icon: Heart,
+          title: "بيئة هادئة",
+          description: "أسلوب حياة هادئ وبيئة آمنة"
+        }
+      ]
+    },
   };
 
   const t = content[language as keyof typeof content];
@@ -123,7 +152,7 @@ const CyprusLocationSection = ({ language }: CyprusLocationSectionProps) => {
               <div className="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 rounded-full elevate">
                 <Sun className="h-5 w-5 text-primary" />
                 <span className="font-semibold text-primary">
-                  {language === "tr" ? "300+ Güneşli Gün" : "300+ Sunny Days"}
+                  {language === "tr" ? "300+ Güneşli Gün" : language === "ar" ? "300+ يوم مشمس" : "300+ Sunny Days"}
                 </span>
               </div>
               
@@ -131,13 +160,13 @@ const CyprusLocationSection = ({ language }: CyprusLocationSectionProps) => {
                 <div className="text-center p-4 bg-accent/20 rounded-xl elevate reveal-left">
                   <Castle className="h-8 w-8 text-primary mx-auto mb-2" />
                   <p className="text-sm font-medium text-foreground">
-                    {language === "tr" ? "Tarihi Yapılar" : "Historical Sites"}
+                    {language === "tr" ? "Tarihi Yapılar" : language === "ar" ? "المواقع التاريخية" : "Historical Sites"}
                   </p>
                 </div>
                 <div className="text-center p-4 bg-accent/20 rounded-xl elevate reveal-right">
                   <Waves className="h-8 w-8 text-primary mx-auto mb-2" />
                   <p className="text-sm font-medium text-foreground">
-                    {language === "tr" ? "Masum Kumsallar" : "Pristine Beaches"}
+                    {language === "tr" ? "Masum Kumsallar" : language === "ar" ? "شواطئ نقية" : "Pristine Beaches"}
                   </p>
                 </div>
               </div>
@@ -148,7 +177,7 @@ const CyprusLocationSection = ({ language }: CyprusLocationSectionProps) => {
         {/* Decorative Element */}
         <div className="mt-16 text-center">
           <div className="inline-block px-8 py-4 rounded-full bg-primary/10 text-primary font-semibold">
-            {language === "tr" ? "🏝️ Cennet Adası Kuzey Kıbrıs 🏝️" : "🏝️ Paradise Island Northern Cyprus 🏝️"}
+            {language === "tr" ? "🏝️ Cennet Adası Kuzey Kıbrıs 🏝️" : language === "ar" ? "🏝️ جزيرة الجنة شمال قبرص 🏝️" : "🏝️ Paradise Island Northern Cyprus 🏝️"}
           </div>
         </div>
       </div>

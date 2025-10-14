@@ -10,6 +10,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 const EggFreezingService = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: whatRef, isVisible: whatVisible } = useScrollAnimation();
   const { ref: whyTitleRef, isVisible: whyTitleVisible } = useScrollAnimation();
@@ -97,12 +98,29 @@ const EggFreezingService = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "تجميد البويضات",
+      subtitle: "احمل خصوبتك إلى المستقبل بثقة",
+      whatTitle: "ما هو تجميد البويضات؟",
+      whatDesc: "تجميد البويضات (تجميد البويضات بالتبريد) هو طريقة إنجاب مساعدة تسمح للنساء بجمع وتجميد بويضاتهن للاستخدام في المستقبل. الهدف هو الحفاظ على الخصوبة بشكل مستقل عن المخاطر المرتبطة بانقطاع الطمث أو الأمراض.",
+      whyTitle: "لماذا يُنظر فيه؟",
+      why: ["تأجيل الأبوة (التعليم، المهنة، الأسباب الشخصية)", "الحفاظ على الخصوبة لأسباب طبية (مثل قبل علاج السرطان)", "خطة حمل أكثر صحة مع الفحص الجيني", "الحماية من انخفاض الخصوبة المرتبط بالعمر / المرض"],
+      whoTitle: "لمن هو مناسب؟",
+      who: ["يفضل 35 سنة وأقل؛ تستمر الميزة حتى سن 40", "أولئك الذين لديهم احتياطي مبيض جيد (عدد كافٍ من البويضات)"],
+      processTitle: "العملية",
+      process: ["الفحص الأولي وتقييم التاريخ الطبي", "تحفيز المبيض والمتابعة الدقيقة", "جمع البويضات (بإبرة عبر المهبل، قليلة التوغل)", "التجميد السريع بتقنية التزجيج", "التخزين الآمن عند -196 درجة مئوية"],
+      factorsTitle: "العوامل المؤثرة على النجاح",
+      factors: ["العمر (جودة البويضات في وقت التجميد)", "احتياطي المبيض", "التقنية والخبرة المخبرية (التزجيج)"],
+      conclusion: "تجميد البويضات هو خيار قوي للنساء اللواتي يرغبن في الحفاظ على فرصتهن في أن يصبحن أمهات في المستقبل. اتصل بنا للحصول على استشارة أولية مجانية.",
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">

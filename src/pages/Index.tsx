@@ -13,9 +13,12 @@ import { useLanguage } from "@/hooks/use-language";
 
 const Index = () => {
   const { language, setLanguage } = useLanguage();
+  
+  // Determine text direction based on language
+  const dir = language === "ar" ? "rtl" : "ltr";
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
       
       {/* Add padding to account for fixed navigation */}

@@ -10,6 +10,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 const Physiotherapy = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
   const { ref: howItWorksRef, isVisible: howItWorksVisible } = useScrollAnimation();
@@ -103,12 +104,29 @@ const Physiotherapy = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "التلقيح الصناعي والعلاج الطبيعي",
+      subtitle: "ندعم عملية العلاج ببرامج علاج طبيعي خاصة",
+      heroTitle: "طريقة علاج مبتكرة خاصة بفيرتينا",
+      description: "للمرضى الذين لا يستطيعون تحقيق الحمل بسبب مشاكل جدار الرحم، نقوم بإعداد جدار الرحم للنقل بجلسات نطبقها قبل نقل الأجنة تحت إشراف طبيب العلاج الطبيعي المتخصص لدينا.",
+      howItWorks: "كيف يعمل؟",
+      howItWorksDesc: "تسرع هذه الطريقة الخاصة تدفق الدم إلى الرحم، وتوفر الأكسجين في جدار الرحم وتسمح للمواد الكيميائية الحيوية الحيوية لزرع الجنين في الرحم بالوصول إلى جدار الرحم.",
+      whoIsItFor: "لأي مجموعة من المرضى يتم تطبيقه؟",
+      candidates: ["المرضى الذين تضرر جدار الرحم لديهم بعد الكشط", "المرضى الذين تضرر جدار الرحم نتيجة لتنظير الرحم", "المرضى الذين لديهم جدار رحم غير منتظم أو رقيق", "المرضى الذين لا يستجيب جدار الرحم لديهم للأدوية", "المرضى الذين لديهم فشل متكرر في التلقيح الصناعي", "المرضى الذين يعانون من الإجهاض المتكرر"],
+      benefitsTitle: "ما يتم تحقيقه بالعلاج الطبيعي؟",
+      benefits: ["يسرع تدفق الدم إلى الرحم", "يزيد الأكسجين في جدار الرحم", "يضمن وصول المواد الكيميائية", "يدعم زرع الجنين", "يحضر جدار الرحم للنقل", "يقدم حلولاً للفشل المتكرر"],
+      advantagesTitle: "مزايا برنامج العلاج الطبيعي في فيرتينا IVF",
+      advantages: ["طريقة مبتكرة خاصة بفيرتينا", "إرشاد طبيب علاج طبيعي متخصص", "أجهزة وتقنيات خاصة", "تحضير قبل نقل الأجنة", "نجاح عالٍ في الفشل المتكرر", "نهج متعدد التخصصات", "تطبيق آمن", "خطة علاج شخصية"],
+      specialNote: "في فيرتينا IVF، بنهجنا متعدد التخصصات، ندمج دعم العلاج الطبيعي في علاج التلقيح الصناعي.",
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   };
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
       
       <div className="pt-20">

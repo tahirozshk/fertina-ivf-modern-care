@@ -17,6 +17,9 @@ const About = () => {
   const { ref: featuresTitleRef, isVisible: featuresTitleVisible } = useScrollAnimation();
   const { ref: featuresGridRef, isVisible: featuresGridVisible } = useScrollAnimation();
   const { ref: ctasRef, isVisible: ctasVisible } = useScrollAnimation();
+  
+  // Determine text direction based on language
+  const dir = language === "ar" ? "rtl" : "ltr";
 
   const content = {
     tr: {
@@ -129,12 +132,67 @@ const About = () => {
       },
       contact: "Contact",
     },
+    ar: {
+      title: "معلومات عنا",
+      hero: "دعونا نحقق حلمك بإنجاب طفل معًا",
+      subtitle: "علاج التلقيح الصناعي قبرص",
+      paragraphs: [
+        "تأسست فيرتينا من قبل فريق ذو خبرة 16 عامًا في التلقيح الصناعي والجينات.",
+        "مهمتنا هي الحمل الصحي. نقدم رعاية يمكن الوصول إليها على مدار الساعة طوال أيام الأسبوع تتمحور حول المريض.",
+        "طبيبنا د. إرمان سيفر وفريقه يعملون لمشاركة الفرحة بعد الولادة.",
+        "منذ اليوم الأول، نقدم علاجات موجهة نحو النجاح مع الطب القائم على الأدلة والتكنولوجيا الحديثة.",
+        "شمال قبرص هي وجهة رائدة للتلقيح الصناعي في أوروبا؛ نحن نتبنى هذه المسؤولية برعاية أخلاقية وشفافة.",
+        "رضا المريض هو شعارنا. نرحب بكم في غازيماغوسا لتجربة هذه الرحلة المثيرة معًا.",
+      ],
+      features: [
+        {
+          icon: Heart,
+          title: "مهمتنا",
+          desc: "في فيرتينا، مهمتنا هي توفير رعاية خصوبة عالمية المستوى بالتعاطف والدقة والنزاهة. نحن ملتزمون بدعم الأفراد والأزواج في رحلتهم نحو الأبوة، من خلال الجمع بين أحدث التقنيات الطبية والرعاية الشخصية المصممة لتلبية احتياجات كل مريض الفريدة."
+        },
+        {
+          icon: DollarSign,
+          title: "تكاليف علاج معقولة",
+          desc: "تكلفة العلاج في شمال قبرص أقل بنسبة 20-50٪ من العديد من البلدان الأخرى، بما في ذلك ألمانيا والولايات المتحدة وإسرائيل. إلى جانب الخدمات الطبية بأسعار معقولة، يمكن للمرضى الاختيار من بين مجموعة واسعة من خيارات الإقامة، من الفنادق الاقتصادية إلى المنتجعات الفاخرة والشقق المريحة."
+        },
+        {
+          icon: Stethoscope,
+          title: "معدات حديثة",
+          desc: "يتم إجراء التشخيص والعلاج في شمال قبرص بأحدث التقنيات. تستثمر كل من العيادات الخاصة والعامة باستمرار في أحدث جيل من المعدات الطبية، مما يجعل المرافق قابلة للمقارنة بتلك الموجودة في ألمانيا أو الولايات المتحدة."
+        },
+        {
+          icon: Globe,
+          title: "وصول مبسط للتأشيرة",
+          desc: "تقدم شمال قبرص نظام تأشيرة عند الوصول مريح، مما يسمح للمرضى بالسفر بسرعة وسهولة للعلاج. ميزة أخرى هي الطاقم الطبي متعدد اللغات الذي يمكنه تقديم الدعم والرعاية بعدة لغات أجنبية."
+        },
+        {
+          icon: Users,
+          title: "أطباء مؤهلون تأهيلاً عاليًا",
+          desc: "شمال قبرص موطن لمتخصصين طبيين ذوي مهارات عالية. يقوم أطباؤنا بتطوير خبراتهم باستمرار من خلال إتقان أحدث التقنيات وطرق العلاج، مما يضمن حصول المرضى على أعلى معايير الرعاية."
+        },
+        {
+          icon: Rainbow,
+          title: "برامج شاملة للأزواج من مجتمع LGBT",
+          desc: "بينما تحظر العديد من البلدان الأزواج من نفس الجنس من الوصول إلى خدمات الأمومة البديلة، توفر العيادات المختارة في شمال قبرص برامج شاملة تمنح أزواج LGBT الفرصة لتحقيق حلم الأبوة."
+        },
+        {
+          icon: UserCheck,
+          title: "رعاية شخصية للمرضى",
+          desc: "بالإضافة إلى العلاجات المتقدمة، نركز على الاحتياجات الفردية لكل مريض. من استشارتك الأولى إلى متابعتك بعد العلاج، يوفر فريقنا المتفاني إرشادات مستمرة ودعمًا عاطفيًا ورعاية شخصية لضمان رحلة مريحة وخالية من الإجهاد."
+        }
+      ],
+      ctas: {
+        team: { title: "فريقنا", desc: "تعرف على خبرائنا", link: "/team", image: "/team.jpg" },
+        center: { title: "مركزنا", desc: "استكشف مرافقنا", link: "/center", image: "/center.jpg" },
+      },
+      contact: "اتصل بنا",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-30">
@@ -181,12 +239,12 @@ const About = () => {
                 </div>
               </Card>
               <Card className={`p-6 bg-primary/5 border-primary/20 transition-all duration-1000 ${contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`} style={{ transitionDelay: contentVisible ? '200ms' : '0ms' }}>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">{language === "tr" ? "Tedavi Yaklaşımımız" : "Our Care Approach"}</h3>
+                <h3 className="text-xl font-semibold mb-3 text-foreground">{language === "tr" ? "Tedavi Yaklaşımımız" : language === "ar" ? "نهج الرعاية لدينا" : "Our Care Approach"}</h3>
                 <ul className="space-y-3 text-muted-foreground">
-                  <li>• {language === "tr" ? "Bilimsel ve şeffaf iletişim" : "Evidence‑based and transparent"}</li>
-                  <li>• {language === "tr" ? "Kişiye özel tedavi planı" : "Personalized treatment planning"}</li>
-                  <li>• {language === "tr" ? "Güncel teknoloji ve deneyimli ekip" : "Modern technology and expert team"}</li>
-                  <li>• {language === "tr" ? "Etik kurallar ve gizlilik" : "Ethics and confidentiality"}</li>
+                  <li>• {language === "tr" ? "Bilimsel ve şeffaf iletişim" : language === "ar" ? "تواصل قائم على الأدلة وشفاف" : "Evidence‑based and transparent"}</li>
+                  <li>• {language === "tr" ? "Kişiye özel tedavi planı" : language === "ar" ? "تخطيط علاج شخصي" : "Personalized treatment planning"}</li>
+                  <li>• {language === "tr" ? "Güncel teknoloji ve deneyimli ekip" : language === "ar" ? "تكنولوجيا حديثة وفريق خبير" : "Modern technology and expert team"}</li>
+                  <li>• {language === "tr" ? "Etik kurallar ve gizlilik" : language === "ar" ? "الأخلاقيات والسرية" : "Ethics and confidentiality"}</li>
                 </ul>
               </Card>
             </div>
@@ -196,11 +254,11 @@ const About = () => {
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div ref={valuesRef} className="max-w-5xl mx-auto">
-              <h2 className={`text-3xl md:text-4xl font-bold mb-8 text-center text-foreground transition-all duration-1000 ${valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{language === "tr" ? "Değerlerimiz" : "Our Values"}</h2>
+              <h2 className={`text-3xl md:text-4xl font-bold mb-8 text-center text-foreground transition-all duration-1000 ${valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{language === "tr" ? "Değerlerimiz" : language === "ar" ? "قيمنا" : "Our Values"}</h2>
               <div className="grid md:grid-cols-3 gap-4">
-                <Card className={`p-6 transition-all duration-1000 ${valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: valuesVisible ? '0ms' : '0ms' }}><h3 className="text-xl font-semibold mb-2 text-foreground">{language === "tr" ? "Güven" : "Trust"}</h3><p className="text-muted-foreground">{language === "tr" ? "Tüm süreçte şeffaf ve anlaşılır iletişim" : "Transparent and clear communication throughout"}</p></Card>
-                <Card className={`p-6 transition-all duration-1000 ${valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: valuesVisible ? '100ms' : '0ms' }}><h3 className="text-xl font-semibold mb-2 text-foreground">{language === "tr" ? "Mükemmellik" : "Excellence"}</h3><p className="text-muted-foreground">{language === "tr" ? "Kanıta dayalı tıp ve sürekli iyileştirme" : "Evidence‑based medicine and continuous improvement"}</p></Card>
-                <Card className={`p-6 transition-all duration-1000 ${valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: valuesVisible ? '200ms' : '0ms' }}><h3 className="text-xl font-semibold mb-2 text-foreground">{language === "tr" ? "Empati" : "Empathy"}</h3><p className="text-muted-foreground">{language === "tr" ? "Hastalarımızın yolculuğunu birlikte yaşıyoruz" : "We walk the journey with our patients"}</p></Card>
+                <Card className={`p-6 transition-all duration-1000 ${valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: valuesVisible ? '0ms' : '0ms' }}><h3 className="text-xl font-semibold mb-2 text-foreground">{language === "tr" ? "Güven" : language === "ar" ? "الثقة" : "Trust"}</h3><p className="text-muted-foreground">{language === "tr" ? "Tüm süreçte şeffaf ve anlaşılır iletişim" : language === "ar" ? "تواصل شفاف وواضح طوال الوقت" : "Transparent and clear communication throughout"}</p></Card>
+                <Card className={`p-6 transition-all duration-1000 ${valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: valuesVisible ? '100ms' : '0ms' }}><h3 className="text-xl font-semibold mb-2 text-foreground">{language === "tr" ? "Mükemmellik" : language === "ar" ? "التميز" : "Excellence"}</h3><p className="text-muted-foreground">{language === "tr" ? "Kanıta dayalı tıp ve sürekli iyileştirme" : language === "ar" ? "الطب القائم على الأدلة والتحسين المستمر" : "Evidence‑based medicine and continuous improvement"}</p></Card>
+                <Card className={`p-6 transition-all duration-1000 ${valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: valuesVisible ? '200ms' : '0ms' }}><h3 className="text-xl font-semibold mb-2 text-foreground">{language === "tr" ? "Empati" : language === "ar" ? "التعاطف" : "Empathy"}</h3><p className="text-muted-foreground">{language === "tr" ? "Hastalarımızın yolculuğunu birlikte yaşıyoruz" : language === "ar" ? "نسير في الرحلة مع مرضانا" : "We walk the journey with our patients"}</p></Card>
               </div>
             </div>
           </div>
@@ -210,7 +268,7 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <h2 ref={featuresTitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${featuresTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                {language === "tr" ? "Neden Kuzey Kıbrıs'ı Seçmelisiniz?" : "Why Choose Northern Cyprus?"}
+                {language === "tr" ? "Neden Kuzey Kıbrıs'ı Seçmelisiniz?" : language === "ar" ? "لماذا تختار شمال قبرص؟" : "Why Choose Northern Cyprus?"}
               </h2>
               <div ref={featuresGridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {t.features.map((feature, index) => {
@@ -255,7 +313,7 @@ const About = () => {
                     <p className="text-muted-foreground mb-4">{c.desc}</p>
                     <Link to={c.link}>
                       <Button variant="outline" className="group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary w-full">
-                        {language === "tr" ? "Detaylı İncele" : "View Details"}
+                        {language === "tr" ? "Detaylı İncele" : language === "ar" ? "عرض التفاصيل" : "View Details"}
                       </Button>
                     </Link>
                   </div>

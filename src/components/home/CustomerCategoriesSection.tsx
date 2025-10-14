@@ -113,6 +113,56 @@ const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps)
         }
       ]
     },
+    ar: {
+      title: "فئات العملاء",
+      subtitle: "نقدم خيارات علاجية مصممة لكل نوع من أنواع الأسر",
+      categories: [
+        {
+          icon: Users,
+          title: "الأزواج",
+          image: "/couples.jpg",
+          treatments: [
+            { name: "التلقيح الصناعي", link: "/treatments/ivf-icsi" },
+            { name: "التلقيح الصناعي مع اختيار الجنس", link: "/treatments/gender-selection" },
+            { name: "التلقيح الصناعي مع التبرع بالبويضات", link: "/treatments/egg-donation" },
+            { name: "التلقيح الصناعي مع التبرع بالحيوانات المنوية", link: "/treatments/sperm-donation" },
+            { name: "التلقيح الصناعي مع التبرع بالأجنة", link: "/treatments/embryo-donation" },
+            { name: "التلقيح الصناعي المزدوج", link: "/treatments/tandem-treatment" },
+            { name: "الأمومة البديلة", link: "/treatments/surrogacy" }
+          ]
+        },
+        {
+          icon: User,
+          title: "الأمهات العازبات",
+          image: "/single_mom.jpg",
+          treatments: [
+            { name: "التلقيح الصناعي مع التبرع بالحيوانات المنوية", link: "/treatments/sperm-donation" },
+            { name: "التلقيح الصناعي مع التبرع بالأجنة", link: "/treatments/embryo-donation" },
+            { name: "الحفاظ على الخصوبة (تجميد البويضات)", link: "/medical-services/egg-freezing" }
+          ]
+        },
+        {
+          icon: Rainbow,
+          title: "LGBT",
+          image: "/LQBT_flag.jpg",
+          treatments: [
+            { name: "الأزواج الإناث - ROPA IVF", link: "/contact" },
+            { name: "ROPA IVF + اختيار الجنس", link: "/contact" },
+            { name: "الأزواج الذكور - الأمومة البديلة", link: "/treatments/surrogacy" },
+            { name: "التلقيح الصناعي مع التبرع بالبويضات", link: "/treatments/egg-donation" }
+          ]
+        },
+        {
+          icon: Heart,
+          title: "الرجال العزاب",
+          image: "/single_men.jpg",
+          treatments: [
+            { name: "تجميد الحيوانات المنوية", link: "/medical-services/sperm-freezing" },
+            { name: "التلقيح الصناعي مع التبرع بالبويضات", link: "/treatments/egg-donation" }
+          ]
+        }
+      ]
+    },
   };
 
   const t = content[language as keyof typeof content];
@@ -172,7 +222,7 @@ const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps)
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
           <div className="inline-block px-8 py-4 rounded-full bg-primary/10 text-primary font-semibold elevate smooth-transition reveal-fade hover:scale-105">
-            {language === "tr" ? "💝 Her Aileye Özel Çözümler 💝" : "💝 Solutions for Every Family 💝"}
+            {language === "tr" ? "💝 Her Aileye Özel Çözümler 💝" : language === "ar" ? "💝 حلول لكل عائلة 💝" : "💝 Solutions for Every Family 💝"}
           </div>
         </div>
       </div>

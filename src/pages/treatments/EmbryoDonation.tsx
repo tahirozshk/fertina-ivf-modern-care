@@ -24,6 +24,8 @@ const EmbryoDonation = () => {
   const { ref: advantagesTitleRef, isVisible: advantagesTitleVisible } = useScrollAnimation();
   const { ref: advantagesGridRef, isVisible: advantagesGridVisible } = useScrollAnimation();
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
+  
+  const dir = language === "ar" ? "rtl" : "ltr";
 
   const content = {
     tr: {
@@ -162,12 +164,80 @@ const EmbryoDonation = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "التبرع بالأجنة",
+      subtitle: "أكمل عائلتك بالتبرع بالأجنة عالية الجودة",
+      successRate: "80-90% معدل النجاح",
+      heroTitle: "حتى في أكثر اللحظات يأسًا، ابحث عن المخرج في فيرتينا",
+      heroSubtitle: "رحلة إلى الأمل مع التبرع بالأجنة",
+      description: "كفيرتينا IVF، نقدم علاج التبرع بالأجنة للأزواج الذين لا يستطيعون تحقيق حلمهم بإنجاب أطفال، وفقًا للمعايير الأخلاقية والقانونية والعلمية. يُفضل هذا الأسلوب في الحالات التي تحتاج إلى كل من خلايا البويضات والحيوانات المنوية وهو خيار واعد بمعدلات نجاح عالية.",
+      whatIsIt: "ما هو التبرع بالأجنة؟",
+      whatIsItDesc: "التبرع بالأجنة هو نقل جنين تم تكوينه من خلال التبرع بكل من خلايا البويضات والحيوانات المنوية إلى رحم الأم المحتملة التي تريد إنجاب طفل. يتم جلب الحيوانات المنوية إلى عيادتنا من بنوك الحيوانات المنوية في الدنمارك (Cryos و European Sperm Bank) بإذن من وزارة الصحة في جمهورية شمال قبرص التركية. إنها طريقة ناجحة جدًا بمعدلات حمل عالية تتراوح بين 80-90٪.",
+      whoIsItFor: "لمن يناسب التبرع بالأجنة؟",
+      candidates: [
+        "الأزواج الذين نفذ احتياطي المبيض لديهم ولا يستطيع الشريك إنتاج الحيوانات المنوية",
+        "الأزواج الذين مروا بمحاولات فاشلة عديدة للتلقيح الصناعي من قبل",
+        "المرشحات للأمومة اللاتي يرغبن في إنجاب طفل بمفردهن ويحتجن إلى كل من الحيوانات المنوية والبويضات",
+        "الأزواج الذين يرغبون في منع الأمراض الوراثية",
+        "مريضات التبرع بالبويضات اللاتي يعانين من فشل متكرر",
+      ],
+      processTitle: "كيف يعمل اختيار المتبرع والعملية؟",
+      steps: [
+        {
+          step: "المرحلة 1",
+          title: "اختيار المتبرع",
+          description: "يخضع المتبرعون بالبويضات المستخدمون في فيرتينا IVF لعملية تقييم صارمة. يتم جلب الحيوانات المنوية إلى عيادتنا من بنوك الحيوانات المنوية في الدنمارك (Cryos و European Sperm Bank) بإذن من وزارة الصحة في جمهورية شمال قبرص التركية.",
+        },
+        {
+          step: "المرحلة 2",
+          title: "تكوين الأجنة",
+          description: "يتم تكوين الأجنة عن طريق تخصيب بويضات المتبرعين المختارين والحيوانات المنوية من البنك في بيئة مختبرية.",
+        },
+        {
+          step: "المرحلة 3",
+          title: "تحضير الرحم",
+          description: "يتم تحضير جدار الرحم للمرشحة للأمومة للنقل بعلاج دوائي سهل الاستخدام عن طريق الفم فقط.",
+        },
+        {
+          step: "المرحلة 4",
+          title: "نقل الأجنة",
+          description: "يتم اختيار الأجنة عالية الجودة التي تصل إلى اليوم الخامس ونقلها إلى تجويف الرحم.",
+        },
+        {
+          step: "المرحلة 5",
+          title: "متابعة الحمل",
+          description: "يتم معرفة نتيجة الحمل عن طريق فحص الدم بعد 12 يومًا ومراقبة العملية.",
+        },
+      ],
+      donorCriteria: "جميع المتبرعين لدينا:",
+      criteria: [
+        "تتراوح أعمارهم بين 20-30 عامًا",
+        "اجتازوا جميع الفحوصات الصحية",
+        "تم إجراء اختبارات جينية ومعدية",
+        "تم تسجيل الخصائص الجسدية ومعلومات الأصل العرقي",
+        "أفراد غير مدخنين ولا يتناولون الكحول",
+      ],
+      advantagesTitle: "لماذا قبرص ولماذا فيرتينا IVF؟",
+      advantagesDesc: "تقدم قبرص بيئة أكثر مرونة وأمانًا قانونيًا للتبرع بالأجنة.",
+      advantages: [
+        "فرصة مطابقة شخصية مع مجموعة المتبرعين الواسعة لدينا",
+        "معدل نجاح عالٍ (80-90٪)",
+        "عملية متوافقة تمامًا مع القواعد الأخلاقية والسرية",
+        "طاقم طبي خبير وذو خبرة",
+        "بنوك الحيوانات المنوية المرخصة في الدنمارك",
+        "عملية معتمدة من وزارة الصحة",
+        "فحص شامل للمتبرعين",
+        "خدمة الدعم النفسي",
+      ],
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   };
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
       
       <div className="pt-20">
@@ -318,21 +388,29 @@ const EmbryoDonation = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
                 {language === "tr" 
                   ? "Embriyo Donasyonu ile Hayalinize Bir Adım Daha Yaklaşın" 
+                  : language === "ar"
+                  ? "اقترب خطوة واحدة من حلمك مع التبرع بالأجنة"
                   : "Get One Step Closer to Your Dream with Embryo Donation"}
               </h2>
               <p className="text-lg text-muted-foreground mb-4">
                 {language === "tr"
                   ? "Anne ya da baba olmak için farklı yöntemler uygulanabilir. Önemli olan, bu süreçte yalnız olmadığınızı bilmenizdir."
+                  : language === "ar"
+                  ? "يمكن تطبيق طرق مختلفة لتصبح أمًا أو أبًا. المهم هو أن تعرف أنك لست وحدك في هذه العملية."
                   : "Different methods can be applied to become a mother or father. What matters is knowing that you are not alone in this process."}
               </p>
               <p className="text-lg text-muted-foreground mb-8">
                 {language === "tr"
                   ? "Fertina IVF olarak sizin için en uygun tedavi sürecini planlıyor, hem tıbbi hem de psikolojik olarak yanınızda oluyoruz."
+                  : language === "ar"
+                  ? "كفيرتينا IVF، نخطط لعملية العلاج الأنسب لك ونكون معك من الناحية الطبية والنفسية."
                   : "As Fertina IVF, we plan the most suitable treatment process for you and are with you both medically and psychologically."}
               </p>
               <p className="text-xl font-semibold text-primary mb-8">
                 {language === "tr"
                   ? "Fertina IVF – Bilimin Gücüyle Aile Olmanın Mutluluğu"
+                  : language === "ar"
+                  ? "فيرتينا IVF – فرحة أن تصبح عائلة بقوة العلم"
                   : "Fertina IVF – The Joy of Becoming a Family with the Power of Science"}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

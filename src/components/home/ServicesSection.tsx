@@ -123,6 +123,61 @@ const ServicesSection = ({ language }: ServicesSectionProps) => {
         },
       ],
     },
+    ar: {
+      title: "علاجاتنا وخدماتنا",
+      subtitle: "معايير دولية مع حلول شخصية",
+      cta: "معرفة المزيد",
+      services: [
+        {
+          icon: Baby,
+          title: "علاج التلقيح الصناعي (ICSI)",
+          description: "معدلات نجاح عالية مع تقنيات نقل الأجنة الحديثة",
+          href: "/treatments/ivf-icsi",
+          image: "ivf.png",
+          successRate: "76%",
+        },
+        {
+          icon: Heart,
+          title: "التبرع بالبويضات",
+          description: "عملية موثوقة مع متبرعين مختارين بعناية",
+          href: "/treatments/egg-donation",
+          image: "egg.avif",
+          successRate: "89%",
+        },
+        {
+          icon: Dna,
+          title: "الاختبارات الجينية (PGD/NGS)",
+          description: "اختيار الأجنة الصحية مع فحص جيني متقدم",
+          href: "/medical-services/genetics",
+          image: "genetic_dna.jpg",
+          successRate: "99%",
+        },
+        {
+          icon: Users,
+          title: "اختيار الجنس",
+          description: "توازن الأسرة ضمن إطار قانوني وأخلاقي",
+          href: "/treatments/gender-selection",
+          image: "gender.webp",
+          successRate: "99%",
+        },
+        {
+          icon: Microscope,
+          title: "تجميد الأجنة",
+          description: "تخزين آمن للأجنة بتقنية متقدمة",
+          href: "/medical-services/embryo-freezing",
+          image: "embryo_dondurma.jpg",
+          successRate: "95%",
+        },
+        {
+          icon: Stethoscope,
+          title: "التبرع بالحيوانات المنوية",
+          description: "متبرعون مع فحص صحي شامل",
+          href: "/treatments/sperm-donation",
+          image: "sperm.jpg",
+          successRate: "82%",
+        },
+      ],
+    },
   };
 
   const t = content[language as keyof typeof content];

@@ -10,6 +10,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 const PGDService = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
   const { ref: whatRef, isVisible: whatVisible } = useScrollAnimation();
@@ -102,12 +103,33 @@ const PGDService = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "التشخيص الجيني قبل الزرع (PGD)",
+      subtitle: "ضمان جيني لمستقبل صحي",
+      intro: "التركيب الكروموسومي حاسم للصحة. يمكن أن تؤدي الأخطاء في التكوين الجيني إلى توقف تطور الجنين أو التسبب في اضطرابات خطيرة. 50-60٪ من حالات الإجهاض المبكر تنبع من تشوهات كروموسومية؛ تزداد المخاطر خاصة فوق سن 35.",
+      description: "في فيرتينا IVF، نقدم طرقًا متقدمة لمساعدتك في إنجاب طفل سليم وراثيًا. واحدة من هذه الطرق هي PGD.",
+      whatTitle: "ما هو PGD؟",
+      whatDesc: "يتيح PGD التحليل الجيني للأجنة التي تم إنشاؤها أثناء التلقيح الصناعي. يحدد الأجنة التي تحمل أمراضًا جينية ويسمح بنقل الأجنة السليمة فقط.",
+      what: "ما هو PGD؟",
+      recommendedTitle: "يوصى بـ PGD في الحالات التالية:",
+      recommended: ["تاريخ عائلي من الأمراض الوراثية", "أحد الوالدين حامل", "الإجهاض المتكرر", "طفل سابق بمرض جيني", "النساء 35 سنة فما فوق", "خطر الأمراض الجينية المرتبطة بالجنس"],
+      recTitle: "متى يوصى به؟",
+      howTitle: "كيف يتم إجراء PGD؟",
+      steps: ["يتم الحصول على الأجنة عن طريق التلقيح الصناعي", "في اليوم 5 (الكيسة الأريمية)، يتم أخذ خزعة الأديم الغاذي الخارجي", "يتم تحليل الخلايا المأخوذة بالخزعة في مختبر الوراثة", "يتم تقييم الكروموسومات 13، 18، 21، X و Y للعدد / الهيكل", "يستبعد متلازمات باتو وإدواردز وداون وتيرنر وكلاينفلتر", "يتم اختيار ونقل الأجنة السليمة وراثيًا"],
+      advantagesTitle: "المزايا",
+      advantages: ["يقلل من خطر الأمراض الجينية", "يتيح اختيار الأجنة السليمة", "يقلل من خطر الإجهاض", "يوفر راحة البال عند الدخول في الحمل"],
+      detTitle: "ما الذي يتم الكشف عنه؟",
+      detected: ["متلازمة داون", "متلازمة إدواردز", "متلازمة باتو", "اضطرابات الكروموسومات الجنسية", "الأمراض الوراثية الأحادية"],
+      note: "اتصل بنا للحصول على التفاصيل أو للتشاور مع متخصصينا. فيرتينا IVF تقف معك من أجل أجيال صحية.",
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">

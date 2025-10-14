@@ -10,6 +10,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 const NGSService = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
   const { ref: advTitleRef, isVisible: advTitleVisible } = useScrollAnimation();
@@ -94,12 +95,29 @@ const NGSService = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "التسلسل الجيني من الجيل التالي (NGS)",
+      subtitle: "فحص كروموسومي شامل في الأجنة",
+      description: "NGS هو طريقة تحليل جيني متقدمة تسمح بفحص كروموسومي مفصل في الأجنة. من خلال فحص جميع الكروموسومات الـ 46 المكونة للحمض النووي عدديًا وهيكليًا، فإنه يتيح اختيار ونقل الأجنة السليمة فقط، مما يزيد من معدلات نجاح النقل.",
+      advantagesTitle: "مزايا NGS",
+      advantages: ["اختيار الأجنة السليمة كروموسوميًا", "زيادة معدلات النجاح", "تقليل مخاطر الإجهاض", "تجنب عمليات النقل غير الضرورية", "منع انتقال الأمراض الوراثية عبر الأجيال"],
+      typesTitle: "ضمان الصحة الكروموسومية مع NGS",
+      typesDesc: "لزيادة النجاح في التلقيح الصناعي وتحقيق حمل صحي، هناك حاجة إلى طرق تحليل جيني متقدمة. في فيرتينا IVF، نطبق NGS لنوفر لك البداية الأكثر صحة وموثوقية من خلال اختيار أفضل الأجنة.",
+      recommendedTitle: "قد يوصى بـ NGS في الحالات التالية:",
+      recommended: ["المرضى الذين يعانون من اضطرابات جينية معروفة", "المرضى الذين لديهم تاريخ من فقدان الحمل أو فشل التلقيح الصناعي", "المرضى الأكثر عرضة لخطر الأخطاء الكروموسومية"],
+      whoTitle: "لمن هو مناسب؟",
+      who: ["النساء 38 سنة فما فوق", "الذين يعانون من الإجهاض المتكرر", "الأزواج الذين فشلت محاولات التلقيح الصناعي السابقة لديهم", "حاملو الأمراض الوراثية", "العائلات التي ترغب في منع الأمراض المرتبطة بالجنس"],
+      noteTitle: "فرق فيرتينا IVF",
+      note: "في عيادتنا الحديثة في قبرص، نقدم تقنية NGS مع أحدث البنية التحتية المخبرية. نحن نراقب بدقة تطور الأجنة وننقل الجنين الأكثر صحة في الوقت المناسب لتعظيم فرصة الحمل لديك.",
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">

@@ -31,6 +31,18 @@ const Footer = ({ language }: FooterProps) => {
       privacy: "Privacy Policy",
       terms: "Terms of Use",
     },
+    ar: {
+      about: "معلومات عنا",
+      treatments: "العلاجات",
+      services: "الخدمات",
+      contact: "اتصل بنا",
+      address: "العنوان",
+      addressText: "Mağusa Yaşam Hastanesi, Kuzey Kıbrıs, Mağusa, Gazi Mustafa Kemal Bulvarı No:23",
+      followUs: "تابعنا",
+      copyright: "جميع الحقوق محفوظة.",
+      privacy: "سياسة الخصوصية",
+      terms: "شروط الاستخدام",
+    },
   };
 
   const t = translations[language as keyof typeof translations];
@@ -45,6 +57,8 @@ const Footer = ({ language }: FooterProps) => {
             <p className="text-sm text-background/80">
               {language === "tr"
                 ? "Bilim ve umudun buluştuğu yerdeyiz. Modern teknoloji ile güvenilir IVF tedavileri."
+                : language === "ar"
+                ? "حيث يلتقي العلم بالأمل. علاجات التلقيح الصناعي الموثوقة بتكنولوجيا حديثة."
                 : "Where science meets hope. Reliable IVF treatments with modern technology."}
             </p>
           </div>
@@ -60,37 +74,37 @@ const Footer = ({ language }: FooterProps) => {
               </li>
               <li>
                 <Link to="/treatments/egg-donation" className="hover:text-primary smooth-transition">
-                  {language === "tr" ? "Yumurta Donasyonu" : "Egg Donation"}
+                  {language === "tr" ? "Yumurta Donasyonu" : language === "ar" ? "التبرع بالبويضات" : "Egg Donation"}
                 </Link>
               </li>
               <li>
                 <Link to="/treatments/sperm-donation" className="hover:text-primary smooth-transition">
-                  {language === "tr" ? "Sperm Donasyonu" : "Sperm Donation"}
+                  {language === "tr" ? "Sperm Donasyonu" : language === "ar" ? "التبرع بالحيوانات المنوية" : "Sperm Donation"}
                 </Link>
               </li>
               <li>
                 <Link to="/treatments/embryo-donation" className="hover:text-primary smooth-transition">
-                  {language === "tr" ? "Embriyo Donasyonu" : "Embryo Donation"}
+                  {language === "tr" ? "Embriyo Donasyonu" : language === "ar" ? "التبرع بالأجنة" : "Embryo Donation"}
                 </Link>
               </li>
               <li>
                 <Link to="/treatments/gender-selection" className="hover:text-primary smooth-transition">
-                  {language === "tr" ? "Cinsiyet Seçimi" : "Gender Selection"}
+                  {language === "tr" ? "Cinsiyet Seçimi" : language === "ar" ? "اختيار الجنس" : "Gender Selection"}
                 </Link>
               </li>
               <li>
                 <Link to="/treatments/surrogacy" className="hover:text-primary smooth-transition">
-                  {language === "tr" ? "Taşıyıcı Annelik" : "Surrogacy"}
+                  {language === "tr" ? "Taşıyıcı Annelik" : language === "ar" ? "الأمومة البديلة" : "Surrogacy"}
                 </Link>
               </li>
               <li>
                 <Link to="/treatments/tandem-treatment" className="hover:text-primary smooth-transition">
-                  {language === "tr" ? "Tandem Tedavi" : "Tandem Treatment"}
+                  {language === "tr" ? "Tandem Tedavi" : language === "ar" ? "العلاج المزدوج" : "Tandem Treatment"}
                 </Link>
               </li>
               <li>
                 <Link to="/treatments/cytoplasm-transfer" className="hover:text-primary smooth-transition">
-                  {language === "tr" ? "Sitoplazma Transferi" : "Cytoplasm Transfer"}
+                  {language === "tr" ? "Sitoplazma Transferi" : language === "ar" ? "نقل السيتوبلازم" : "Cytoplasm Transfer"}
                 </Link>
               </li>
             </ul>
@@ -102,22 +116,22 @@ const Footer = ({ language }: FooterProps) => {
             <ul className="space-y-2 text-sm text-background/80">
               <li>
                 <Link to={language === "tr" ? "/tibbi-hizmetler/genetik" : "/medical-services/genetics"} className="hover:text-primary smooth-transition">
-                  {language === "tr" ? "Genetik Testler (PGD)" : "Genetic Testing (PGD)"}
+                  {language === "tr" ? "Genetik Testler (PGD)" : language === "ar" ? "الاختبارات الجينية (PGD)" : "Genetic Testing (PGD)"}
                 </Link>
               </li>
               <li>
                 <Link to={language === "tr" ? "/tibbi-hizmetler/embriyo-dondurma" : "/medical-services/embryo-freezing"} className="hover:text-primary smooth-transition">
-                  {language === "tr" ? "Embriyo Dondurma" : "Embryo Freezing"}
+                  {language === "tr" ? "Embriyo Dondurma" : language === "ar" ? "تجميد الأجنة" : "Embryo Freezing"}
                 </Link>
               </li>
               <li>
                 <Link to={language === "tr" ? "/tibbi-hizmetler/yumurta-dondurma" : "/medical-services/egg-freezing"} className="hover:text-primary smooth-transition">
-                  {language === "tr" ? "Yumurta Dondurma" : "Egg Freezing"}
+                  {language === "tr" ? "Yumurta Dondurma" : language === "ar" ? "تجميد البويضات" : "Egg Freezing"}
                 </Link>
               </li>
               <li>
                 <Link to={language === "tr" ? "/tibbi-hizmetler/sperm-dondurma" : "/medical-services/sperm-freezing"} className="hover:text-primary smooth-transition">
-                  {language === "tr" ? "Sperm Dondurma" : "Sperm Freezing"}
+                  {language === "tr" ? "Sperm Dondurma" : language === "ar" ? "تجميد الحيوانات المنوية" : "Sperm Freezing"}
                 </Link>
               </li>
               <li>
@@ -131,17 +145,17 @@ const Footer = ({ language }: FooterProps) => {
               </li>
               <li>
                 <Link to={language === "tr" ? "/tibbi-hizmetler/laparoskopi" : "/medical-services/laparoscopy"} className="hover:text-primary smooth-transition">
-                  {language === "tr" ? "Laparoskopi" : "Laparoscopy"}
+                  {language === "tr" ? "Laparoskopi" : language === "ar" ? "تنظير البطن" : "Laparoscopy"}
                 </Link>
               </li>
               <li>
                 <Link to={language === "tr" ? "/tibbi-hizmetler/histeroskopi" : "/medical-services/hysteroscopy"} className="hover:text-primary smooth-transition">
-                  {language === "tr" ? "Histeroskopi" : "Hysteroscopy"}
+                  {language === "tr" ? "Histeroskopi" : language === "ar" ? "تنظير الرحم" : "Hysteroscopy"}
                 </Link>
               </li>
               <li>
                 <Link to={language === "tr" ? "/tibbi-hizmetler/gebelik-takibi" : "/medical-services/pregnancy-follow-up"} className="hover:text-primary smooth-transition">
-                  {language === "tr" ? "Gebelik Takibi" : "Pregnancy Follow-up"}
+                  {language === "tr" ? "Gebelik Takibi" : language === "ar" ? "متابعة الحمل" : "Pregnancy Follow-up"}
                 </Link>
               </li>
             </ul>

@@ -11,6 +11,7 @@ import { useCounterAnimation } from "@/hooks/use-counter-animation";
 
 const Surrogacy = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { count: successCount, ref: successRef } = useCounterAnimation({ end: 88, duration: 2000 });
   const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
@@ -157,12 +158,32 @@ const Surrogacy = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "الأمومة البديلة",
+      subtitle: "برنامج احترافي للأمومة البديلة تحت الحماية القانونية",
+      successRate: "88% معدل النجاح",
+      heroTitle: "لتبدأ حياة بطلبك ودعمنا",
+      description: "كفيرتينا IVF، نقدم فرصة إنجاب الأطفال من خلال الأمومة البديلة للنساء اللاتي لا يستطعن طبيًا حمل الحمل أو الأفراد ذوي الهياكل العائلية المختلفة.",
+      whatIsIt: "ما هي الأمومة البديلة؟",
+      whatIsItDesc: "الأم البديلة هي امرأة تحمل جنين زوجين أو فرد آخر في رحمها وتسلم الطفل إلى الأسرة البيولوجية بعد الولادة.",
+      importantNote: "ملاحظة مهمة: قد يتم الحصول على الجنين المستخدم من بويضة وحيوانات منوية الزوجين المتلقيين أو من المتبرعين. الأم البديلة ليس لها صلة جينية.",
+      whoIsItFor: "يتم تطبيق هذه الطريقة خاصة في الحالات التالية:",
+      candidates: ["النساء بدون رحم", "الذين يعانون من فقدان الحمل المتكرر", "مشاكل صحية حيث يشكل الحمل خطرًا يهدد الحياة", "تشوهات الرحم", "الأزواج المثليون أو الرجال العزاب"],
+      processTitle: "كيف تعمل العملية؟",
+      steps: [{step: "المرحلة 1", title: "التقديم والتقييم", description: "يتم إجراء تقييمات طبية ونفسية."}, {step: "المرحلة 2", title: "العملية القانونية", description: "يتم توقيع البروتوكولات."}, {step: "المرحلة 3", title: "تكوين الأجنة", description: "يتم تكوين الجنين."}, {step: "المرحلة 4", title: "نقل الأجنة", description: "يتم النقل."}, {step: "المرحلة 5", title: "الحمل والمتابعة", description: "المراقبة."}, {step: "المرحلة 6", title: "الولادة", description: "عملية التسليم."}],
+      advantagesTitle: "لماذا فيرتينا IVF؟",
+      advantages: ["مجموعة واسعة وموثوقة من الأمهات البديلات", "بنية تحتية مخبرية (88%)", "السرية التامة", "قبول المرضى الدوليين", "فريق طبي ذو خبرة", "خدمة استشارية قانونية", "دعم نفسي", "إدارة شفافة"],
+      legalTitle: "الأمومة البديلة في قبرص",
+      legalDescription: "قد تخضع الأمومة البديلة في قبرص لقيود قانونية في بعض الحالات.",
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   };
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
       
       <div className="pt-20">

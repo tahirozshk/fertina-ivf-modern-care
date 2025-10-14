@@ -10,6 +10,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 const SingleGeneAnalysisService = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
   const { ref: whenTitleRef, isVisible: whenTitleVisible } = useScrollAnimation();
@@ -83,12 +84,29 @@ const SingleGeneAnalysisService = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "تحليل الجين الواحد",
+      subtitle: "حماية الصحة الجينية لأجيال صحية...",
+      intro: "تحليل الجين الواحد هو اختبار جيني متقدم لتحديد ما إذا كانت الأجنة ترث أمراضًا وراثية معروفة من أحد الوالدين الحاملين. وبالتالي، يتم اختيار الأجنة السليمة للنقل في التلقيح الصناعي.",
+      description: "تحليل الجين الواحد هو طريقة اختبار جيني متخصصة للأمراض الوراثية أحادية الجين. يوصى به للأزواج الذين يحملون مرضًا وراثيًا معروفًا أو لديهم تاريخ عائلي.",
+      whenTitle: "متى يتم إجراؤه؟",
+      conditions: ["تاريخ عائلي من الاضطرابات أحادية الجين (التليف الكيسي، الثلاسيميا، SMA، إلخ)", "حالة الناقل المحددة في أحد الوالدين", "طفل سابق مصاب باضطراب وراثي", "زواج الأقارب", "الأزواج الذين يرغبون في منع المخاطر الوراثية"],
+      when: ["التليف الكيسي", "فقر الدم المنجلي", "الثلاسيميا", "ضمور العضلات الدوشيني", "مرض هنتنغتون", "التليف العصبي", "متلازمة X الهش"],
+      cases: ["التليف الكيسي", "فقر الدم المنجلي", "الثلاسيميا", "ضمور العضلات", "مرض هنتنغتون"],
+      howTitle: "كيف يتم إجراؤه؟",
+      steps: ["يتم تطوير الأجنة في المختبر", "يتم أخذ خزعة من بضع خلايا من الأجنة", "يتم تحليل العينات في مختبر الوراثة", "يتم اختيار الأجنة الخالية من الأمراض للنقل"],
+      advantagesTitle: "المزايا",
+      advantages: ["يمنع انتقال الأمراض الوراثية", "يزيد من فرصة الحمل الصحي", "يتيح تخطيط أسري أكثر أمانًا"],
+      note: "في فيرتينا IVF، نفحص الأجنة بدقة بطرق جينية موحدة دوليًا ونقدم حلولًا موثوقة للأجيال الصحية.",
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">

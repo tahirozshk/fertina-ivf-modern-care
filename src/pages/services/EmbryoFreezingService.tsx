@@ -10,6 +10,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 const EmbryoFreezingService = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: whatRef, isVisible: whatVisible } = useScrollAnimation();
   const { ref: whyTitleRef, isVisible: whyTitleVisible } = useScrollAnimation();
@@ -115,12 +116,31 @@ const EmbryoFreezingService = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "تجميد الأجنة",
+      subtitle: "احمِ مستقبلك: تخزين الأجنة عالية الجودة",
+      whatTitle: "ما هو تجميد الأجنة؟",
+      whatDesc: "تجميد الأجنة هو تجميد وتخزين البويضات المخصبة (الأجنة) للاستخدام المستقبلي. هذه التقنية تسمح بتخزين الأجنة بأمان لفترة طويلة والتخطيط للحمل في الوقت المرغوب.",
+      whyTitle: "لماذا يُنظر فيه؟",
+      why: ["الحفاظ على الخصوبة (مثل علاج السرطان، خطر فشل المبيض المبكر)", "تأجيل الأبوة (المهنة، التعليم، الأسباب الشخصية)", "تقليل خطر الحمل المتعدد (تخزين الأجنة الفائضة)", "اختيار الأجنة السليمة بعد الاختبار الجيني"],
+      whoTitle: "لمن هو مناسب؟",
+      who: ["عمر الأم المتقدم", "المرضى الذين لديهم تاريخ من العقم أو الإجهاض", "الأشخاص الذين سيتلقون علاجات تؤثر على الخصوبة", "الأفراد الذين يرغبون في تأجيل بناء الأسرة"],
+      recTitle: "قد يوصى بتجميد الأجنة في حالات:",
+      rec: ["عقم العامل الذكري الشديد", "فشل التخصيب السابق مع التلقيح الصناعي القياسي", "الاضطرابات الجينية"],
+      processTitle: "كيف تعمل العملية؟",
+      process: ["الاستشارة الأولية والاختبار", "تحفيز التبويض والمراقبة", "استرجاع البويضات (OPU)", "التخصيب (ICSI أو التقليدي)", "تطور الأجنة في المزرعة", "التجميد السريع والتخزين"],
+      factorsTitle: "العوامل المؤثرة على النجاح",
+      factors: ["جودة الأجنة في مرحلة التجميد", "ظروف التخزين الصارمة والتحكم في درجة الحرارة"],
+      conclusion: "تجميد الأجنة هو خيار قوي في الحفاظ على الخصوبة. اتصل بنا للحصول على معلومات حول العملية والمزايا والمخاطر المحتملة.",
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">

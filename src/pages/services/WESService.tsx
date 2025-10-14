@@ -10,6 +10,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 const WESService = () => {
   const { language, setLanguage } = useLanguage();
+  const dir = language === "ar" ? "rtl" : "ltr";
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
   const { ref: useTitleRef, isVisible: useTitleVisible } = useScrollAnimation();
@@ -74,12 +75,35 @@ const WESService = () => {
       cta: "Book Appointment",
       contact: "Get Information",
     },
+    ar: {
+      title: "تسلسل الإكسوم الكامل (WES)",
+      subtitle: "التحليل الشامل للمناطق المشفرة للبروتين",
+      intro: "يفحص WES جميع المناطق المشفرة للبروتين (الإكسونات) في الحمض النووي البشري بالتفصيل. على الرغم من أن 1-2٪ فقط من الجينوم هي إكسونية، إلا أن 85-90٪ من الأمراض تنشأ من الطفرات في هذه المناطق، مما يجعل WES فعالاً للغاية للتشخيص.",
+      description: "تسلسل الإكسوم الكامل (WES) هو طريقة اختبار جيني متقدمة تحلل جميع المناطق المشفرة للبروتين (~20000 جين) في الجينوم البشري.",
+      useTitle: "أين يتم استخدام WES في التلقيح الصناعي؟",
+      uses: ["فقدان الحمل المتكرر: التحقيق في الطفرات الأبوية", "فشل التلقيح الصناعي المتكرر: الكشف عن العيوب الجينية التي تؤثر على تطور الأجنة", "الاضطرابات العائلية: تحديد خطر الانتقال؛ مفيد في الأمراض النادرة / الاستقلابية", "فحص الناقل: تحديد الأمراض التي يحملها الوالدان لتمكين اختيار الأجنة السليمة"],
+      whenTitle: "متى يتم استخدامه؟",
+      when: ["الأمراض الوراثية غير المشخصة", "التأخر التطوري أو الإعاقة الذهنية", "حالات متلازمة معقدة", "الأزواج الذين لديهم أطفال متضررون ويخططون للحمل"],
+      useCases: ["الأمراض الوراثية غير المشخصة", "اضطرابات التطور", "الإعاقات الفكرية", "حالات معقدة"],
+      resultTitle: "ماذا تقدم نتائج WES؟",
+      whatTitle: "ما الذي يمكن أن تكشفه النتائج؟",
+      whatDesc: "يمكن أن تكشف نتائج WES:",
+      results: ["يكشف عن مخاطر الأمراض الوراثية", "مع PGT، يتيح نقل الأجنة السليمة", "يظهر خطر الأمراض الجينية في الأطفال المستقبليين"],
+      resTitle: "ما الذي يمكن أن تكشفه النتائج؟",
+      diffTitle: "الفرق بين WES و PGT",
+      wes: "WES: يتم إجراؤه على دم الوالدين / الفرد؛ يكشف عن التكوين الجيني.",
+      pgt: "PGT: يتم تطبيقه على الأجنة أثناء التلقيح الصناعي؛ يضمن نقل الأجنة السليمة فقط.",
+      noteTitle: "ميزة فيرتينا IVF",
+      note: "مع الفحص الجيني الحديث، نعظم فرصتك في حمل صحي. مع WES، نهتم بصحتك وصحة طفلك المستقبلي.",
+      cta: "احجز موعد",
+      contact: "احصل على معلومات",
+    },
   } as const;
 
   const t = content[language as keyof typeof content];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">
