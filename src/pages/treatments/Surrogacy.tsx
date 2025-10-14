@@ -6,9 +6,21 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2, Activity, Shield, Heart, Users } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Surrogacy = () => {
   const [language, setLanguage] = useState("tr");
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
+  const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
+  const { ref: whatIsItRef, isVisible: whatIsItVisible } = useScrollAnimation();
+  const { ref: candidatesTitleRef, isVisible: candidatesTitleVisible } = useScrollAnimation();
+  const { ref: candidatesGridRef, isVisible: candidatesGridVisible } = useScrollAnimation();
+  const { ref: processTitleRef, isVisible: processTitleVisible } = useScrollAnimation();
+  const { ref: processGridRef, isVisible: processGridVisible } = useScrollAnimation();
+  const { ref: advantagesTitleRef, isVisible: advantagesTitleVisible } = useScrollAnimation();
+  const { ref: advantagesGridRef, isVisible: advantagesGridVisible } = useScrollAnimation();
+  const { ref: legalRef, isVisible: legalVisible } = useScrollAnimation();
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
 
   const content = {
     tr: {
@@ -156,7 +168,7 @@ const Surrogacy = () => {
         <section className="relative py-20 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="animate-fade-in">
+              <div ref={heroRef} className={`transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                 <p className="text-lg md:text-xl text-primary mb-4 font-semibold">
                   {t.heroTitle}
                 </p>
@@ -172,10 +184,10 @@ const Surrogacy = () => {
                   <span className="font-semibold text-foreground">{t.successRate}</span>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg">{t.cta}</Button>
-                  <Button size="lg" variant="outline">{t.contact}</Button>
-                </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/contact"><Button size="lg">{t.cta}</Button></Link>
+                <Link to="/contact"><Button size="lg" variant="outline">{t.contact}</Button></Link>
+              </div>
               </div>
             </div>
           </div>
@@ -184,7 +196,7 @@ const Surrogacy = () => {
         {/* Description */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
+            <div ref={descRef} className={`max-w-4xl mx-auto transition-all duration-1000 ${descVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 {t.description}
               </p>
@@ -195,7 +207,7 @@ const Surrogacy = () => {
         {/* What Is It */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
+            <div ref={whatIsItRef} className={`max-w-4xl mx-auto transition-all duration-1000 ${whatIsItVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-foreground">
                 {t.whatIsIt}
               </h2>
@@ -217,12 +229,12 @@ const Surrogacy = () => {
         {/* Who Is It For */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">
+            <h2 ref={candidatesTitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${candidatesTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               {t.whoIsItFor}
             </h2>
-            <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+            <div ref={candidatesGridRef} className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
               {t.candidates.map((candidate, index) => (
-                <Card key={index} className="p-4 flex items-start gap-3 animate-slide-up" style={{ animationDelay: `${index * 50}ms` }}>
+                <Card key={index} className={`p-4 flex items-start gap-3 transition-all duration-1000 ${candidatesGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: candidatesGridVisible ? `${index * 50}ms` : '0ms' }}>
                   <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                   <span className="text-foreground">{candidate}</span>
                 </Card>
@@ -234,15 +246,15 @@ const Surrogacy = () => {
         {/* Treatment Process */}
         <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">
+            <h2 ref={processTitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${processTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               {t.processTitle}
             </h2>
-            <div className="max-w-4xl mx-auto space-y-6">
+            <div ref={processGridRef} className="max-w-4xl mx-auto space-y-6">
               {t.steps.map((step, index) => (
                 <Card
                   key={index}
-                  className="p-6 hover:shadow-lg smooth-transition animate-slide-up"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  className={`p-6 hover:shadow-lg smooth-transition transition-all duration-1000 ${processGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                  style={{ transitionDelay: processGridVisible ? `${index * 100}ms` : '0ms' }}
                 >
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
@@ -263,12 +275,12 @@ const Surrogacy = () => {
         {/* Advantages */}
         <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/10">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">
+            <h2 ref={advantagesTitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${advantagesTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               {t.advantagesTitle}
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            <div ref={advantagesGridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
               {t.advantages.map((advantage, index) => (
-                <Card key={index} className="p-4 flex items-center gap-3 bg-card animate-slide-up" style={{ animationDelay: `${index * 50}ms` }}>
+                <Card key={index} className={`p-4 flex items-center gap-3 bg-card transition-all duration-1000 ${advantagesGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: advantagesGridVisible ? `${index * 50}ms` : '0ms' }}>
                   <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
                   <span className="text-foreground font-medium">{advantage}</span>
                 </Card>
@@ -280,7 +292,7 @@ const Surrogacy = () => {
         {/* Legal Section */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
+            <div ref={legalRef} className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${legalVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
               <Shield className="h-16 w-16 text-primary mx-auto mb-6" />
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
                 {t.legalTitle}
@@ -295,7 +307,7 @@ const Surrogacy = () => {
         {/* Bottom CTA */}
         <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4 text-center">
-            <div className="max-w-3xl mx-auto">
+            <div ref={ctaRef} className={`max-w-3xl mx-auto transition-all duration-1000 ${ctaVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
               <Heart className="h-16 w-16 text-primary mx-auto mb-6" />
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
                 {language === "tr" 

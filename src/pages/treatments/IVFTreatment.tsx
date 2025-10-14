@@ -7,9 +7,19 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2, Clock, Users, TrendingUp } from "lucide-react";
 import ivfImage from "@/assets/treatments/ivf-treatment.jpg";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const IVFTreatment = () => {
   const [language, setLanguage] = useState("tr");
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
+  const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
+  const { ref: candidatesTitleRef, isVisible: candidatesTitleVisible } = useScrollAnimation();
+  const { ref: candidatesGridRef, isVisible: candidatesGridVisible } = useScrollAnimation();
+  const { ref: processTitleRef, isVisible: processTitleVisible } = useScrollAnimation();
+  const { ref: processGridRef, isVisible: processGridVisible } = useScrollAnimation();
+  const { ref: advantagesTitleRef, isVisible: advantagesTitleVisible } = useScrollAnimation();
+  const { ref: advantagesGridRef, isVisible: advantagesGridVisible } = useScrollAnimation();
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
 
   const content = {
     tr: {
@@ -145,7 +155,7 @@ const IVFTreatment = () => {
         <section className="relative py-20 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="animate-fade-in">
+              <div ref={heroRef} className={`transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
                   {t.title}
                 </h1>
@@ -170,7 +180,7 @@ const IVFTreatment = () => {
                 </div>
               </div>
 
-              <div className="relative animate-fade-in">
+              <div className={`relative transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                 <img
                   src={ivfImage}
                   alt="IVF Treatment"
@@ -184,7 +194,7 @@ const IVFTreatment = () => {
         {/* Description */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
+            <div ref={descRef} className={`max-w-4xl mx-auto transition-all duration-1000 ${descVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 {t.description}
               </p>
@@ -195,12 +205,12 @@ const IVFTreatment = () => {
         {/* Who Is It For */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">
+            <h2 ref={candidatesTitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${candidatesTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               {t.whoIsItFor}
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            <div ref={candidatesGridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
               {t.candidates.map((candidate, index) => (
-                <Card key={index} className="p-4 flex items-start gap-3 animate-slide-up" style={{ animationDelay: `${index * 50}ms` }}>
+                <Card key={index} className={`p-4 flex items-start gap-3 transition-all duration-1000 ${candidatesGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: candidatesGridVisible ? `${index * 50}ms` : '0ms' }}>
                   <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                   <span className="text-foreground">{candidate}</span>
                 </Card>
@@ -212,15 +222,15 @@ const IVFTreatment = () => {
         {/* Treatment Process */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">
+            <h2 ref={processTitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${processTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               {t.processTitle}
             </h2>
-            <div className="max-w-4xl mx-auto space-y-6">
+            <div ref={processGridRef} className="max-w-4xl mx-auto space-y-6">
               {t.steps.map((step, index) => (
                 <Card
                   key={index}
-                  className="p-6 hover:shadow-lg smooth-transition animate-slide-up"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  className={`p-6 hover:shadow-lg smooth-transition transition-all duration-1000 ${processGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                  style={{ transitionDelay: processGridVisible ? `${index * 100}ms` : '0ms' }}
                 >
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
@@ -241,12 +251,12 @@ const IVFTreatment = () => {
         {/* Advantages */}
         <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/10">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">
+            <h2 ref={advantagesTitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${advantagesTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               {t.advantagesTitle}
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            <div ref={advantagesGridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
               {t.advantages.map((advantage, index) => (
-                <Card key={index} className="p-4 flex items-center gap-3 bg-card animate-slide-up" style={{ animationDelay: `${index * 50}ms` }}>
+                <Card key={index} className={`p-4 flex items-center gap-3 bg-card transition-all duration-1000 ${advantagesGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: advantagesGridVisible ? `${index * 50}ms` : '0ms' }}>
                   <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
                   <span className="text-foreground font-medium">{advantage}</span>
                 </Card>
@@ -258,7 +268,7 @@ const IVFTreatment = () => {
         {/* Bottom CTA */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 text-center">
-            <div className="max-w-3xl mx-auto">
+            <div ref={ctaRef} className={`max-w-3xl mx-auto transition-all duration-1000 ${ctaVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
               <Users className="h-16 w-16 text-primary mx-auto mb-6" />
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
                 {language === "tr" 
