@@ -8,10 +8,12 @@ import { CheckCircle2, Heart, Shield, Users } from "lucide-react";
 import eggDonationImage from "@/assets/treatments/egg-donation.jpg";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useLanguage } from "@/hooks/use-language";
+import { useCounterAnimation } from "@/hooks/use-counter-animation";
 
 const EggDonation = () => {
   const { language, setLanguage } = useLanguage();
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
+  const { count: successCount, ref: successRef } = useCounterAnimation({ end: 89, duration: 2000 });
   const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
   const { ref: candidatesTitleRef, isVisible: candidatesTitleVisible } = useScrollAnimation();
   const { ref: candidatesGridRef, isVisible: candidatesGridVisible } = useScrollAnimation();
@@ -137,9 +139,11 @@ const EggDonation = () => {
                   {t.subtitle}
                 </p>
                 
-                <div className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-lg mb-8 inline-flex">
+                <div ref={successRef} className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-lg mb-8 inline-flex">
                   <Heart className="h-5 w-5 text-primary" />
-                  <span className="font-semibold text-foreground">{t.successRate}</span>
+                  <span className="font-semibold text-foreground">
+                    {language === "tr" ? "Başarı Oranı: " : "Success Rate: "}%{successCount}
+                  </span>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">

@@ -7,10 +7,12 @@ import { Card } from "@/components/ui/card";
 import { CheckCircle2, FlaskConical, Shield, Heart } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useLanguage } from "@/hooks/use-language";
+import { useCounterAnimation } from "@/hooks/use-counter-animation";
 
 const EmbryoDonation = () => {
   const { language, setLanguage } = useLanguage();
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
+  const { count: successCount, ref: successRef } = useCounterAnimation({ end: 85, duration: 2000 });
   const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
   const { ref: whatIsItRef, isVisible: whatIsItVisible } = useScrollAnimation();
   const { ref: candidatesTitleRef, isVisible: candidatesTitleVisible } = useScrollAnimation();
@@ -184,9 +186,11 @@ const EmbryoDonation = () => {
                   {t.subtitle}
                 </p>
                 
-                <div className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-lg mb-8 inline-flex">
+                <div ref={successRef} className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-lg mb-8 inline-flex">
                   <FlaskConical className="h-5 w-5 text-primary" />
-                  <span className="font-semibold text-foreground">{t.successRate}</span>
+                  <span className="font-semibold text-foreground">
+                    {language === "tr" ? "Başarı Oranı: " : "Success Rate: "}%{successCount}
+                  </span>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">

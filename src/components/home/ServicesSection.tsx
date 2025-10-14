@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Baby, Heart, Dna, Users, Microscope, Stethoscope } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import SuccessRateBadge from "@/components/SuccessRateBadge";
 
 interface ServicesSectionProps {
   language: string;
@@ -158,13 +159,12 @@ const ServicesSection = ({ language }: ServicesSectionProps) => {
                   
                   {/* Success Rate */}
                   {service.successRate && (
-                    <div className="absolute top-4 right-4 text-right">
-                      <div className="text-xs text-white/80 mb-1">
-                        {language === "tr" ? "Başarı" : "Success"}
-                      </div>
-                      <div className="text-2xl font-bold text-white">
-                        {service.successRate}
-                      </div>
+                    <div className="absolute top-4 right-4">
+                      <SuccessRateBadge 
+                        successRate={service.successRate} 
+                        language={language}
+                        variant="light"
+                      />
                     </div>
                   )}
 

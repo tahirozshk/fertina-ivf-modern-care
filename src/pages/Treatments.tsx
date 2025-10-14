@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Baby, Heart, Dna, Users, FlaskConical, Activity, UserPlus, Zap, Waves } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useLanguage } from "@/hooks/use-language";
+import SuccessRateBadge from "@/components/SuccessRateBadge";
 
 const Treatments = () => {
   const { language, setLanguage } = useLanguage();
@@ -215,13 +216,12 @@ const Treatments = () => {
                       
                       {/* Success Rate */}
                       {treatment.successRate !== "-" && (
-                        <div className="absolute top-4 right-4 text-right">
-                          <div className="text-xs text-white/80 mb-1">
-                            {language === "tr" ? "Başarı" : "Success"}
-                          </div>
-                          <div className="text-2xl font-bold text-white">
-                            {treatment.successRate}
-                          </div>
+                        <div className="absolute top-4 right-4">
+                          <SuccessRateBadge 
+                            successRate={treatment.successRate} 
+                            language={language}
+                            variant="light"
+                          />
                         </div>
                       )}
 

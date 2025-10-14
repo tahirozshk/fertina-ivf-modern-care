@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, FlaskConical, Dna, Microscope, Baby, Syringe, Beaker, Activity, TestTube2, Stethoscope, HeartPulse, ScanSearch } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useLanguage } from "@/hooks/use-language";
+import SuccessRateBadge from "@/components/SuccessRateBadge";
 
 const MedicalServices = () => {
   const { language, setLanguage } = useLanguage();
@@ -126,11 +127,12 @@ const MedicalServices = () => {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                         
                         {item.successRate && item.successRate !== "-" && (
-                          <div className="absolute top-4 right-4 text-right">
-                            <div className="text-xs text-white/80 mb-1">
-                              {language === "tr" ? "Başarı" : "Success"}
-                            </div>
-                            <div className="text-2xl font-bold text-white">{item.successRate}</div>
+                          <div className="absolute top-4 right-4">
+                            <SuccessRateBadge 
+                              successRate={item.successRate} 
+                              language={language}
+                              variant="light"
+                            />
                           </div>
                         )}
 
@@ -171,12 +173,11 @@ const MedicalServices = () => {
                             <item.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground smooth-transition" />
                           </div>
                           {item.successRate && item.successRate !== "-" && (
-                            <div className="text-right">
-                              <div className="text-xs text-muted-foreground mb-1">
-                                {language === "tr" ? "Başarı" : "Success"}
-                              </div>
-                              <div className="text-2xl font-bold text-primary">{item.successRate}</div>
-                            </div>
+                            <SuccessRateBadge 
+                              successRate={item.successRate} 
+                              language={language}
+                              variant="dark"
+                            />
                           )}
                         </div>
                         <h3 className="text-xl font-semibold mb-2 text-foreground group-hover:text-primary smooth-transition">{item.title}</h3>
@@ -229,11 +230,12 @@ const MedicalServices = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                       
                       {item.successRate && item.successRate !== "-" && (
-                        <div className="absolute top-4 right-4 text-right">
-                          <div className="text-xs text-white/80 mb-1">
-                            {language === "tr" ? "Başarı" : "Accuracy"}
-                          </div>
-                          <div className="text-2xl font-bold text-white">{item.successRate}</div>
+                        <div className="absolute top-4 right-4">
+                          <SuccessRateBadge 
+                            successRate={item.successRate} 
+                            language={language}
+                            variant="light"
+                          />
                         </div>
                       )}
 
