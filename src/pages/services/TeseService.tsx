@@ -6,9 +6,19 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2, TestTube2, Microscope, Shield, Users } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const TeseService = () => {
   const [language, setLanguage] = useState("tr");
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
+  const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
+  const { ref: whoTitleRef, isVisible: whoTitleVisible } = useScrollAnimation();
+  const { ref: whoGridRef, isVisible: whoGridVisible } = useScrollAnimation();
+  const { ref: howTitleRef, isVisible: howTitleVisible } = useScrollAnimation();
+  const { ref: howGridRef, isVisible: howGridVisible } = useScrollAnimation();
+  const { ref: advTitleRef, isVisible: advTitleVisible } = useScrollAnimation();
+  const { ref: advGridRef, isVisible: advGridVisible } = useScrollAnimation();
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
 
   const content = {
     tr: {
@@ -99,7 +109,7 @@ const TeseService = () => {
       <div className="pt-20">
         <section className="py-20 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center animate-fade-in">
+            <div ref={heroRef} className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">{t.title}</h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">{t.subtitle}</p>
               <div className="mt-6 inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-lg">
@@ -112,7 +122,7 @@ const TeseService = () => {
 
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
+            <div ref={descRef} className={`max-w-4xl mx-auto transition-all duration-1000 ${descVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <p className="text-lg text-muted-foreground leading-relaxed">{t.description}</p>
             </div>
           </div>
@@ -120,10 +130,10 @@ const TeseService = () => {
 
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">{t.whoTitle}</h2>
-            <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+            <h2 ref={whoTitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${whoTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{t.whoTitle}</h2>
+            <div ref={whoGridRef} className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
               {t.candidates.map((item, i) => (
-                <Card key={i} className="p-4 flex items-start gap-3 animate-slide-up" style={{ animationDelay: `${i * 50}ms` }}>
+                <Card key={i} className={`p-4 flex items-start gap-3 transition-all duration-1000 ${whoGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: whoGridVisible ? `${i * 50}ms` : '0ms' }}>
                   <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                   <span className="text-foreground">{item}</span>
                 </Card>
@@ -134,10 +144,10 @@ const TeseService = () => {
 
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">{t.howTitle}</h2>
-            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <h2 ref={howTitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${howTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{t.howTitle}</h2>
+            <div ref={howGridRef} className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               {t.steps.map((step, i) => (
-                <Card key={i} className="p-6 hover:shadow-lg smooth-transition animate-slide-up" style={{ animationDelay: `${i * 100}ms` }}>
+                <Card key={i} className={`p-6 hover:shadow-lg smooth-transition transition-all duration-1000 ${howGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: howGridVisible ? `${i * 100}ms` : '0ms' }}>
                   <Microscope className="h-10 w-10 text-primary mb-4" />
                   <h3 className="text-xl font-semibold mb-3 text-foreground">{step.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{step.description}</p>
@@ -149,10 +159,10 @@ const TeseService = () => {
 
         <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/10">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">{t.advantagesTitle}</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            <h2 ref={advTitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${advTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{t.advantagesTitle}</h2>
+            <div ref={advGridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
               {t.advantages.map((adv, i) => (
-                <Card key={i} className="p-4 flex items-center gap-3 bg-card animate-slide-up" style={{ animationDelay: `${i * 50}ms` }}>
+                <Card key={i} className={`p-4 flex items-center gap-3 bg-card transition-all duration-1000 ${advGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: advGridVisible ? `${i * 50}ms` : '0ms' }}>
                   <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
                   <span className="text-foreground font-medium">{adv}</span>
                 </Card>
@@ -163,7 +173,7 @@ const TeseService = () => {
 
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 text-center">
-            <div className="max-w-3xl mx-auto">
+            <div ref={ctaRef} className={`max-w-3xl mx-auto transition-all duration-1000 ${ctaVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
               <Shield className="h-16 w-16 text-primary mx-auto mb-6" />
               <h3 className="text-2xl font-bold mb-4 text-foreground">{t.noteTitle}</h3>
               <p className="text-lg text-muted-foreground mb-8">{t.note}</p>

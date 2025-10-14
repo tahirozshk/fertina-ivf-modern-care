@@ -6,9 +6,19 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2, Shield, HeartPulse } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const CervicalCerclageService = () => {
   const [language, setLanguage] = useState("tr");
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
+  const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
+  const { ref: whatRef, isVisible: whatVisible } = useScrollAnimation();
+  const { ref: whoTitleRef, isVisible: whoTitleVisible } = useScrollAnimation();
+  const { ref: whoGridRef, isVisible: whoGridVisible } = useScrollAnimation();
+  const { ref: howTitleRef, isVisible: howTitleVisible } = useScrollAnimation();
+  const { ref: howGridRef, isVisible: howGridVisible } = useScrollAnimation();
+  const { ref: afterRef, isVisible: afterVisible } = useScrollAnimation();
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
 
   const content = {
     tr: {
@@ -90,7 +100,7 @@ const CervicalCerclageService = () => {
       <div className="pt-20">
         <section className="py-20 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center animate-fade-in">
+            <div ref={heroRef} className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">{t.title}</h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">{t.subtitle}</p>
             </div>
@@ -99,7 +109,7 @@ const CervicalCerclageService = () => {
 
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
+            <div ref={descRef} className={`max-w-4xl mx-auto transition-all duration-1000 ${descVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <p className="text-lg text-muted-foreground leading-relaxed">{t.description}</p>
             </div>
           </div>
@@ -107,17 +117,19 @@ const CervicalCerclageService = () => {
 
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-foreground">{t.whatTitle}</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">{t.whatDesc}</p>
+            <div ref={whatRef} className={`transition-all duration-1000 ${whatVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-foreground">{t.whatTitle}</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">{t.whatDesc}</p>
+            </div>
           </div>
         </section>
 
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">{t.whoTitle}</h2>
-            <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+            <h2 ref={whoTitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${whoTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{t.whoTitle}</h2>
+            <div ref={whoGridRef} className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
               {t.candidates.map((c, i) => (
-                <Card key={i} className="p-4 flex items-start gap-3 animate-slide-up" style={{ animationDelay: `${i * 50}ms` }}>
+                <Card key={i} className={`p-4 flex items-start gap-3 transition-all duration-1000 ${whoGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: whoGridVisible ? `${i * 50}ms` : '0ms' }}>
                   <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                   <span className="text-foreground">{c}</span>
                 </Card>
@@ -128,10 +140,10 @@ const CervicalCerclageService = () => {
 
         <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">{t.howTitle}</h2>
-            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <h2 ref={howTitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${howTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{t.howTitle}</h2>
+            <div ref={howGridRef} className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               {t.steps.map((s, i) => (
-                <Card key={i} className="p-6 hover:shadow-lg smooth-transition animate-slide-up" style={{ animationDelay: `${i * 100}ms` }}>
+                <Card key={i} className={`p-6 hover:shadow-lg smooth-transition transition-all duration-1000 ${howGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: howGridVisible ? `${i * 100}ms` : '0ms' }}>
                   <HeartPulse className="h-10 w-10 text-primary mb-4" />
                   <p className="text-muted-foreground leading-relaxed">{s}</p>
                 </Card>
@@ -142,23 +154,27 @@ const CervicalCerclageService = () => {
 
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">{t.afterTitle}</h2>
-            <ul className="text-lg text-muted-foreground max-w-3xl mx-auto space-y-2">
-              {t.after.map((a, i) => (
-                <li key={i}>• {a}</li>
-              ))}
-            </ul>
+            <div ref={afterRef} className={`transition-all duration-1000 ${afterVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">{t.afterTitle}</h2>
+              <ul className="text-lg text-muted-foreground max-w-3xl mx-auto space-y-2">
+                {t.after.map((a, i) => (
+                  <li key={i}>• {a}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
 
         <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/10">
           <div className="container mx-auto px-4 text-center">
-            <Shield className="h-16 w-16 text-primary mx-auto mb-6" />
-            <h3 className="text-2xl font-bold mb-4 text-foreground">{t.goalTitle}</h3>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">{t.goalDesc}</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact"><Button size="lg">{t.cta}</Button></Link>
-              <Link to="/contact"><Button size="lg" variant="outline">{t.contact}</Button></Link>
+            <div ref={ctaRef} className={`transition-all duration-1000 ${ctaVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+              <Shield className="h-16 w-16 text-primary mx-auto mb-6" />
+              <h3 className="text-2xl font-bold mb-4 text-foreground">{t.goalTitle}</h3>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">{t.goalDesc}</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/contact"><Button size="lg">{t.cta}</Button></Link>
+                <Link to="/contact"><Button size="lg" variant="outline">{t.contact}</Button></Link>
+              </div>
             </div>
           </div>
         </section>

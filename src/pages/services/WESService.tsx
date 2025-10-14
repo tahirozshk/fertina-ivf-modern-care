@@ -6,9 +6,18 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2, ScanSearch, Dna, Shield } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const WESService = () => {
   const [language, setLanguage] = useState("tr");
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
+  const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
+  const { ref: useTitleRef, isVisible: useTitleVisible } = useScrollAnimation();
+  const { ref: useGridRef, isVisible: useGridVisible } = useScrollAnimation();
+  const { ref: resTitleRef, isVisible: resTitleVisible } = useScrollAnimation();
+  const { ref: resGridRef, isVisible: resGridVisible } = useScrollAnimation();
+  const { ref: diffTitleRef, isVisible: diffTitleVisible } = useScrollAnimation();
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
 
   const content = {
     tr: {
@@ -76,7 +85,7 @@ const WESService = () => {
       <div className="pt-20">
         <section className="py-20 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center animate-fade-in">
+            <div ref={heroRef} className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">{t.title}</h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">{t.subtitle}</p>
             </div>
@@ -85,7 +94,7 @@ const WESService = () => {
 
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
+            <div ref={descRef} className={`max-w-4xl mx-auto transition-all duration-1000 ${descVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <p className="text-lg text-muted-foreground leading-relaxed">{t.intro}</p>
             </div>
           </div>
@@ -93,10 +102,10 @@ const WESService = () => {
 
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">{t.useTitle}</h2>
-            <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+            <h2 ref={useTitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${useTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{t.useTitle}</h2>
+            <div ref={useGridRef} className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
               {t.uses.map((u, i) => (
-                <Card key={i} className="p-4 flex items-start gap-3 animate-slide-up" style={{ animationDelay: `${i * 50}ms` }}>
+                <Card key={i} className={`p-4 flex items-start gap-3 transition-all duration-1000 ${useGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: useGridVisible ? `${i * 50}ms` : '0ms' }}>
                   <ScanSearch className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                   <span className="text-foreground">{u}</span>
                 </Card>
@@ -107,10 +116,10 @@ const WESService = () => {
 
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">{t.resultTitle}</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            <h2 ref={resTitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${resTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{t.resultTitle}</h2>
+            <div ref={resGridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
               {t.results.map((r, i) => (
-                <Card key={i} className="p-4 flex items-center gap-3 bg-card animate-slide-up" style={{ animationDelay: `${i * 50}ms` }}>
+                <Card key={i} className={`p-4 flex items-center gap-3 bg-card transition-all duration-1000 ${resGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: resGridVisible ? `${i * 50}ms` : '0ms' }}>
                   <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
                   <span className="text-foreground font-medium">{r}</span>
                 </Card>
@@ -121,7 +130,7 @@ const WESService = () => {
 
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-foreground">{t.diffTitle}</h2>
+            <h2 ref={diffTitleRef} className={`text-3xl md:text-4xl font-bold mb-6 text-center text-foreground transition-all duration-1000 ${diffTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{t.diffTitle}</h2>
             <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
               <Card className="p-6"><h3 className="text-xl font-semibold mb-2 text-foreground">WES</h3><p className="text-muted-foreground">{t.wes}</p></Card>
               <Card className="p-6"><h3 className="text-xl font-semibold mb-2 text-foreground">PGT</h3><p className="text-muted-foreground">{t.pgt}</p></Card>
@@ -131,7 +140,7 @@ const WESService = () => {
 
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 text-center">
-            <div className="max-w-3xl mx-auto">
+            <div ref={ctaRef} className={`max-w-3xl mx-auto transition-all duration-1000 ${ctaVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
               <Shield className="h-16 w-16 text-primary mx-auto mb-6" />
               <p className="text-lg text-muted-foreground mb-8">{t.note}</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

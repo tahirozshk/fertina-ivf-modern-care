@@ -6,9 +6,23 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2, HeartPulse, Stethoscope, Baby } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const PregnancyFollowUpService = () => {
   const [language, setLanguage] = useState("tr");
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
+  const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
+  const { ref: tri1TitleRef, isVisible: tri1TitleVisible } = useScrollAnimation();
+  const { ref: tri1GridRef, isVisible: tri1GridVisible } = useScrollAnimation();
+  const { ref: tri2TitleRef, isVisible: tri2TitleVisible } = useScrollAnimation();
+  const { ref: tri2GridRef, isVisible: tri2GridVisible } = useScrollAnimation();
+  const { ref: tri3TitleRef, isVisible: tri3TitleVisible } = useScrollAnimation();
+  const { ref: tri3GridRef, isVisible: tri3GridVisible } = useScrollAnimation();
+  const { ref: benTitleRef, isVisible: benTitleVisible } = useScrollAnimation();
+  const { ref: benGridRef, isVisible: benGridVisible } = useScrollAnimation();
+  const { ref: scrTitleRef, isVisible: scrTitleVisible } = useScrollAnimation();
+  const { ref: scrGridRef, isVisible: scrGridVisible } = useScrollAnimation();
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
 
   const content = {
     tr: {
@@ -154,7 +168,7 @@ const PregnancyFollowUpService = () => {
       <div className="pt-20">
         <section className="py-20 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center animate-fade-in">
+            <div ref={heroRef} className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">{t.title}</h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">{t.subtitle}</p>
             </div>
@@ -163,34 +177,60 @@ const PregnancyFollowUpService = () => {
 
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
+            <div ref={descRef} className={`max-w-4xl mx-auto transition-all duration-1000 ${descVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <p className="text-lg text-muted-foreground leading-relaxed">{t.intro}</p>
             </div>
           </div>
         </section>
 
-        {[t.firstTrimester, t.secondTrimester, t.thirdTrimester].map((phase, idx) => (
-          <section key={idx} className={idx % 2 === 0 ? "py-16 bg-muted/30" : "py-16 bg-background"}>
-            <div className="container mx-auto px-4">
-              <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">{phase.title}</h2>
-              <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
-                {phase.items.map((it: string, i: number) => (
-                  <Card key={i} className="p-4 flex items-start gap-3 animate-slide-up" style={{ animationDelay: `${i * 50}ms` }}>
-                    <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground">{it}</span>
-                  </Card>
-                ))}
-              </div>
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <h2 ref={tri1TitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${tri1TitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{t.firstTrimester.title}</h2>
+            <div ref={tri1GridRef} className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+              {t.firstTrimester.items.map((it: string, i: number) => (
+                <Card key={i} className={`p-4 flex items-start gap-3 transition-all duration-1000 ${tri1GridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: tri1GridVisible ? `${i * 50}ms` : '0ms' }}>
+                  <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">{it}</span>
+                </Card>
+              ))}
             </div>
-          </section>
-        ))}
+          </div>
+        </section>
 
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">{t.benefitsTitle}</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            <h2 ref={tri2TitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${tri2TitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{t.secondTrimester.title}</h2>
+            <div ref={tri2GridRef} className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+              {t.secondTrimester.items.map((it: string, i: number) => (
+                <Card key={i} className={`p-4 flex items-start gap-3 transition-all duration-1000 ${tri2GridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: tri2GridVisible ? `${i * 50}ms` : '0ms' }}>
+                  <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">{it}</span>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <h2 ref={tri3TitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${tri3TitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{t.thirdTrimester.title}</h2>
+            <div ref={tri3GridRef} className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+              {t.thirdTrimester.items.map((it: string, i: number) => (
+                <Card key={i} className={`p-4 flex items-start gap-3 transition-all duration-1000 ${tri3GridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: tri3GridVisible ? `${i * 50}ms` : '0ms' }}>
+                  <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">{it}</span>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <h2 ref={benTitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${benTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{t.benefitsTitle}</h2>
+            <div ref={benGridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
               {t.benefits.map((b, i) => (
-                <Card key={i} className="p-4 flex items-center gap-3 bg-card animate-slide-up" style={{ animationDelay: `${i * 50}ms` }}>
+                <Card key={i} className={`p-4 flex items-center gap-3 bg-card transition-all duration-1000 ${benGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: benGridVisible ? `${i * 50}ms` : '0ms' }}>
                   <Baby className="h-5 w-5 text-primary flex-shrink-0" />
                   <span className="text-foreground font-medium">{b}</span>
                 </Card>
@@ -201,11 +241,11 @@ const PregnancyFollowUpService = () => {
 
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">{t.screeningTitle}</h2>
+            <h2 ref={scrTitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${scrTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{t.screeningTitle}</h2>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto mb-8">{t.screeningIntro}</p>
-            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div ref={scrGridRef} className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               {[t.nipd, t.duo, t.quad, t.usDetail].map((s, i) => (
-                <Card key={i} className="p-6 hover:shadow-lg smooth-transition animate-slide-up" style={{ animationDelay: `${i * 100}ms` }}>
+                <Card key={i} className={`p-6 hover:shadow-lg smooth-transition transition-all duration-1000 ${scrGridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: scrGridVisible ? `${i * 100}ms` : '0ms' }}>
                   <Stethoscope className="h-10 w-10 text-primary mb-4" />
                   <h3 className="text-xl font-semibold mb-3 text-foreground">{s.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
@@ -217,7 +257,7 @@ const PregnancyFollowUpService = () => {
 
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 text-center">
-            <div className="max-w-3xl mx-auto">
+            <div ref={ctaRef} className={`max-w-3xl mx-auto transition-all duration-1000 ${ctaVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
               <HeartPulse className="h-16 w-16 text-primary mx-auto mb-6" />
               <p className="text-lg text-muted-foreground mb-8">{t.closing}</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
