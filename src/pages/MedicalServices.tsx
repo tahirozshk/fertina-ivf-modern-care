@@ -113,7 +113,7 @@ const MedicalServices = () => {
 
       <div className="pt-20">
         <section className="relative py-48 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/tibbi-hizmetler_banner.jpg)' }}>
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-black/60"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div ref={heroRef} className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">{t.title}</h1>
@@ -154,7 +154,7 @@ const MedicalServices = () => {
                           alt={item.title}
                           className="absolute inset-0 h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/30" />
                         
                         {item.successRate && item.successRate !== "-" && (
                           <div className="absolute top-4 right-4">
@@ -167,11 +167,11 @@ const MedicalServices = () => {
                         )}
 
                         <div className="absolute bottom-0 left-0 right-0 p-6">
-                          <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-primary-foreground smooth-transition">
+                          <h3 className="text-xl font-bold mb-2 text-white group-hover:text-primary-foreground smooth-transition drop-shadow-lg" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                             {item.title}
                           </h3>
                           {item.shortDesc && (
-                            <p className="text-white/90 leading-relaxed mb-4 text-sm">
+                            <p className="text-white font-medium leading-relaxed mb-4 text-sm drop-shadow-md" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>
                               {item.shortDesc}
                             </p>
                           )}
@@ -257,7 +257,7 @@ const MedicalServices = () => {
                         alt={item.title}
                         className="absolute inset-0 h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/30" />
                       
                       {item.successRate && item.successRate !== "-" && (
                         <div className="absolute top-4 right-4">
@@ -270,11 +270,11 @@ const MedicalServices = () => {
                       )}
 
                       <div className="absolute bottom-0 left-0 right-0 p-6">
-                        <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-primary-foreground smooth-transition">
+                        <h3 className="text-xl font-bold mb-2 text-white group-hover:text-primary-foreground smooth-transition drop-shadow-lg" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                           {item.title}
                         </h3>
                         {item.shortDesc && (
-                          <p className="text-white/90 leading-relaxed mb-4 text-sm">
+                          <p className="text-white font-medium leading-relaxed mb-4 text-sm drop-shadow-md" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>
                             {item.shortDesc}
                           </p>
                         )}

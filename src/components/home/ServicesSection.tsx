@@ -31,7 +31,7 @@ const ServicesSection = ({ language }: ServicesSectionProps) => {
           title: "Yumurta Donasyonu",
           description: "Titizlikle seçilmiş donörler ile güvenilir süreç",
           href: "/treatments/yumurta-donasyonu",
-          image: "egg.avif",
+          image: "yumurta-donasyonu.png",
           successRate: "%89",
         },
         {
@@ -47,7 +47,7 @@ const ServicesSection = ({ language }: ServicesSectionProps) => {
           title: "Cinsiyet Seçimi",
           description: "Yasal ve etik çerçevede aile dengeleme",
           href: "/treatments/cinsiyet-secimi",
-          image: "gender.webp",
+          image: "cinsiyet_tayini.jpg",
           successRate: "%99",
         },
         {
@@ -86,7 +86,7 @@ const ServicesSection = ({ language }: ServicesSectionProps) => {
           title: "Egg Donation",
           description: "Reliable process with carefully selected donors",
           href: "/treatments/egg-donation",
-          image: "egg.avif",
+          image: "yumurta-donasyonu.png",
           successRate: "89%",
         },
         {
@@ -102,7 +102,7 @@ const ServicesSection = ({ language }: ServicesSectionProps) => {
           title: "Gender Selection",
           description: "Family balancing within legal and ethical framework",
           href: "/treatments/gender-selection",
-          image: "gender.webp",
+          image: "cinsiyet_tayini.jpg",
           successRate: "99%",
         },
         {
@@ -141,7 +141,7 @@ const ServicesSection = ({ language }: ServicesSectionProps) => {
           title: "التبرع بالبويضات",
           description: "عملية موثوقة مع متبرعين مختارين بعناية",
           href: "/treatments/egg-donation",
-          image: "egg.avif",
+          image: "yumurta-donasyonu.png",
           successRate: "89%",
         },
         {
@@ -157,7 +157,7 @@ const ServicesSection = ({ language }: ServicesSectionProps) => {
           title: "اختيار الجنس",
           description: "توازن الأسرة ضمن إطار قانوني وأخلاقي",
           href: "/treatments/gender-selection",
-          image: "gender.webp",
+          image: "cinsiyet_tayini.jpg",
           successRate: "99%",
         },
         {
@@ -210,7 +210,7 @@ const ServicesSection = ({ language }: ServicesSectionProps) => {
                     alt={service.title}
                     className="absolute inset-0 h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/30" />
                   
                   {/* Success Rate */}
                   {service.successRate && (
@@ -225,10 +225,10 @@ const ServicesSection = ({ language }: ServicesSectionProps) => {
 
                   {/* Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-primary-foreground smooth-transition">
+                    <h3 className="text-xl font-bold mb-2 text-white group-hover:text-primary-foreground smooth-transition drop-shadow-lg" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                       {service.title}
                     </h3>
-                    <p className="text-white/90 leading-relaxed text-sm">
+                    <p className="text-white font-medium leading-relaxed text-sm drop-shadow-md" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>
                       {service.description}
                     </p>
                   </div>

@@ -70,6 +70,7 @@ const CTASection = ({ language }: CTASectionProps) => {
                 alt="Consultation"
                 className="absolute inset-0 w-full h-full object-cover"
               />
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/20 to-black/60" />
             </div>
           </div>
         </div>

@@ -138,12 +138,13 @@ const CyprusLocationSection = ({ language }: CyprusLocationSectionProps) => {
           {/* Image Section */}
           <div className={`space-y-6 transition-all duration-1000 ${contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
             <div className="relative">
-              <div className="rounded-3xl overflow-hidden shadow-2xl elevate">
+              <div className="rounded-3xl overflow-hidden shadow-2xl elevate relative">
                 <img
                   src="/north_ cyprus.jpg"
                   alt="Northern Cyprus"
                   className="w-full h-64 object-cover hover:scale-105 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-2xl -z-10" />
             </div>

@@ -243,7 +243,7 @@ const Treatments = () => {
       <div className="pt-30">
         {/* Hero Section */}
         <section className="relative py-48 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/tedaviler_banner.jpg)' }}>
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-black/60"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div ref={heroRef} className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
@@ -262,15 +262,15 @@ const Treatments = () => {
             <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {t.treatments.map((treatment, index) => {
                 const imageMap = [
-                  'ivf.webp',           // IVF (ICSI) Tedavisi
-                  'egg.avif',           // Yumurta Donasyonu
-                  'sperm.jpg',          // Sperm Donasyonu
-                  'embryo.jpg',         // Embriyo Donasyonu
-                  'gender.webp',        // Cinsiyet Seçimi
-                  'tandem.webp',        // Tandem Tedavi Uygulaması
-                  'surrogacy.jpg',      // Taşıyıcı Annelik
-                  'sitoplazma.jpg',     // Sitoplazma Transferi
-                  'fizyo.jpg'           // Tüp Bebek ve Fizyoterapi
+                  'ivf.webp',                  // IVF (ICSI) Tedavisi
+                  'yumurta-donasyonu.png',     // Yumurta Donasyonu
+                  'sperm.jpg',                 // Sperm Donasyonu
+                  'embryo-donasyonu.jpg',      // Embriyo Donasyonu
+                  'cinsiyet_tayini.jpg',       // Cinsiyet Seçimi
+                  'tandem-tedavisi.jpg',       // Tandem Tedavi Uygulaması
+                  'surrogacy.jpg',             // Taşıyıcı Annelik
+                  'sitoplazma.jpg',            // Sitoplazma Transferi
+                  'fizyo.jpg'                  // Tüp Bebek ve Fizyoterapi
                 ];
                 const imgSrc = treatment.image ? treatment.image : `/${imageMap[index]}`;
                 return (
@@ -286,7 +286,7 @@ const Treatments = () => {
                         alt={treatment.title}
                         className="absolute inset-0 h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/30" />
                       
                       {/* Success Rate */}
                       {treatment.successRate !== "-" && (
@@ -301,10 +301,10 @@ const Treatments = () => {
 
                       {/* Content */}
                       <div className="absolute bottom-0 left-0 right-0 p-6">
-                        <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-primary-foreground smooth-transition">
+                        <h3 className="text-xl font-bold mb-2 text-white group-hover:text-primary-foreground smooth-transition drop-shadow-lg" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                           {treatment.title}
                         </h3>
-                        <p className="text-white/90 leading-relaxed mb-4 text-sm">
+                        <p className="text-white font-medium leading-relaxed mb-4 text-sm drop-shadow-md" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>
                           {treatment.shortDesc}
                         </p>
 

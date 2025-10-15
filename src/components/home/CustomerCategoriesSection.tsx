@@ -190,12 +190,13 @@ const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps)
             >
 
               {/* Image */}
-              <div className="mb-4 elevate rounded-2xl overflow-hidden">
+              <div className="mb-4 elevate rounded-2xl overflow-hidden relative">
                 <img
                   src={category.image}
                   alt={category.title}
                   className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
               </div>
 
               {/* Title */}
