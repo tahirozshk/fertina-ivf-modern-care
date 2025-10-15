@@ -137,10 +137,10 @@ const IVFJourneySection = ({ language }: IVFJourneySectionProps) => {
   const t = content[language as keyof typeof content];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-accent/20 to-background">
+    <section className="py-12 sm:py-24 bg-gradient-to-b from-accent/20 to-background">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div ref={titleRef} className={`text-center mb-16 transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div ref={titleRef} className={`text-center mb-8 sm:mb-16 transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             {t.title}
           </h2>
@@ -182,7 +182,7 @@ const IVFJourneySection = ({ language }: IVFJourneySectionProps) => {
 
 
         {/* Bottom CTA */}
-        <div className="mt-16 text-center">
+        <div className="mt-10 sm:mt-16 text-center">
           {/* More Info Button */}
           <Link to="/contact">
             <button className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 smooth-transition shadow-lg hover:shadow-xl">

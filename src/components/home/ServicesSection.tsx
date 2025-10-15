@@ -183,9 +183,9 @@ const ServicesSection = ({ language }: ServicesSectionProps) => {
   const t = content[language as keyof typeof content];
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-12 sm:py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div ref={titleRef} className={`text-center mb-16 transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div ref={titleRef} className={`text-center mb-8 sm:mb-16 transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             {t.title}
           </h2>

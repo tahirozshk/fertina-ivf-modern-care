@@ -95,10 +95,10 @@ const WhyChooseUs = ({ language }: WhyChooseUsProps) => {
   const t = content[language as keyof typeof content];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-background to-secondary/20">
+    <section className="py-12 sm:py-24 bg-gradient-to-b from-background to-secondary/20">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div ref={titleRef} className={`text-center mb-12 max-w-4xl mx-auto transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div ref={titleRef} className={`text-center mb-8 sm:mb-12 max-w-4xl mx-auto transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             {t.title}
           </h2>
@@ -108,7 +108,7 @@ const WhyChooseUs = ({ language }: WhyChooseUsProps) => {
         </div>
 
         {/* Content with Image */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mt-16">
+        <div className="grid lg:grid-cols-2 gap-12 items-center mt-8 sm:mt-16">
           {/* Image */}
           <div ref={imageRef} className={`relative transition-all duration-1000 ${imageVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
             <div className="rounded-3xl overflow-hidden shadow-2xl elevate">
@@ -149,7 +149,7 @@ const WhyChooseUs = ({ language }: WhyChooseUsProps) => {
         </div>
 
         {/* Decorative Element */}
-        <div className="mt-16 text-center">
+        <div className="mt-10 sm:mt-16 text-center">
           <div className="inline-block px-8 py-4 rounded-full bg-primary/10 text-primary font-semibold elevate smooth-transition reveal-fade hover:scale-105">
             {language === "tr" ? "✨ Sizin İçin Buradayız ✨" : language === "ar" ? "✨ نحن هنا من أجلك ✨" : "✨ We're Here For You ✨"}
           </div>

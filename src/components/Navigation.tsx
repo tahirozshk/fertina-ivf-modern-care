@@ -192,9 +192,10 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
 
           {/* Right Side Actions */}
           <div className="flex items-center gap-4">
-            {/* Language Switcher */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
+            {/* Language Switcher (desktop only) */}
+            <div className="hidden lg:block">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="sm" className="gap-2">
                   {language === "tr" ? (
                     <TR className="w-5 h-4" />
@@ -208,25 +209,26 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
                   </span>
                   <ChevronDown className="h-3 w-3" />
                 </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-40">
-                {languageOptions.map((option) => {
-                  const FlagIcon = option.FlagIcon;
-                  return (
-                    <DropdownMenuItem
-                      key={option.code}
-                      onClick={() => setLanguage(option.code)}
-                      className={`cursor-pointer ${
-                        language === option.code ? "bg-accent" : ""
-                      }`}
-                    >
-                      <FlagIcon className="mr-2 w-5 h-4" />
-                      {option.label}
-                    </DropdownMenuItem>
-                  );
-                })}
-              </DropdownMenuContent>
-            </DropdownMenu>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-40">
+                  {languageOptions.map((option) => {
+                    const FlagIcon = option.FlagIcon;
+                    return (
+                      <DropdownMenuItem
+                        key={option.code}
+                        onClick={() => setLanguage(option.code)}
+                        className={`cursor-pointer ${
+                          language === option.code ? "bg-accent" : ""
+                        }`}
+                      >
+                        <FlagIcon className="mr-2 w-5 h-4" />
+                        {option.label}
+                      </DropdownMenuItem>
+                    );
+                  })}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
 
             {/* CTA Button */}
             <Link to="/contact">
@@ -248,7 +250,7 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden py-4 border-t border-border animate-fade-in">
+          <div className="lg:hidden py-4 border-t border-border animate-fade-in max-h-[75vh] overflow-y-auto">
             {/* Mobile Contact Info */}
             <div className="px-4 py-3 bg-primary/5 rounded-lg mb-4">
               <div className="text-sm font-medium text-foreground mb-3">

@@ -183,7 +183,7 @@ const CytoplasmTransfer = () => {
       
       <div className="pt-20">
         {/* Hero Section */}
-        <section className="relative py-20 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5">
+        <section className="relative py-12 sm:py-20 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <div ref={heroRef} className={`transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -250,7 +250,7 @@ const CytoplasmTransfer = () => {
         </section>
 
         {/* Treatment Process */}
-        <section className="py-20 bg-background">
+        <section className="py-12 sm:py-20 bg-background">
           <div className="container mx-auto px-4">
             <h2 ref={processTitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${processTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               {t.processTitle}
@@ -328,7 +328,7 @@ const CytoplasmTransfer = () => {
         </section>
 
         {/* Bottom CTA */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-12 sm:py-20 bg-muted/30">
           <div className="container mx-auto px-4 text-center">
             <div ref={ctaRef} className={`max-w-3xl mx-auto transition-all duration-1000 ${ctaVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
               <Zap className="h-16 w-16 text-primary mx-auto mb-6" />

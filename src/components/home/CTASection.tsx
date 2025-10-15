@@ -35,16 +35,16 @@ const CTASection = ({ language }: CTASectionProps) => {
   const t = content[language as keyof typeof content];
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-12 sm:py-20 bg-background">
       <div className="container mx-auto px-4">
         <div ref={ref} className={`relative rounded-3xl overflow-hidden bg-gradient-to-r from-primary/10 via-secondary/20 to-accent/30 transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             {/* Content */}
             <div className="p-8 md:p-12 lg:p-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-foreground">
                 {t.title}
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
+              <p className="text-lg text-muted-foreground mb-6 md:mb-8">
                 {t.subtitle}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">

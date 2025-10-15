@@ -142,7 +142,7 @@ const LaparoscopyService = () => {
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">
-        <section className="py-20 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5">
+        <section className="py-12 sm:py-20 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5">
           <div className="container mx-auto px-4">
             <div ref={heroRef} className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">{t.title}</h1>
@@ -173,7 +173,7 @@ const LaparoscopyService = () => {
           </div>
         </section>
 
-        <section className="py-20 bg-background">
+        <section className="py-12 sm:py-20 bg-background">
           <div className="container mx-auto px-4">
             <h2 ref={howTitleRef} className={`text-3xl md:text-4xl font-bold mb-12 text-center text-foreground transition-all duration-1000 ${howTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{t.howTitle}</h2>
             <div ref={howGridRef} className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -202,7 +202,7 @@ const LaparoscopyService = () => {
           </div>
         </section>
 
-        <section className="py-20 bg-background">
+        <section className="py-12 sm:py-20 bg-background">
           <div className="container mx-auto px-4 text-center">
             <div ref={whoRef} className={`max-w-3xl mx-auto transition-all duration-1000 ${whoVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <Stethoscope className="h-16 w-16 text-primary mx-auto mb-6" />

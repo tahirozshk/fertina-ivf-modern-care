@@ -150,7 +150,7 @@ const Center = () => {
       <Navigation language={language} setLanguage={setLanguage} />
 
       <div className="pt-20">
-        <section className="py-20 bg-background">
+        <section className="py-12 sm:py-20 bg-background">
           <div ref={heroRef} className={`container mx-auto px-4 text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <h1 className="text-4xl md:text-5xl font-bold mb-3 text-foreground">{t.title}</h1>
             <p className="text-lg text-muted-foreground">{t.hero}</p>
@@ -204,7 +204,7 @@ const Center = () => {
           </div>
         </section>
 
-        <section className="py-20 bg-background">
+        <section className="py-12 sm:py-20 bg-background">
           <div className="container mx-auto px-4 text-center">
             <div ref={visitRef} className={`max-w-3xl mx-auto transition-all duration-1000 ${visitVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <p className="text-lg text-muted-foreground">{t.visit}</p>

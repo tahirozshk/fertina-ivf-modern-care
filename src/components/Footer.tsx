@@ -52,8 +52,8 @@ const Footer = ({ language }: FooterProps) => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo & Description */}
-          <div className="space-y-4">
-            <img src="/fertina_logo.png" alt="Fertina IVF" className="h-16 w-auto" />
+          <div className="space-y-4 text-center md:text-left">
+            <img src="/fertina_logo.png" alt="Fertina IVF" className="h-16 w-auto mx-auto md:mx-0" />
             <p className="text-sm text-background/80">
               {language === "tr"
                 ? "Bilim ve umudun buluştuğu yerdeyiz. Modern teknoloji ile güvenilir IVF tedavileri."
@@ -64,7 +64,7 @@ const Footer = ({ language }: FooterProps) => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="font-semibold mb-4">{t.treatments}</h3>
             <ul className="space-y-2 text-sm text-background/80">
               <li>
@@ -111,7 +111,7 @@ const Footer = ({ language }: FooterProps) => {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="font-semibold mb-4">{t.services}</h3>
             <ul className="space-y-2 text-sm text-background/80">
               <li>
@@ -162,26 +162,26 @@ const Footer = ({ language }: FooterProps) => {
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="font-semibold mb-4">{t.contact}</h3>
             <ul className="space-y-3 text-sm text-background/80">
-              <li className="flex items-start gap-2">
+              <li className="flex items-start gap-2 justify-center md:justify-start">
                 <MapPin className="h-5 w-5 mt-0.5 flex-shrink-0" />
                 <span>{t.addressText}</span>
               </li>
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-2 justify-center md:justify-start">
                 <Phone className="h-5 w-5 flex-shrink-0" />
                 <a href="tel:+905338299829" className="hover:text-primary smooth-transition">
                   +90 533 829 98 29
                 </a>
               </li>
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-2 justify-center md:justify-start">
                 <Phone className="h-5 w-5 flex-shrink-0" />
                 <a href="tel:+905338425060" className="hover:text-primary smooth-transition">
                   +90 533 842 50 60
                 </a>
               </li>
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-2 justify-center md:justify-start">
                 <Mail className="h-5 w-5 flex-shrink-0" />
                 <a href="mailto:info@fertinaivf.com" className="hover:text-primary smooth-transition">
                   info@fertinaivf.com
@@ -192,7 +192,7 @@ const Footer = ({ language }: FooterProps) => {
             {/* Social Media */}
             <div className="mt-6">
               <p className="font-semibold mb-3">{t.followUs}</p>
-              <div className="flex gap-3">
+              <div className="flex gap-3 justify-center md:justify-start">
                 <a
                   href="https://facebook.com"
                   target="_blank"
@@ -242,12 +242,12 @@ const Footer = ({ language }: FooterProps) => {
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-background/20">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-background/70">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-background/70 text-center md:text-left">
             <div className="flex flex-col md:flex-row items-center gap-2">
               <p>© 2025 Fertina IVF. {t.copyright}</p>
               <span className="text-primary font-bold">OVUTrust Verified</span>
             </div>
-            <div className="flex gap-6">
+            <div className="flex gap-6 justify-center md:justify-start">
               <Link to="/privacy" className="hover:text-primary smooth-transition">
                 {t.privacy}
               </Link>
