@@ -48,8 +48,8 @@ const Footer = ({ language }: FooterProps) => {
   const t = translations[language as keyof typeof translations];
 
   return (
-    <footer className="bg-foreground text-background">
-      <div className="container mx-auto px-4 py-12">
+    <footer className="bg-foreground text-background w-full overflow-hidden">
+      <div className="container mx-auto px-4 py-12 max-w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div className="space-y-4 text-center md:text-left">

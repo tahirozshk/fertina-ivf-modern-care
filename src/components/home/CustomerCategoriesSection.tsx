@@ -202,14 +202,33 @@ const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps)
               </h3>
 
               {/* Treatments List */}
-              <div className="space-y-2">
+              <div className="space-y-1">
                 {category.treatments.map((treatment, treatmentIndex) => (
                   <Link
                     key={treatmentIndex}
                     to={treatment.link}
-                    className="block text-sm text-muted-foreground hover:text-primary smooth-transition"
+                    className="group relative block p-3 rounded-xl bg-gradient-to-r from-background to-accent/5 border border-accent/20 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 ease-out hover:scale-[1.02] hover:-translate-y-1"
                   >
-                    {treatment.name}
+                    {/* Subtle background pattern */}
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    
+                    {/* Content */}
+                    <div className="relative flex items-center space-x-3">
+                      {/* Treatment icon */}
+                      <div className="flex-shrink-0 w-2 h-2 rounded-full bg-primary/60 group-hover:bg-primary group-hover:scale-125 transition-all duration-300" />
+                      
+                      {/* Treatment name */}
+                      <span className="text-sm font-medium text-foreground/80 group-hover:text-primary transition-colors duration-300 leading-relaxed">
+                        {treatment.name}
+                      </span>
+                      
+                      {/* Arrow icon */}
+                      <div className="flex-shrink-0 ml-auto opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                        <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    </div>
                   </Link>
                 ))}
               </div>

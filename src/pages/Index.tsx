@@ -18,7 +18,7 @@ const Index = () => {
   const dir = language === "ar" ? "rtl" : "ltr";
 
   return (
-    <div className="min-h-screen" dir={dir}>
+    <div className="min-h-screen overflow-x-hidden" dir={dir}>
       <Navigation language={language} setLanguage={setLanguage} />
       
       {/* Add padding to account for fixed navigation */}
