@@ -5,10 +5,10 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2, Heart, Shield, Users } from "lucide-react";
-import eggDonationImage from "@/assets/treatments/egg-donation.jpg";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useLanguage } from "@/hooks/use-language";
 import { useCounterAnimation } from "@/hooks/use-counter-animation";
+import eggDonationImage from "/yumurta-donasyonu.png";
 
 const EggDonation = () => {
   const { language, setLanguage } = useLanguage();
@@ -205,7 +205,7 @@ const EggDonation = () => {
                 <img
                   src={eggDonationImage}
                   alt="Egg Donation"
-                  className="rounded-3xl shadow-xl w-full"
+                  className="rounded-3xl shadow-xl w-full h-auto object-cover aspect-[4/3]"
                 />
               </div>
             </div>

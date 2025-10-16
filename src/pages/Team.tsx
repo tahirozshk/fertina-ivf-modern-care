@@ -77,8 +77,7 @@ const Team = () => {
       <div className="pt-20">
         <section className="py-16 bg-background">
           <div ref={heroRef} className={`container mx-auto px-4 text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <h1 className="text-4xl md:text-5xl font-bold mb-3 text-foreground">{t.title}</h1>
-            <p className="text-sm text-muted-foreground">{t.directorTitle}</p>
+            <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-muted-foreground">{t.directorTitle}</h1>
           </div>
         </section>
 

@@ -172,12 +172,9 @@ const CustomerCategoriesSection = ({ language }: CustomerCategoriesSectionProps)
       <div className="container mx-auto px-4">
         {/* Header */}
         <div ref={titleRef} className={`text-center mb-8 sm:mb-16 transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+          <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-foreground max-w-3xl mx-auto">
             {t.title}
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            {t.subtitle}
-          </p>
         </div>
 
         {/* Categories Grid - Clean Design with Orange Dividers */}

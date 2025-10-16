@@ -13,7 +13,7 @@ const CyprusLocationSection = ({ language }: CyprusLocationSectionProps) => {
   const content = {
     tr: {
       title: "Kuzey Kıbrıs'ın Eşsiz Konumu ve Güzellikleri",
-      subtitle: "Akdeniz'in kalbinde yer alan Kuzey Kıbrıs, tarihi dokusu, doğal güzellikleri ve sakin yaşam tarzıyla dünyanın dört bir yanından ziyaretçileri kendine çekmektedir. Altın sarısı kumsalları, masmavi denizi ve yılın büyük bir bölümünde güneşli olan iklimiyle adeta bir huzur adasıdır.",
+      subtitle: "Kuzey Kıbrıs, tarihi dokusu, doğal güzellikleri ve sakin yaşam tarzıyla adeta bir huzur adasıdır.",
       paragraph2: "Kuzey Kıbrıs sadece doğal güzellikleriyle değil, aynı zamanda tarihi zenginlikleriyle de büyüleyicidir. Girne Kalesi, Salamis Harabeleri, Bellapais Manastırı ve Mağusa surları gibi tarihi yapılar, adanın köklü geçmişini gözler önüne sermektedir.",
       paragraph3: "Fertina IVF, bu eşsiz coğrafyada, modern tıp olanaklarını huzurlu bir ortamla birleştirerek sizlere ayrıcalıklı bir deneyim sunmayı hedeflemektedir. Tedavi süreciniz boyunca adanın güzelliklerini keşfederken, kendinizi aynı zamanda bir tatilin içinde bulabilirsiniz.",
       paragraph4: "Kuzey Kıbrıs, kolay ulaşımı, güvenli ortamı, samimi insanları ve doğal güzellikleriyle yalnızca tedavi için değil, aynı zamanda ruhunuzu dinlendireceğiniz özel bir destinasyondur.",
@@ -42,7 +42,7 @@ const CyprusLocationSection = ({ language }: CyprusLocationSectionProps) => {
     },
     en: {
       title: "Northern Cyprus's Unique Location and Beauty",
-      subtitle: "Located in the heart of the Mediterranean, Northern Cyprus attracts visitors from all over the world with its historical texture, natural beauty and peaceful lifestyle. With its golden sandy beaches, crystal blue sea and sunny climate for most of the year, it is like an island of tranquility.",
+      subtitle: "Northern Cyprus is like an island of tranquility with its historical texture, natural beauty and peaceful lifestyle.",
       paragraph2: "Northern Cyprus is fascinating not only with its natural beauty, but also with its historical richness. Historical structures such as Kyrenia Castle, Salamis Ruins, Bellapais Monastery and Famagusta walls reveal the island's deep-rooted past.",
       paragraph3: "Fertina IVF aims to offer you a privileged experience by combining modern medical facilities with a peaceful environment in this unique geography. While discovering the beauties of the island during your treatment process, you can also find yourself in a vacation.",
       paragraph4: "Northern Cyprus is a special destination not only for treatment but also for resting your soul with its easy accessibility, safe environment, warm people and natural beauty.",
@@ -71,7 +71,7 @@ const CyprusLocationSection = ({ language }: CyprusLocationSectionProps) => {
     },
     ar: {
       title: "الموقع الفريد وجمال شمال قبرص",
-      subtitle: "تقع شمال قبرص في قلب البحر الأبيض المتوسط، وتجذب الزوار من جميع أنحاء العالم بنسيجها التاريخي وجمالها الطبيعي وأسلوب حياتها السلمي. مع شواطئها الرملية الذهبية والبحر الأزرق الكريستالي والمناخ المشمس لمعظم أيام السنة، إنها مثل جزيرة الهدوء.",
+      subtitle: "شمال قبرص هي جزيرة الهدوء بنسيجها التاريخي وجمالها الطبيعي وأسلوب حياتها السلمي.",
       paragraph2: "شمال قبرص ساحرة ليس فقط بجمالها الطبيعي، ولكن أيضًا بثرائها التاريخي. تكشف الهياكل التاريخية مثل قلعة كيرينيا وأطلال سلاميس ودير بيلابيس وأسوار فاماغوستا عن الماضي العميق للجزيرة.",
       paragraph3: "تهدف فيرتينا IVF إلى تقديم تجربة مميزة لك من خلال الجمع بين المرافق الطبية الحديثة مع بيئة هادئة في هذه الجغرافيا الفريدة. أثناء اكتشاف جمال الجزيرة خلال عملية العلاج، يمكنك أيضًا أن تجد نفسك في إجازة.",
       paragraph4: "شمال قبرص وجهة خاصة ليس فقط للعلاج ولكن أيضًا لراحة روحك مع سهولة الوصول إليها والبيئة الآمنة والناس الدافئة والجمال الطبيعي.",
@@ -108,9 +108,9 @@ const CyprusLocationSection = ({ language }: CyprusLocationSectionProps) => {
         {/* Header */}
         <div ref={titleRef} className={`text-center mb-8 sm:mb-16 transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="flex flex-col items-center justify-center">
-            <MapPin className="h-8 w-8 text-primary mb-3" />
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-              {t.title}
+            <MapPin className="h-8 w-8 text-primary mb-6" />
+            <h2 className="text-lg md:text-2xl lg:text-3xl font-bold text-foreground max-w-4xl mx-auto leading-relaxed">
+              {t.subtitle}
             </h2>
           </div>
         </div>

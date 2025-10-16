@@ -82,8 +82,7 @@ const Blog = () => {
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10 text-center">
             <div ref={heroRef} className={`transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">{t.title}</h1>
-              <p className="text-lg md:text-xl text-white/90 leading-relaxed">{t.subtitle}</p>
+              <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-white/90 leading-relaxed">{t.subtitle}</h1>
             </div>
           </div>
         </section>

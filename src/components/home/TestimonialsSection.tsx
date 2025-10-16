@@ -91,12 +91,9 @@ const TestimonialsSection = ({ language }: TestimonialsSectionProps) => {
     <section className="py-20 bg-accent/30">
       <div className="container mx-auto px-4">
         <div ref={titleRef} className={`text-center mb-16 transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            {t.title}
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-foreground max-w-2xl mx-auto">
             {t.subtitle}
-          </p>
+          </h2>
         </div>
 
         <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

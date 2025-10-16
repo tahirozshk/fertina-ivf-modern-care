@@ -65,8 +65,7 @@ const Contact = () => {
       <div className="pt-30">
         <section className="py-12 bg-background">
           <div className="container mx-auto px-4 text-center mb-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">{l.title}</h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">{l.desc}</p>
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-muted-foreground leading-relaxed max-w-3xl mx-auto">{l.desc}</h1>
           </div>
         </section>
 

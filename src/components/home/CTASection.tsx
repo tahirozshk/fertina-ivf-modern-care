@@ -41,12 +41,9 @@ const CTASection = ({ language }: CTASectionProps) => {
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             {/* Content */}
             <div className="p-8 md:p-12 lg:p-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-foreground">
-                {t.title}
-              </h2>
-              <p className="text-lg text-muted-foreground mb-6 md:mb-8">
+              <h2 className="text-lg md:text-2xl lg:text-3xl font-bold mb-6 md:mb-8 text-foreground leading-relaxed">
                 {t.subtitle}
-              </p>
+              </h2>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/contact">
                   <Button size="lg" className="gap-2 w-full sm:w-auto">

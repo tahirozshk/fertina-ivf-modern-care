@@ -14,7 +14,7 @@ const WhyChooseUs = ({ language }: WhyChooseUsProps) => {
   const content = {
     tr: {
       title: "Neden Fertina IVF?",
-      intro: "Kliniğimizde sunulan kişiselleştirilmiş ebeveynlik yollarını keşfedin. Hizmetlerimiz, ilk doğurganlık değerlendirmeleri ve teşhislerden IVF ve ICSI gibi ileri düzey tedavilere kadar uzanır ve genetik testler ile kapsamlı donör programları gibi öncü seçenekleri içerir.",
+      intro: "Kliniğimizde sunulan kişiselleştirilmiş ebeveynlik yollarını keşfedin.",
       reasons: [
         {
           icon: Award,
@@ -40,7 +40,7 @@ const WhyChooseUs = ({ language }: WhyChooseUsProps) => {
     },
     en: {
       title: "Why Choose Fertina IVF?",
-      intro: "Discover the personalized pathways to parenthood offered at our clinic. Our services range from initial fertility assessments and diagnostics to advanced treatments like IVF and ICSI, and include pioneering options such as genetic testing and comprehensive donor programs.",
+      intro: "Discover the personalized pathways to parenthood offered at our clinic.",
       reasons: [
         {
           icon: Award,
@@ -66,7 +66,7 @@ const WhyChooseUs = ({ language }: WhyChooseUsProps) => {
     },
     ar: {
       title: "لماذا تختار فيرتينا IVF؟",
-      intro: "اكتشف المسارات الشخصية للأبوة المقدمة في عيادتنا. تتراوح خدماتنا من تقييمات الخصوبة الأولية والتشخيص إلى العلاجات المتقدمة مثل التلقيح الصناعي وحقن الحيوانات المنوية، وتشمل خيارات رائدة مثل الاختبارات الجينية وبرامج المتبرعين الشاملة.",
+      intro: "اكتشف المسارات الشخصية للأبوة المقدمة في عيادتنا.",
       reasons: [
         {
           icon: Award,
@@ -99,12 +99,9 @@ const WhyChooseUs = ({ language }: WhyChooseUsProps) => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div ref={titleRef} className={`text-center mb-8 sm:mb-12 max-w-4xl mx-auto transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            {t.title}
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+          <h2 className="text-lg md:text-2xl lg:text-3xl font-bold text-foreground leading-relaxed">
             {t.intro}
-          </p>
+          </h2>
         </div>
 
         {/* Content with Image */}

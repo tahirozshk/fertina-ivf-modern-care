@@ -141,12 +141,9 @@ const IVFJourneySection = ({ language }: IVFJourneySectionProps) => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div ref={titleRef} className={`text-center mb-8 sm:mb-16 transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            {t.title}
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <h2 className="text-lg md:text-2xl lg:text-3xl font-bold text-foreground max-w-4xl mx-auto leading-relaxed">
             {t.subtitle}
-          </p>
+          </h2>
         </div>
 
         {/* Journey Phases */}

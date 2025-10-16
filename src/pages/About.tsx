@@ -198,8 +198,7 @@ const About = () => {
       <div className="pt-30">
         <section className="py-12 bg-background">
           <div ref={heroRef} className={`container mx-auto px-4 text-center mb-8 transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">{t.title}</h1>
-            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">{t.hero}</p>
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-muted-foreground leading-relaxed max-w-3xl mx-auto">{t.hero}</h1>
           </div>
         </section>
 

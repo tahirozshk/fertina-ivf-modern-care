@@ -8,6 +8,7 @@ import { CheckCircle2, FlaskConical, Shield, Heart } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useLanguage } from "@/hooks/use-language";
 import { useCounterAnimation } from "@/hooks/use-counter-animation";
+import embryoDonationImage from "/embryo-donasyonu.jpg";
 
 const EmbryoDonation = () => {
   const { language, setLanguage } = useLanguage();
@@ -244,7 +245,7 @@ const EmbryoDonation = () => {
         {/* Hero Section */}
         <section className="relative py-12 sm:py-20 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div ref={heroRef} className={`transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                 <p className="text-lg md:text-xl text-muted-foreground mb-4 italic">
                   {t.heroTitle}
@@ -263,10 +264,18 @@ const EmbryoDonation = () => {
                   </span>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/contact"><Button size="lg">{t.cta}</Button></Link>
                 <Link to="/contact"><Button size="lg" variant="outline">{t.contact}</Button></Link>
               </div>
+              </div>
+
+              <div className={`relative transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+                <img
+                  src={embryoDonationImage}
+                  alt="Embryo Donation"
+                  className="rounded-3xl shadow-xl w-full h-auto object-cover aspect-[4/3]"
+                />
               </div>
             </div>
           </div>

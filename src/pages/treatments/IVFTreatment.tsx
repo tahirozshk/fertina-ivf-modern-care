@@ -251,7 +251,7 @@ const IVFTreatment = () => {
                 <img
                   src={ivfImage}
                   alt="IVF Treatment"
-                  className="rounded-3xl shadow-xl w-full"
+                  className="rounded-3xl shadow-xl w-full h-auto object-cover aspect-[4/3]"
                 />
               </div>
             </div>

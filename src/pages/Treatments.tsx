@@ -246,12 +246,9 @@ const Treatments = () => {
           <div className="absolute inset-0 bg-black/60"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div ref={heroRef} className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
-                {t.title}
-              </h1>
-              <p className="text-lg md:text-xl text-white/90 leading-relaxed">
+              <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-white/90 leading-relaxed">
                 {t.subtitle}
-              </p>
+              </h1>
             </div>
           </div>
         </section>
@@ -265,7 +262,7 @@ const Treatments = () => {
                   'ivf.webp',                  // IVF (ICSI) Tedavisi
                   'yumurta-donasyonu.png',     // Yumurta Donasyonu
                   'sperm.jpg',                 // Sperm Donasyonu
-                  'embryo-donasyonu.jpg',      // Embriyo Donasyonu
+                  'embryo.jpg',                // Embriyo Donasyonu
                   'cinsiyet_tayini.jpg',       // Cinsiyet Seçimi
                   'tandem-tedavisi.jpg',       // Tandem Tedavi Uygulaması
                   'surrogacy.jpg',             // Taşıyıcı Annelik
