@@ -31,6 +31,19 @@ const Index = () => {
         <TestimonialsSection language={language} />
         <CyprusLocationSection language={language} />
         <CTASection language={language} />
+        
+        {/* Verified Member Section */}
+        <section className="py-8 bg-background">
+          <div className="container mx-auto px-4 text-center">
+            <div className="flex justify-center items-center">
+              <img 
+                src="/verified-member.gif" 
+                alt="Verified Member" 
+                className="h-16 w-auto"
+              />
+            </div>
+          </div>
+        </section>
       </div>
 
       <Footer language={language} />

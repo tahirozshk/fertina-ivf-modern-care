@@ -53,14 +53,23 @@ const Footer = ({ language }: FooterProps) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div className="space-y-4 text-center md:text-left">
-            <img src="/fertina_logo.png" alt="Fertina IVF" className="h-16 w-auto mx-auto md:mx-0" />
-            <p className="text-sm text-background/80">
-              {language === "tr"
-                ? "Bilim ve umudun buluştuğu yerdeyiz. Modern teknoloji ile güvenilir IVF tedavileri."
-                : language === "ar"
-                ? "حيث يلتقي العلم بالأمل. علاجات التلقيح الصناعي الموثوقة بتكنولوجيا حديثة."
-                : "Where science meets hope. Reliable IVF treatments with modern technology."}
-            </p>
+            <img src="/fertina_logo.png" alt="Fertina IVF" className="h-40 w-auto mx-auto md:mx-0 md:ml-8" />
+            <div className="space-y-2 md:ml-8">
+              <h2 className="text-lg font-semibold text-background">
+                {language === "tr"
+                  ? "Bilim ve umudun buluştuğu yer"
+                  : language === "ar"
+                  ? "حيث يلتقي العلم بالأمل"
+                  : "Where Science Meets Hope"}
+              </h2>
+              <p className="text-sm text-background/80">
+                {language === "tr"
+                  ? "Modern teknoloji ile güvenilir IVF tedavileri."
+                  : language === "ar"
+                  ? "علاجات التلقيح الصناعي الموثوقة بتكنولوجيا حديثة."
+                  : "Reliable IVF treatments with modern technology."}
+              </p>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -245,7 +254,6 @@ const Footer = ({ language }: FooterProps) => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-background/70 text-center md:text-left">
             <div className="flex flex-col md:flex-row items-center gap-2">
               <p>© 2025 Fertina IVF. {t.copyright}</p>
-              <span className="text-primary font-bold">OVUTrust Verified</span>
             </div>
             <div className="flex gap-6 justify-center md:justify-start">
               <Link to="/privacy" className="hover:text-primary smooth-transition">

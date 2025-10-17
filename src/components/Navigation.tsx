@@ -82,7 +82,7 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
   return (
     <>
       {/* Top Bar - Contact & Social Links - Desktop Only */}
-      <div className="hidden sm:block fixed top-0 left-0 right-0 z-50 bg-primary text-white w-full">
+      <div className="hidden sm:block fixed top-0 left-0 right-0 z-50 text-white w-full" style={{backgroundColor: '#13121e'}}>
         <div className="container mx-auto px-4 max-w-full">
           <div className="flex items-center justify-between h-10 text-sm">
             {/* Left Side - Contact Info */}
@@ -154,7 +154,7 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
         <div className="container mx-auto px-4 max-w-full">
           <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3 ml-5">
             <img src="/fertina_logo.png" alt="Fertina IVF" className="h-16 w-auto" />
           </Link>
 
@@ -232,7 +232,7 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
 
             {/* CTA Button */}
             <Link to="/contact">
-              <Button variant="default" className="hidden md:inline-flex">
+              <Button variant="default" className="hidden md:inline-flex" style={{backgroundColor: '#13121e', borderColor: '#13121e'}}>
                 {t.appointment}
               </Button>
             </Link>
@@ -380,7 +380,7 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
               </div>
 
               <Link to="/contact" className="mx-4 mt-2">
-                <Button variant="default" className="w-full">{t.appointment}</Button>
+                <Button variant="default" className="w-full" style={{backgroundColor: '#13121e', borderColor: '#13121e'}}>{t.appointment}</Button>
               </Link>
             </div>
           </div>
