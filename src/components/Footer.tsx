@@ -171,7 +171,7 @@ const Footer = ({ language }: FooterProps) => {
           </div>
 
           {/* Contact Info */}
-          <div className="text-center md:text-left">
+          <div className="text-center md:text-left md:mr-8">
             <h3 className="font-semibold mb-4">{t.contact}</h3>
             <ul className="space-y-3 text-sm text-background/80">
               <li className="flex items-start gap-2 justify-center md:justify-start">
