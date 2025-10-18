@@ -83,7 +83,7 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
     <>
       {/* Top Bar - Contact & Social Links - Desktop Only */}
       <div className="hidden sm:block fixed top-0 left-0 right-0 z-50 text-white w-full" style={{backgroundColor: '#13121e'}}>
-        <div className="container mx-auto px-4 max-w-full">
+        <div className="container mx-auto px-8 max-w-full">
           <div className="flex items-center justify-between h-10 text-sm">
             {/* Left Side - Contact Info */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-4">
@@ -151,10 +151,10 @@ const Navigation = ({ language, setLanguage }: NavigationProps) => {
 
       {/* Main Navigation */}
       <nav className="fixed top-0 sm:top-10 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border w-full">
-        <div className="container mx-auto px-4 max-w-full">
+        <div className="container mx-auto px-8 max-w-full">
           <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 ml-5">
+          <Link to="/" className="flex items-center gap-3">
             <img src="/fertina_logo.png" alt="Fertina IVF" className="h-16 w-auto" />
           </Link>
 

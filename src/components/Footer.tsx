@@ -49,12 +49,14 @@ const Footer = ({ language }: FooterProps) => {
 
   return (
     <footer className="bg-foreground text-background w-full overflow-hidden">
-      <div className="container mx-auto px-4 py-12 max-w-full">
+      <div className="container mx-auto px-8 py-12 max-w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div className="space-y-4 text-center md:text-left">
-            <img src="/fertina_logo.png" alt="Fertina IVF" className="h-40 w-auto mx-auto md:mx-0 md:ml-8" />
-            <div className="space-y-2 md:ml-8">
+            <Link to="/">
+              <img src="/fertina_logo.png" alt="Fertina IVF" className="h-40 w-auto mx-auto md:mx-0 hover:opacity-80 smooth-transition" />
+            </Link>
+            <div className="space-y-2">
               <h2 className="text-lg font-semibold text-background">
                 {language === "tr"
                   ? "Bilim ve umudun buluştuğu yer"
@@ -171,7 +173,7 @@ const Footer = ({ language }: FooterProps) => {
           </div>
 
           {/* Contact Info */}
-          <div className="text-center md:text-left md:mr-8">
+          <div className="text-center md:text-left">
             <h3 className="font-semibold mb-4">{t.contact}</h3>
             <ul className="space-y-3 text-sm text-background/80">
               <li className="flex items-start gap-2 justify-center md:justify-start">
